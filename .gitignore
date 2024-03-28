@@ -1,3 +1,5 @@
 *.ui
-Source Files/mainwindow.cpp
-Header Files/mainwindow.h
+src/mainwindow.cpp
+include/mainwindow.h
+*.DS_Store
+build
