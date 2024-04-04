@@ -1,0 +1,1405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>indicator</class>
+ <widget class="QDialog" name="indicator">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1066</width>
+    <height>742</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>7</pointsize>
+    <fontweight>Thin</fontweight>
+   </font>
+  </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
+  </property>
+  <property name="tabletTracking">
+   <bool>true</bool>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::TabFocus</enum>
+  </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(56, 56, 56);
+background-image: url(:/image/resources/img/background.png);</string>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>false</bool>
+  </property>
+  <widget class="QPushButton" name="build">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>341</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>Random Grotesque Standard Book</family>
+     <pointsize>-1</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <kerning>true</kerning>
+    </font>
+   </property>
+   <property name="mouseTracking">
+    <bool>true</bool>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+color: #d9d9d9;
+background: #353535;</string>
+   </property>
+   <property name="text">
+    <string>Сконфигурировать IP-адрес и порт</string>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mistakes">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>10</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+color: #d9d9d9;
+border-radius: 20px;
+background: #1e1e1e;</string>
+   </property>
+   <property name="text">
+    <string>Ошибки</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="macAddress">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>10</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 400 16px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+color: #d9d9d9;
+background: #353535;
+</string>
+   </property>
+   <property name="text">
+    <string>Управление MAC-адресами</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="top">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1051</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: #353535;
+width: 1440px;
+height: 112px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>260</y>
+     <width>451</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Random Grotesque Standard Book</family>
+     <pointsize>-1</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <hintingpreference>PreferFullHinting</hintingpreference>
+    </font>
+   </property>
+   <property name="acceptDrops">
+    <bool>true</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+background-color: transperent;
+text-align: center;
+color: #fff;
+
+</string>
+   </property>
+   <property name="lineWidth">
+    <number>0</number>
+   </property>
+   <property name="text">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Random Grotesque Standard Book','sans-serif'; font-size:20px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#f3f3f3;&quot;&gt;Чтобы получить данные с&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#f3f3f3;&quot;&gt;индикатора, включите один&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#f3f3f3;&quot;&gt;из доступных и нажмитe&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#f3f3f3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::MarkdownText</enum>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="textInteractionFlags">
+    <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextEditable|Qt::TextSelectableByMouse</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>100</y>
+     <width>341</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+     <fontweight>Medium</fontweight>
+    </font>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; color:#bdbdbd;&quot;&gt;Индикаторы, доступные &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#bdbdbd;&quot;&gt;на данный момент: 5 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>810</x>
+     <y>430</y>
+     <width>51</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/image/resources/img/info.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelInfo0">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>120</y>
+     <width>521</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-color: rgb(221, 221, 221);
+background-color: rgb(194, 194, 194);
+background-image: url(:/image/resources/img/white_back.jpg);
+border-radius: 35px; /* Половина высоты для полного скругления */
+display: flex;</string>
+   </property>
+   <property name="text">
+    <string>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Информация об индикаторе&lt;/title&gt;
+&lt;style&gt;
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* установка высоты контейнера на всю высоту окна */
+  }
+  .container {
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    line-height: 2;
+    border: 5px solid #ccc;
+  }
+  .header {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  .serial-number, .color, .current-level {
+    margin-bottom: 20px;
+  }
+  .serial-number-title, .color-title, .current-level-title {
+    font-weight: bold;
+    font-size: 22px;
+    font-family: &quot;Random Grotesque Standard Bold&quot;, sans-serif;
+
+  }
+  .color-value {
+    color: #8a0000;
+    font-size: 28px; /* увеличение размера текста */
+  }
+  .current-level-value {
+    font-size: 40px;
+    color: #8a0000;
+  }
+  .serial-number div,
+  .color div {
+    font-size: 24px; /* увеличение размера текста */
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;header&quot;&gt;Информация об индикаторе №0&lt;/div&gt;
+  &lt;div class=&quot;serial-number&quot;&gt;
+    &lt;div class=&quot;serial-number-title&quot;&gt;серийный номер:&lt;/div&gt;
+    &lt;div&gt;tjfxkd-fkencd-kj:sw2&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;color&quot;&gt;
+    &lt;div class=&quot;color-title&quot;&gt;цвет:&lt;/div&gt;
+    &lt;div class=&quot;color-value&quot;&gt;красный&lt;/div&gt;
+    &lt;div&gt;&lt;b&gt;Тип:&lt;/b&gt;&lt;/div&gt;
+    &lt;div&gt;индикатор&lt;/div&gt; 
+  &lt;/div&gt;
+  &lt;div class=&quot;current-level&quot;&gt;
+    &lt;div class=&quot;current-level-title&quot;&gt;Уровень тока на данный момент&lt;/div&gt;
+    &lt;div class=&quot;current-level-value&quot;&gt;2.328 А&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelInfo1">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>120</y>
+     <width>521</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-color: rgb(221, 221, 221);
+background-color: rgb(194, 194, 194);
+background-image: url(:/image/resources/img/white_back.jpg);
+border-radius: 35px; /* Половина высоты для полного скругления */
+display: flex;</string>
+   </property>
+   <property name="text">
+    <string>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Информация об индикаторе&lt;/title&gt;
+&lt;style&gt;
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* установка высоты контейнера на всю высоту окна */
+  }
+  .container {
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    line-height: 2;
+    border: 5px solid #ccc;
+  }
+  .header {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .serial-number, .color, .current-level {
+    margin-bottom: 20px;
+  }
+  .serial-number-title, .color-title, .current-level-title {
+    font-weight: bold;
+    font-size: 22px;
+    font-family: &quot;Random Grotesque Standard Bold&quot;, sans-serif;
+
+  }
+  .color-value {
+    color: #379100;
+    font-size: 28px; /* увеличение размера текста */
+  }
+  .current-level-value {
+    font-size: 40px;
+    color: #379100;
+  }
+  .serial-number div,
+  .color div {
+    font-size: 24px; /* увеличение размера текста */
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;header&quot;&gt;Информация об индикаторе №1&lt;/div&gt;
+  &lt;div class=&quot;serial-number&quot;&gt;
+    &lt;div class=&quot;serial-number-title&quot;&gt;серийный номер:&lt;/div&gt;
+    &lt;div&gt;kfdicj-102nsd-w9ejxz&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;color&quot;&gt;
+    &lt;div class=&quot;color-title&quot;&gt;цвет:&lt;/div&gt;
+    &lt;div class=&quot;color-value&quot;&gt;зеленый&lt;/div&gt;
+    &lt;div&gt;&lt;b&gt;Тип:&lt;/b&gt;&lt;/div&gt;
+    &lt;div&gt;индикатор&lt;/div&gt; 
+  &lt;/div&gt;
+  &lt;div class=&quot;current-level&quot;&gt;
+    &lt;div class=&quot;current-level-title&quot;&gt;Уровень тока на данный момент&lt;/div&gt;
+    &lt;div class=&quot;current-level-value&quot;&gt;0.572 А&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>210</y>
+     <width>351</width>
+     <height>451</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QGroupBox" name="group0">
+      <property name="styleSheet">
+       <string notr="true">QGroupBox { border: none; background-color: transparent; border-radius: 25px; /* Половина высоты для полного скругления */
+display: flex;}</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QCheckBox" name="toggle0">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>20</y>
+         <width>60</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QCheckBox::indicator {
+	width: 60px;
+	height: 90px;
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/image/resources/img/on.png);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:unchecked {
+	image: url(:/image/resources/img/off.png);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="indicator0_2">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>0</y>
+         <width>321</width>
+         <height>70</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <fontweight>ExtraLight</fontweight>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">width: 400px;
+background-image: url(:/image/resources/img/info_black.png);
+color: rgb(255, 255, 255);
+height: 50px;
+ /*background-color: white;*/
+border-radius: 25px; /* Половина высоты для полного скругления */
+display: flex;
+align-items: center; /* Вертикальное выравнивание текста */
+padding: 0 20px; /* Отступы с обоих концов */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Небольшая тень для эффекта всплытия */
+ margin: 10px 0; /* Для отступа между элементами, если их несколько */
+</string>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <property name="text">
+        <string>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;CustomLabel&lt;/title&gt;
+&lt;style&gt;
+  .custom-label {
+    width: 400px;
+    height: 50px;
+    border-radius: 25px; /* Половина высоты для полного скругления */
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание текста */
+    padding: 0 20px; /* Отступы с обоих концов */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Небольшая тень для эффекта всплытия */
+    margin: 10px 0; /* Для отступа между элементами, если их несколько */
+  }
+
+  .custom-label-text {
+    color: black;
+    font-weight: 400; /* Тонкий шрифт */
+    font-size: 20px; /* Размер шрифта */
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;custom-label&quot;&gt;
+  &lt;span class=&quot;custom-label-text&quot;&gt;Индикатор №0&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="info0">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>25</y>
+         <width>22</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <bold>false</bold>
+         <stylestrategy>PreferAntialias</stylestrategy>
+        </font>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="tabletTracking">
+        <bool>true</bool>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/image/resources/img/info_black.png);
+border-radius: 80px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
+      </widget>
+      <zorder>indicator0_2</zorder>
+      <zorder>info0</zorder>
+      <zorder>toggle0</zorder>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>10</width>
+        <height>10</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="group1">
+      <property name="styleSheet">
+       <string notr="true">QGroupBox { border: none; background-color: transparent; border-radius: 25px; /* Половина высоты для полного скругления */
+display: flex;}</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QCheckBox" name="toggle0_2">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>20</y>
+         <width>60</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QCheckBox::indicator {
+	width: 60px;
+	height: 90px;
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/image/resources/img/on.png);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:unchecked {
+	image: url(:/image/resources/img/off.png);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="indicator0_3">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>0</y>
+         <width>320</width>
+         <height>70</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <fontweight>ExtraLight</fontweight>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">width: 400px;
+background-image: url(:/image/resources/img/info_black.png);
+color: rgb(255, 255, 255);
+height: 50px;
+ /*background-color: white;*/
+border-radius: 25px; /* Половина высоты для полного скругления */
+display: flex;
+align-items: center; /* Вертикальное выравнивание текста */
+padding: 0 20px; /* Отступы с обоих концов */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Небольшая тень для эффекта всплытия */
+ margin: 10px 0; /* Для отступа между элементами, если их несколько */
+</string>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <property name="text">
+        <string>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;CustomLabel&lt;/title&gt;
+&lt;style&gt;
+  .custom-label {
+    width: 400px;
+    height: 50px;
+    border-radius: 25px; /* Половина высоты для полного скругления */
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание текста */
+    padding: 0 20px; /* Отступы с обоих концов */
+  }
+
+  .custom-label-text {
+    color: black;
+    font-weight: 400; /* Тонкий шрифт */
+    font-size: 20px; /* Размер шрифта */
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;custom-label&quot;&gt;
+  &lt;span class=&quot;custom-label-text&quot;&gt;Индикатор №1&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="info0_2">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>25</y>
+         <width>22</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <bold>false</bold>
+         <stylestrategy>PreferAntialias</stylestrategy>
+        </font>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="tabletTracking">
+        <bool>true</bool>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/image/resources/img/info_black.png);
+border-radius: 80px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
+      </widget>
+      <zorder>indicator0_3</zorder>
+      <zorder>toggle0_2</zorder>
+      <zorder>info0_2</zorder>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>10</width>
+        <height>10</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="group1_2">
+      <property name="styleSheet">
+       <string notr="true">QGroupBox { width: 300px;
+height: 50px;
+border: none; background-color: transparent; border-radius: 35px;}</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QCheckBox" name="toggle0_3">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>20</y>
+         <width>60</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QCheckBox::indicator {
+	width: 60px;
+	height: 90px;
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/image/resources/img/on.png);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:unchecked {
+	image: url(:/image/resources/img/off.png);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="indicator0_4">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>0</y>
+         <width>321</width>
+         <height>70</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <fontweight>ExtraLight</fontweight>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">width: 400px;
+background-image: url(:/image/resources/img/info_black.png);
+color: rgb(255, 255, 255);
+height: 50px;
+ /*background-color: white;*/
+border-radius: 25px; /* Половина высоты для полного скругления */
+display: flex;
+align-items: center; /* Вертикальное выравнивание текста */
+padding: 0 20px; /* Отступы с обоих концов */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Небольшая тень для эффекта всплытия */
+ margin: 10px 0; /* Для отступа между элементами, если их несколько */
+</string>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <property name="text">
+        <string>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;CustomLabel&lt;/title&gt;
+&lt;style&gt;
+  .custom-label {
+    width: 400px;
+    height: 50px;
+    border-radius: 25px; /* Половина высоты для полного скругления */
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание текста */
+    padding: 0 20px; /* Отступы с обоих концов */
+  }
+
+  .custom-label-text {
+    color: black;
+    font-weight: 400; /* Тонкий шрифт */
+    font-size: 20px; /* Размер шрифта */
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;custom-label&quot;&gt;
+  &lt;span class=&quot;custom-label-text&quot;&gt;Индикатор №2&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="info0_3">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>25</y>
+         <width>22</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <bold>false</bold>
+         <stylestrategy>PreferAntialias</stylestrategy>
+        </font>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="tabletTracking">
+        <bool>true</bool>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/image/resources/img/info_black.png);
+border-radius: 80px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
+      </widget>
+      <zorder>indicator0_4</zorder>
+      <zorder>info0_3</zorder>
+      <zorder>toggle0_3</zorder>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>10</width>
+        <height>10</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="group1_3">
+      <property name="styleSheet">
+       <string notr="true">QGroupBox { border: none; background-color: transparent; border-radius: 25px; /* Половина высоты для полного скругления */
+display: flex;}</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QCheckBox" name="toggle0_4">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>20</y>
+         <width>60</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QCheckBox::indicator {
+	width: 60px;
+	height: 90px;
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/image/resources/img/on.png);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:unchecked {
+	image: url(:/image/resources/img/off.png);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="indicator0_5">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>0</y>
+         <width>321</width>
+         <height>70</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <fontweight>ExtraLight</fontweight>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">width: 400px;
+background-image: url(:/image/resources/img/info_black.png);
+color: rgb(255, 255, 255);
+height: 50px;
+ /*background-color: white;*/
+border-radius: 25px; /* Половина высоты для полного скругления */
+display: flex;
+align-items: center; /* Вертикальное выравнивание текста */
+padding: 0 20px; /* Отступы с обоих концов */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Небольшая тень для эффекта всплытия */
+ margin: 10px 0; /* Для отступа между элементами, если их несколько */
+</string>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <property name="text">
+        <string>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;CustomLabel&lt;/title&gt;
+&lt;style&gt;
+  .custom-label {
+    width: 400px;
+    height: 50px;
+    border-radius: 25px; /* Половина высоты для полного скругления */
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание текста */
+    padding: 0 20px; /* Отступы с обоих концов */
+  }
+
+  .custom-label-text {
+    color: black;
+    font-weight: 400; /* Тонкий шрифт */
+    font-size: 20px; /* Размер шрифта */
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;custom-label&quot;&gt;
+  &lt;span class=&quot;custom-label-text&quot;&gt;Индикатор №3&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="info0_4">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>25</y>
+         <width>22</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <bold>false</bold>
+         <stylestrategy>PreferAntialias</stylestrategy>
+        </font>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="tabletTracking">
+        <bool>true</bool>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/image/resources/img/info_black.png);
+border-radius: 80px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
+      </widget>
+      <zorder>indicator0_5</zorder>
+      <zorder>info0_4</zorder>
+      <zorder>toggle0_4</zorder>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>10</width>
+        <height>10</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="group1_4">
+      <property name="styleSheet">
+       <string notr="true">QGroupBox { border: none; background-color: transparent; border-radius: 25px; /* Половина высоты для полного скругления */
+display: flex;}</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QCheckBox" name="toggle0_5">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>20</y>
+         <width>60</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QCheckBox::indicator {
+	width: 60px;
+	height: 90px;
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/image/resources/img/on.png);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:unchecked {
+	image: url(:/image/resources/img/off.png);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="indicator0_6">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>0</y>
+         <width>321</width>
+         <height>70</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="MinimumExpanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <fontweight>ExtraLight</fontweight>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">width: 400px;
+background-image: url(:/image/resources/img/info_black.png);
+color: rgb(255, 255, 255);
+height: 50px;
+ /*background-color: white;*/
+border-radius: 25px; /* Половина высоты для полного скругления */
+display: flex;
+align-items: center; /* Вертикальное выравнивание текста */
+padding: 0 20px; /* Отступы с обоих концов */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Небольшая тень для эффекта всплытия */
+ margin: 10px 0; /* Для отступа между элементами, если их несколько */
+</string>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <property name="text">
+        <string>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;CustomLabel&lt;/title&gt;
+&lt;style&gt;
+  .custom-label {
+    width: 400px;
+    height: 50px;
+    border-radius: 25px; /* Половина высоты для полного скругления */
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание текста */
+    padding: 0 20px; /* Отступы с обоих концов */
+  }
+
+  .custom-label-text {
+    color: black;
+    font-weight: 400; /* Тонкий шрифт */
+    font-size: 20px; /* Размер шрифта */
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;custom-label&quot;&gt;
+  &lt;span class=&quot;custom-label-text&quot;&gt;Индикатор №4&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="info0_5">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>25</y>
+         <width>22</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <bold>false</bold>
+         <stylestrategy>PreferAntialias</stylestrategy>
+        </font>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="tabletTracking">
+        <bool>true</bool>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/image/resources/img/info_black.png);
+border-radius: 80px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
+      </widget>
+      <zorder>indicator0_6</zorder>
+      <zorder>info0_5</zorder>
+      <zorder>toggle0_5</zorder>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <zorder>layoutWidget</zorder>
+  <zorder>top</zorder>
+  <zorder>build</zorder>
+  <zorder>mistakes</zorder>
+  <zorder>macAddress</zorder>
+  <zorder>label_2</zorder>
+  <zorder>labelInfo0</zorder>
+  <zorder>labelInfo1</zorder>
+  <zorder>label</zorder>
+  <zorder>label_4</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
+</ui>
