@@ -1,4 +1,6 @@
 #include "indicator.h"
+#include "error.h"
+#include "errorwindow.h"
 #include "restart.h"
 #include "ui_indicator.h"
 #include <QLabel>
@@ -29,7 +31,6 @@ indicator::~indicator()
 
 void indicator::on_build_clicked()
 {
-
     restart *restartWindow = new restart(); // Создание объекта нового окна
 
     // Установка позиции нового окна относительно основного окна
@@ -43,8 +44,16 @@ void indicator::on_build_clicked()
 
 void indicator::on_mistakes_clicked()
 {
+    // QMessageBox::warning(this, "ошибки", "<html><style>p {color: white;}</style><p>Внимание! В индикаторе №1 уровень тока превышает 1 А</p></html>");
+    errorWindow *errorwindow = new errorWindow(); // Создание объекта нового окна
 
-    QMessageBox::warning(this, "ошибки", "<html><style>p {color: white;}</style><p>Внимание! В индикаторе №1 уровень тока превышает 1 А</p></html>");
+    // Установка позиции нового окна относительно основного окна
+    QPoint mainWinPos = this->pos(); // Получение позиции основного окна
+    int offsetX = 620; // Горизонтальное смещение (x)
+    int offsetY = 70; // Вертикальное смещение (y)
+    errorwindow->move(mainWinPos + QPoint(offsetX, offsetY)); // Установка позиции нового окна
+
+    errorwindow->exec(); // Открытие нового окна в модальном режиме
 
 }
 

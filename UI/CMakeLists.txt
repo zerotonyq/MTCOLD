@@ -26,7 +26,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         indicator.h indicator.cpp indicator.ui
         resources.qrc
         restart.h restart.cpp restart.ui
-        .gitignore
+        errorwindow.h errorwindow.cpp errorwindow.ui
+
+        # .gitignore
 
     )
 # Define target properties for Android with Qt 6 as:
