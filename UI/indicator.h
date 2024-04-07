@@ -1,6 +1,7 @@
 #ifndef INDICATOR_H
 #define INDICATOR_H
 
+#include "qabstractbutton.h"
 #include <QDialog>
 
 namespace Ui {
@@ -17,19 +18,12 @@ public:
 
 private slots:
     void on_build_clicked();
-
     void on_mistakes_clicked();
-
-    void on_info0_clicked();
-
-    void on_info0_2_clicked();
+    void onButtonClicked(QAbstractButton* button);
 
 private:
     Ui::indicator *ui;
-
-// private slots:
-//     void onButtonClicked(QAbstractButton* button);
-
+    QButtonGroup *buttonGroup;
 
 };
 

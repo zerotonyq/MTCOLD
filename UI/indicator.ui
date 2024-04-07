@@ -470,23 +470,23 @@ display: flex;}</string>
          <x>260</x>
          <y>20</y>
          <width>60</width>
-         <height>30</height>
+         <height>31</height>
         </rect>
        </property>
        <property name="styleSheet">
         <string notr="true">QCheckBox::indicator {
 	width: 60px;
-	height: 90px;
+	height: 80px;
 	background-image: url(:/image/resources/img/info.png);
 }
 
 QCheckBox::indicator:checked {
-	image: url(:/image/resources/img/on.png);
+	image: url(:/image/resources/img/on_new.jpg);
 	background-image: url(:/image/resources/img/info.png);
 }
 
 QCheckBox::indicator:unchecked {
-	image: url(:/image/resources/img/off.png);
+	image: url(:/image/resources/img/off_new.jpg);
 	background-image: url(:/image/resources/img/info.png);
 }
 
@@ -496,7 +496,7 @@ QCheckBox::indicator:unchecked {
         <string/>
        </property>
       </widget>
-      <widget class="QLabel" name="indicator0_2">
+      <widget class="QLabel" name="indicator0">
        <property name="geometry">
         <rect>
          <x>9</x>
@@ -618,11 +618,14 @@ border-radius: 80px;</string>
        <property name="checkable">
         <bool>true</bool>
        </property>
-       <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
-       </attribute>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
       </widget>
-      <zorder>indicator0_2</zorder>
+      <zorder>indicator0</zorder>
       <zorder>info0</zorder>
       <zorder>toggle0</zorder>
      </widget>
@@ -652,42 +655,7 @@ display: flex;}</string>
       <property name="title">
        <string/>
       </property>
-      <widget class="QCheckBox" name="toggle0_2">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>260</x>
-         <y>20</y>
-         <width>60</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QCheckBox::indicator {
-	width: 60px;
-	height: 90px;
-	background-image: url(:/image/resources/img/info.png);
-}
-
-QCheckBox::indicator:checked {
-	image: url(:/image/resources/img/on.png);
-	background-image: url(:/image/resources/img/info.png);
-}
-
-QCheckBox::indicator:unchecked {
-	image: url(:/image/resources/img/off.png);
-	background-image: url(:/image/resources/img/info.png);
-}
-
-</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="indicator0_3">
+      <widget class="QLabel" name="indicator1">
        <property name="geometry">
         <rect>
          <x>9</x>
@@ -760,7 +728,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Небольшая тень для 
 </string>
        </property>
       </widget>
-      <widget class="QPushButton" name="info0_2">
+      <widget class="QPushButton" name="info1">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -807,13 +775,45 @@ border-radius: 80px;</string>
        <property name="checkable">
         <bool>true</bool>
        </property>
-       <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
-       </attribute>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
       </widget>
-      <zorder>indicator0_3</zorder>
-      <zorder>toggle0_2</zorder>
-      <zorder>info0_2</zorder>
+      <widget class="QCheckBox" name="toggle1">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>20</y>
+         <width>60</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QCheckBox::indicator {
+	width: 60px;
+	height: 80px;
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/image/resources/img/on_new.jpg);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:unchecked {
+	image: url(:/image/resources/img/off_new.jpg);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </widget>
     </item>
     <item>
@@ -842,42 +842,7 @@ border: none; background-color: transparent; border-radius: 35px;}</string>
       <property name="title">
        <string/>
       </property>
-      <widget class="QCheckBox" name="toggle0_3">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>260</x>
-         <y>20</y>
-         <width>60</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QCheckBox::indicator {
-	width: 60px;
-	height: 90px;
-	background-image: url(:/image/resources/img/info.png);
-}
-
-QCheckBox::indicator:checked {
-	image: url(:/image/resources/img/on.png);
-	background-image: url(:/image/resources/img/info.png);
-}
-
-QCheckBox::indicator:unchecked {
-	image: url(:/image/resources/img/off.png);
-	background-image: url(:/image/resources/img/info.png);
-}
-
-</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="indicator0_4">
+      <widget class="QLabel" name="indicator2">
        <property name="geometry">
         <rect>
          <x>9</x>
@@ -950,7 +915,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Небольшая тень для 
 </string>
        </property>
       </widget>
-      <widget class="QPushButton" name="info0_3">
+      <widget class="QPushButton" name="info2">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -997,13 +962,45 @@ border-radius: 80px;</string>
        <property name="checkable">
         <bool>true</bool>
        </property>
-       <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
-       </attribute>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
       </widget>
-      <zorder>indicator0_4</zorder>
-      <zorder>info0_3</zorder>
-      <zorder>toggle0_3</zorder>
+      <widget class="QCheckBox" name="toggle2">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>20</y>
+         <width>60</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QCheckBox::indicator {
+	width: 60px;
+	height: 80px;
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/image/resources/img/on_new.jpg);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:unchecked {
+	image: url(:/image/resources/img/off_new.jpg);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </widget>
     </item>
     <item>
@@ -1031,42 +1028,7 @@ display: flex;}</string>
       <property name="title">
        <string/>
       </property>
-      <widget class="QCheckBox" name="toggle0_4">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>260</x>
-         <y>20</y>
-         <width>60</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QCheckBox::indicator {
-	width: 60px;
-	height: 90px;
-	background-image: url(:/image/resources/img/info.png);
-}
-
-QCheckBox::indicator:checked {
-	image: url(:/image/resources/img/on.png);
-	background-image: url(:/image/resources/img/info.png);
-}
-
-QCheckBox::indicator:unchecked {
-	image: url(:/image/resources/img/off.png);
-	background-image: url(:/image/resources/img/info.png);
-}
-
-</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="indicator0_5">
+      <widget class="QLabel" name="indicator3">
        <property name="geometry">
         <rect>
          <x>9</x>
@@ -1139,7 +1101,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Небольшая тень для 
 </string>
        </property>
       </widget>
-      <widget class="QPushButton" name="info0_4">
+      <widget class="QPushButton" name="info3">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -1186,13 +1148,45 @@ border-radius: 80px;</string>
        <property name="checkable">
         <bool>true</bool>
        </property>
-       <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
-       </attribute>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
       </widget>
-      <zorder>indicator0_5</zorder>
-      <zorder>info0_4</zorder>
-      <zorder>toggle0_4</zorder>
+      <widget class="QCheckBox" name="toggle3">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>20</y>
+         <width>60</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QCheckBox::indicator {
+	width: 60px;
+	height: 80px;
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/image/resources/img/on_new.jpg);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:unchecked {
+	image: url(:/image/resources/img/off_new.jpg);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </widget>
     </item>
     <item>
@@ -1220,42 +1214,7 @@ display: flex;}</string>
       <property name="title">
        <string/>
       </property>
-      <widget class="QCheckBox" name="toggle0_5">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>260</x>
-         <y>20</y>
-         <width>60</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QCheckBox::indicator {
-	width: 60px;
-	height: 90px;
-	background-image: url(:/image/resources/img/info.png);
-}
-
-QCheckBox::indicator:checked {
-	image: url(:/image/resources/img/on.png);
-	background-image: url(:/image/resources/img/info.png);
-}
-
-QCheckBox::indicator:unchecked {
-	image: url(:/image/resources/img/off.png);
-	background-image: url(:/image/resources/img/info.png);
-}
-
-</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="indicator0_6">
+      <widget class="QLabel" name="indicator4">
        <property name="geometry">
         <rect>
          <x>9</x>
@@ -1328,7 +1287,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Небольшая тень для 
 </string>
        </property>
       </widget>
-      <widget class="QPushButton" name="info0_5">
+      <widget class="QPushButton" name="info4">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -1375,13 +1334,45 @@ border-radius: 80px;</string>
        <property name="checkable">
         <bool>true</bool>
        </property>
-       <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
-       </attribute>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
       </widget>
-      <zorder>indicator0_6</zorder>
-      <zorder>info0_5</zorder>
-      <zorder>toggle0_5</zorder>
+      <widget class="QCheckBox" name="toggle4">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>20</y>
+         <width>60</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QCheckBox::indicator {
+	width: 60px;
+	height: 80px;
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/image/resources/img/on_new.jpg);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+QCheckBox::indicator:unchecked {
+	image: url(:/image/resources/img/off_new.jpg);
+	background-image: url(:/image/resources/img/info.png);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -1399,7 +1390,4 @@ border-radius: 80px;</string>
  </widget>
  <resources/>
  <connections/>
- <buttongroups>
-  <buttongroup name="buttonGroup"/>
- </buttongroups>
 </ui>

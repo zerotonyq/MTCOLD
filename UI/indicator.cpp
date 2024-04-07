@@ -1,6 +1,7 @@
 #include "indicator.h"
 #include "error.h"
 #include "errorwindow.h"
+#include "qbuttongroup.h"
 #include "restart.h"
 #include "ui_indicator.h"
 #include <QLabel>
@@ -10,6 +11,8 @@
 #include <QHBoxLayout>
 #include <QMessageBox>
 #include <QEvent>
+
+#include <QButtonGroup>
 
 QDialog* dialog = nullptr; // Глобальная переменная для хранения указателя на диалог
 
@@ -22,6 +25,17 @@ indicator::indicator(QWidget *parent)
     ui->labelInfo0->hide();
     ui->labelInfo1->hide();
 
+    // Создаем объект группы кнопок
+    QButtonGroup *buttonGroup = new QButtonGroup(this);
+
+    // Пример связывания кнопок с группой
+    buttonGroup->addButton(ui->info0, 0); // Уникальный идентификатор 0
+    buttonGroup->addButton(ui->info1, 1); // Уникальный идентификатор 1
+    buttonGroup->addButton(ui->info2, 2); // Уникальный идентификатор 2
+    buttonGroup->addButton(ui->info3, 3); // Уникальный идентификатор 3
+    buttonGroup->addButton(ui->info4, 4); // Уникальный идентификатор 4
+
+    connect(buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(onButtonClicked(QAbstractButton*)));
 }
 
 indicator::~indicator()
@@ -57,26 +71,68 @@ void indicator::on_mistakes_clicked()
 
 }
 
-
-void indicator::on_info0_clicked()
+void indicator::onButtonClicked(QAbstractButton* button)
 {
-    // Изменяем текст в QLabel на информацию об индикаторе
-    ui->labelInfo0->show();
-    ui->label->hide();
-    ui->label_4->hide();
+    if (button == ui->info0)
+    {
+        ui->labelInfo0->show();
+        ui->label->hide();
+        ui->label_4->hide();
 
-    // Прячем кнопку после нажатия
-    ui->info0->hide();
+        // Прячем кнопку после нажатия
+        // ui->info0->hide();
+    }
+    else if (button == ui->info1)
+    {
+        ui->labelInfo1->show();
+        ui->label_4->hide();
+        ui->label->hide();
+
+        ui->info1->hide();
+    }
+    else if (button == ui->info2)
+    {
+        ui->labelInfo1->show();
+        ui->label_4->hide();
+        ui->label->hide();
+
+        ui->info1->hide();
+    }
+    else if (button == ui->info3)
+    {
+        QString message = "<html><style>p {color: white;}</style><p>3</p></body></html>";
+        QMessageBox msgBox;
+        msgBox.warning(this, "пупупу", message);
+    }
+    else if (button == ui->info4)
+    {
+        QString message = "<html><style>p {color: white;}</style><p>4</p></body></html>";
+        QMessageBox msgBox;
+        msgBox.warning(this, "пупупу", message);
+    }
+
 }
 
 
-void indicator::on_info0_2_clicked()
-{
-    ui->labelInfo1->show();
-    ui->label_4->hide();
-    ui->label->hide();
+// void indicator::on_info0_clicked()
+// {
+//     // Изменяем текст в QLabel на информацию об индикаторе
+//     ui->labelInfo0->show();
+//     ui->label->hide();
+//     ui->label_4->hide();
 
-    // Прячем кнопку после нажатия
-    ui->info0_2->hide();
-}
+//     // Прячем кнопку после нажатия
+//     ui->info0->hide();
+// }
+
+
+// void indicator::on_info0_2_clicked()
+// {
+//     ui->labelInfo1->show();
+//     ui->label_4->hide();
+//     ui->label->hide();
+
+//     // Прячем кнопку после нажатия
+//     ui->info0_2->hide();
+// }
 

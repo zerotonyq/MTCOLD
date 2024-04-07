@@ -9,5 +9,7 @@
         <file>resources/img/off.png</file>
         <file>resources/img/on.png</file>
         <file>resources/img/white_back.jpg</file>
+        <file>resources/img/on_new.jpg</file>
+        <file>resources/img/off_new.jpg</file>
     </qresource>
 </RCC>
