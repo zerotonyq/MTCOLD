@@ -218,7 +218,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <rect>
      <x>50</x>
      <y>100</y>
-     <width>341</width>
+     <width>351</width>
      <height>91</height>
     </rect>
    </property>
@@ -238,8 +238,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>810</x>
-     <y>430</y>
+     <x>800</x>
+     <y>470</y>
      <width>51</width>
      <height>41</height>
     </rect>
@@ -1378,6 +1378,60 @@ QCheckBox::indicator:unchecked {
     </item>
    </layout>
   </widget>
+  <widget class="QPushButton" name="restart">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>165</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+     <bold>false</bold>
+     <stylestrategy>PreferAntialias</stylestrategy>
+    </font>
+   </property>
+   <property name="mouseTracking">
+    <bool>true</bool>
+   </property>
+   <property name="tabletTracking">
+    <bool>true</bool>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::StrongFocus</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/image/resources/img/restart.png);
+border-radius: 80px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
   <zorder>layoutWidget</zorder>
   <zorder>top</zorder>
   <zorder>build</zorder>
@@ -1388,6 +1442,7 @@ QCheckBox::indicator:unchecked {
   <zorder>labelInfo1</zorder>
   <zorder>label</zorder>
   <zorder>label_4</zorder>
+  <zorder>restart</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -36,6 +36,7 @@ indicator::indicator(QWidget *parent)
     buttonGroup->addButton(ui->info2, 2); // Уникальный идентификатор 2
     buttonGroup->addButton(ui->info3, 3); // Уникальный идентификатор 3
     buttonGroup->addButton(ui->info4, 4); // Уникальный идентификатор 4
+    buttonGroup->addButton(ui->restart, 5); // перезапуск
 
     connect(buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(onButtonClicked(QAbstractButton*)));
 }
@@ -81,7 +82,7 @@ void indicator::on_build_clicked()
 
     // Получаем позицию кнопки, на которую нажимают
     int offsetX = 30;
-    int offsetY = 35;
+    int offsetY = 40;
     restartWindow->move(QPoint(offsetX, offsetY));
 
     // Открываем новое окно в модальном режиме
@@ -103,8 +104,8 @@ void indicator::on_mistakes_clicked()
     errorwindow = new errorWindow(this);
     errorwindow->setWindowFlags(Qt::CustomizeWindowHint);
 
-    int offsetX = 617;
-    int offsetY = 35;
+    int offsetX = 400;
+    int offsetY = 40;
     errorwindow->move(QPoint(offsetX, offsetY));
 
     // Открываем новое окно в модальном режиме
@@ -274,7 +275,6 @@ void indicator::onButtonClicked(QAbstractButton* button)
         ui->info1->show();
         ui->info2->show();
         ui->info4->show();
-
         ui->info3->hide();
     }
     else if (button == ui->info4)
@@ -287,6 +287,16 @@ void indicator::onButtonClicked(QAbstractButton* button)
 
         ui->info4->hide();
     }
+    else if (button == ui->restart)
+    {
+        ui->info0->show();
+        ui->info1->show();
+        ui->info2->show();
+        ui->info3->show();
+        ui->info4->show();
+        ui -> label -> setText("перезапуск индикаторов");
+    }
+
 
 }
 
@@ -301,6 +311,7 @@ void indicator::onButtonClicked(QAbstractButton* button)
 
 //     return false;
 // }
+
 
 
 

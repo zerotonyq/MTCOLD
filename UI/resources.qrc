@@ -11,5 +11,6 @@
         <file>resources/img/white_back.jpg</file>
         <file>resources/img/on_new.jpg</file>
         <file>resources/img/off_new.jpg</file>
+        <file>resources/img/restart.png</file>
     </qresource>
 </RCC>

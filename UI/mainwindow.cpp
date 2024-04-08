@@ -35,7 +35,7 @@ void MainWindow::on_request_clicked() {
     else {
         QString message = "<html><style>p {color: white;}</style><p>Неверный API или порт</p></body></html>";
         QMessageBox msgBox;
-        msgBox.warning(this, "пупупу", message);
+        msgBox.warning(this, "Error", message);
         // QString message = "<html><p style=;color:red;"">Неверный API или порт</p></html>";
 
         // QLabel *label = new QLabel(message);

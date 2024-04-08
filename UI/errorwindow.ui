@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>219</width>
-    <height>180</height>
+    <width>637</width>
+    <height>198</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -44,7 +44,7 @@ border-radius: 20px;</string>
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>178</width>
+        <width>596</width>
         <height>231</height>
        </rect>
       </property>
@@ -52,21 +52,21 @@ border-radius: 20px;</string>
        <item>
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>feyxdxygcuj</string>
+          <string>В индикаторе №1 уровень тока превыщает 1 А</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>feyxdxygcuj</string>
+          <string>В индикаторе №3 уровень тока слегка превышает 1 А</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_8">
          <property name="text">
-          <string>feyxdxygcuj</string>
+          <string>В индикаторе №1 уровень тока превыщает 1 А</string>
          </property>
         </widget>
        </item>

@@ -19,7 +19,7 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background: rgba(61, 61, 61, 0.85);
+   <string notr="true">background: rgba(61, 61, 61, 1);
 display: flex;
 align-items: center;
 justify-content: center;
