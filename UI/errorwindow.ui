@@ -6,16 +6,17 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>242</width>
-    <height>179</height>
+    <width>219</width>
+    <height>180</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(63, 63, 63);
-color: rgb(222, 222, 222);</string>
+   <string notr="true">color: rgb(222, 222, 222);
+background: rgba(61, 61, 61, 0.85);
+border-radius: 20px;</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="sizeConstraint">
@@ -43,7 +44,7 @@ color: rgb(222, 222, 222);</string>
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>199</width>
+        <width>178</width>
         <height>231</height>
        </rect>
       </property>

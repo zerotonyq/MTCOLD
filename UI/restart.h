@@ -17,9 +17,12 @@ public:
 
 private:
     Ui::restart *ui;
+    restart* restartWindow = nullptr;
+
 
 protected:
-    void mousePressEvent(QMouseEvent* event) override;
+    // void mousePressEvent(QMouseEvent* event) override;
+    // bool event(QEvent *event);
 };
 
 #endif // RESTART_H

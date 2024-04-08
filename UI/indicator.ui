@@ -181,6 +181,7 @@ background-color: transperent;
 text-align: center;
 color: #fff;
 
+
 </string>
    </property>
    <property name="lineWidth">
@@ -256,8 +257,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    </property>
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>120</y>
+     <x>490</x>
+     <y>70</y>
      <width>521</width>
      <height>591</height>
     </rect>
@@ -352,8 +353,8 @@ display: flex;</string>
    </property>
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>120</y>
+     <x>550</x>
+     <y>230</y>
      <width>521</width>
      <height>591</height>
     </rect>
@@ -1390,4 +1391,7 @@ QCheckBox::indicator:unchecked {
  </widget>
  <resources/>
  <connections/>
+ <slots>
+  <slot>clickedOnIndicator()</slot>
+ </slots>
 </ui>

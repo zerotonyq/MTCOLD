@@ -28,8 +28,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         restart.h restart.cpp restart.ui
         errorwindow.h errorwindow.cpp errorwindow.ui
 
-        # .gitignore
-
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET OS APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
