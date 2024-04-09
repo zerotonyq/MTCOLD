@@ -38,6 +38,10 @@ indicator::indicator(QWidget *parent)
     buttonGroup->addButton(ui->info4, 4); // Уникальный идентификатор 4
     buttonGroup->addButton(ui->restart, 5); // перезапуск
 
+    // Количество индикаторов
+    //_itoa_s(count,scount,10);
+    //ui->indiccount->setText(core.getIndicatorsQuantity());
+
     connect(buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(onButtonClicked(QAbstractButton*)));
 }
 
@@ -316,8 +320,10 @@ void indicator::onButtonClicked(QAbstractButton* button)
 
 
 
-void indicator::on_toggle0_toggled(bool checked)
-{
-
-}
+// void indicator::on_toggle0_toggled(bool checked)
+// {
+//     if (checked){
+//         core.turnOnIndicator();
+//     }
+// }
 

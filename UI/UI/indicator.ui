@@ -232,7 +232,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <enum>QFrame::Raised</enum>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; color:#bdbdbd;&quot;&gt;Индикаторы, доступные &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#bdbdbd;&quot;&gt;на данный момент: 5 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; color:#bdbdbd;&quot;&gt;Индикаторы, доступные &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#bdbdbd;&quot;&gt;на данный момент: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
@@ -1384,8 +1384,8 @@ QCheckBox::indicator:unchecked {
    </property>
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>165</y>
+     <x>440</x>
+     <y>180</y>
      <width>31</width>
      <height>21</height>
     </rect>
@@ -1432,6 +1432,19 @@ border-radius: 80px;</string>
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QLabel" name="indiccount">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>160</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>layoutWidget</zorder>
   <zorder>top</zorder>
   <zorder>build</zorder>
@@ -1443,6 +1456,7 @@ border-radius: 80px;</string>
   <zorder>label</zorder>
   <zorder>label_4</zorder>
   <zorder>restart</zorder>
+  <zorder>indiccount</zorder>
  </widget>
  <resources/>
  <connections/>
