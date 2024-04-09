@@ -1,6 +1,5 @@
 #pragma once
 #include <QtNetwork>
-#include "core.h"
 
 const QString ADDRES = "127.0.0.1";
 const int PORT = 8000;

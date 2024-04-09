@@ -315,3 +315,9 @@ void indicator::onButtonClicked(QAbstractButton* button)
 
 
 
+
+void indicator::on_toggle0_toggled(bool checked)
+{
+
+}
+

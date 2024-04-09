@@ -13,25 +13,25 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Network)
 
 set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
+        UI/main.cpp
+        UI/mainwindow.cpp
+        UI/mainwindow.h
+        UI/mainwindow.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(DPP
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-            Pockets.h
-            Pockets.cpp
-            indicator.h indicator.cpp indicator.ui
-            core.h core.cpp
-            TestServer.h
-            TestClient.h
-            resources.qrc
-            restart.h restart.cpp restart.ui
-            errorwindow.h errorwindow.cpp errorwindow.ui
+            core/scr/Pockets.h
+            core/include/Pockets.cpp
+            UI/indicator.h UI/indicator.cpp UI/indicator.ui
+            core/scr/core.h core/include/core.cpp
+            core/scr/TestServer.h
+            core/scr/TestClient.h
+            UI/resources.qrc
+            UI/restart.h UI/restart.cpp UI/restart.ui
+            UI/errorwindow.h UI/errorwindow.cpp UI/errorwindow.ui
 
 
 

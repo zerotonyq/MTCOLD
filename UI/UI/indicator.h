@@ -24,6 +24,8 @@ private slots:
     void onButtonClicked(QAbstractButton* button);
     // bool eventFilter(QObject *obj, QEvent *event);
 
+    void on_toggle0_toggled(bool checked);
+
 private:
     Ui::indicator *ui;
     QButtonGroup *buttonGroup;

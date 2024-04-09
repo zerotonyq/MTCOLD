@@ -1,4 +1,4 @@
-#include "Pockets.h"
+#include "../scr/Pockets.h"
 
 QByteArray sIndicatorCommand::serializeData() const {
     QByteArray bytesData;

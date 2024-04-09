@@ -1,4 +1,4 @@
-#include "core.h"
+#include "../scr/core.h"
 
 Core::Core() : socket(new QUdpSocket) {
     socket->connectToHost(QHostAddress::LocalHost, currentPort);
