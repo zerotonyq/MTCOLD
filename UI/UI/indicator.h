@@ -4,7 +4,6 @@
 #include "errorwindow.h"
 #include "qabstractbutton.h"
 #include "restart.h"
-#include <cstdlib>
 #include "../core/scr/core.h"
 #include "../core/scr/Pockets.h"
 #include <QDialog>

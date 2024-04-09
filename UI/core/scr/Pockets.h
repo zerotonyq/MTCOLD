@@ -28,6 +28,7 @@ public:
     sIndicatorCommand(quint32 command_, quint32 indicatorIndex_ = -1) : command(command_), indicatorIndex(indicatorIndex_) {}
     sIndicatorCommand() = default;
 
+
 public:
     quint32 crc32;
     quint32 command;
@@ -39,7 +40,7 @@ class sIndicatorsCountPack : public Pocket {
 public:
     QByteArray serializeData() const override;
     Pocket& deserializeData(QByteArray& bytesData) override;
-
+    explicit operator quint32() const { return indicatorsCount; }
 public:
     quint32 indicatorsCount;
     quint32 crc32;

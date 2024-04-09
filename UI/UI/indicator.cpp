@@ -39,8 +39,10 @@ indicator::indicator(QWidget *parent)
     buttonGroup->addButton(ui->restart, 5); // перезапуск
 
     // Количество индикаторов
-    //_itoa_s(count,scount,10);
-    //ui->indiccount->setText(core.getIndicatorsQuantity());
+
+    quint32 sii = static_cast<quint32>(count);
+    _itoa_s(sii,scount,10);
+    ui->indiccount->setText(scount);
 
     connect(buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(onButtonClicked(QAbstractButton*)));
 }
