@@ -2,7 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include "indicator.h"
+#include "../core/scr/core.h"
+#include <QCoreApplication>
+#include <QHostAddress>
+#include <QDebug>
 
 
 QT_BEGIN_NAMESPACE
