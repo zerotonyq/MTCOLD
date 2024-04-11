@@ -2,8 +2,10 @@
 #include "error.h"
 #include "errorwindow.h"
 #include "qbuttongroup.h"
+#include "qevent.h"
 #include "restart.h"
 #include "ui_indicator.h"
+#include "indicatormanager.h"
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
@@ -13,6 +15,7 @@
 #include <QEvent>
 
 #include <QButtonGroup>
+
 
 QDialog* dialog = nullptr; // Глобальная переменная для хранения указателя на диалог
 
@@ -44,13 +47,41 @@ indicator::indicator(QWidget *parent)
     _itoa_s(sii,scount,10);
     ui->indiccount->setText(scount);
 
+    m_indicatorManager = new IndicatorManager(buttonGroup, ui->indiccount, this);
+
+    // Соединяем метод обновления индикаторов с сигналом о смене значения
+    connect(this, SIGNAL(valueChanged(int)), this, SLOT(onValueChanged(int)));
+
     connect(buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(onButtonClicked(QAbstractButton*)));
+
+}
+
+void indicator::showEvent(QShowEvent *event) {
+    if (event->type() == QEvent::Show) {
+        // Тестовое изменение значения для обновления индикаторов
+        int newValue = 3; // Любое тестовое значение
+        emit onValueChanged(newValue);
+    }
+
+    // Вызов реализации по умолчанию
+    QWidget::showEvent(event);
 }
 
 indicator::~indicator()
 {
     delete ui;
 }
+
+void indicator::onValueChanged(int newValue)
+{
+    m_indicatorManager->updateIndicatorCount(newValue);
+}
+
+void indicator::onButtonClicked(QAbstractButton* button)
+{
+    m_indicatorManager->onButtonClicked(button);
+}
+
 
 // void indicator::on_build_clicked()
 // {
@@ -119,192 +150,192 @@ void indicator::on_mistakes_clicked()
     errorwindow->show();
 }
 
-void indicator::onButtonClicked(QAbstractButton* button)
-{
-    if (button == ui->info0)
-    {
+// void indicator::onButtonClicked(QAbstractButton* button)
+// {
+//     if (button == ui->info0)
+//     {
 
-        QString htmlText = R"(
-            <!DOCTYPE html>
-            <html lang="ru">
-            <head>
-            <meta charset="UTF-8">
-            <title>Информация об индикаторе</title>
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 100vh;
-                }
-                .container {
-                    max-width: 600px;
-                    padding: 20px;
-                    border-radius: 8px;
-                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                    text-align: center;
-                    line-height: 2;
-                    border: 5px solid #ccc;
-                    background-color: rgb(194, 194, 194);
-                    background-image: url(:/image/resources/img/white_back.jpg);
-                }
-                .header {
-                    font-size: 30px;
-                    font-weight: bold;
-                    margin-bottom: 15px;
-                }
-                .serial-number,
-                .color,
-                .current-level {
-                    margin-bottom: 20px;
-                }
-                .serial-number-title,
-                .color-title,
-                .current-level-title {
-                    font-weight: bold;
-                    font-size: 22px;
-                    font-family: 'Random Grotesque Standard Bold', sans-serif;
-                }
-                .color-value {
-                    color: #8a0000;
-                    font-size: 28px;
-                }
-                .current-level-value {
-                    font-size: 40px;
-                    color: #8a0000;
-                }
-                .serial-number div,
-                .color div {
-                    font-size: 24px;
-                }
-            </style>
-            </head>
-            <body>
-                <div class="container">
-                    <div class="header">Информация об индикаторе №0</div>
-                    <div class="serial-number">
-                        <div class="serial-number-title">серийный номер:</div>
-                        <div>tjfxkd-fkencd-kj:sw2</div>
-                    </div>
-                    <div class="color">
-                        <div class="color-title">цвет:</div>
-                        <div class="color-value">красный</div>
-                        <div><b>Тип:</b></div>
-                        <div>индикатор</div>
-                    </div>
-                    <div class="current-level">
-                        <div class="current-level-title">Уровень тока на данный момент</div>
-                        <div class="current-level-value">2.328 А</div>
-                    </div>
-                </div>
-            </body>
-            </html>
-            )";
-
-
-        ui->label->setText(htmlText);
-
-        ui->label->setText(htmlText);
-        ui->label->setStyleSheet(R"(
-        QLabel {
-            border: 5px solid rgb(221, 221, 221);
-            background-color: rgb(194, 194, 194);
-            background-image: url(':/image/resources/img/white_back.jpg');
-            border-radius: 35px;
-            display: flex;
-            width: 520px;
-            height: 590px;
-
-        }
-        .header {
-            font-size: 30px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        .serial-number-title, .color-title, .current-level-title {
-            font-weight: bold;
-            font-size: 22px;
-            font-family: 'Random Grotesque Standard Bold', sans-serif;
-        }
-        .color-value {
-            color: #8a0000;
-            font-size: 28px;
-        }
-        .current-level-value {
-            font-size: 40px;
-            color: #8a0000;
-        }
-        .serial-number div, .color div {
-            font-size: 24px;
-        }
-        )");
-
-        // Прячем кнопку после нажатия
-        ui->info0->hide();
-
-    }
-    else if (button == ui->info1)
-    {
-        // ui->labelInfo1->show();
-        // ui->label_4->hide();
-        // ui->label->hide();
-
-        //ui->info1->hide();
-        ui->info0->show();
-        ui->info3->show();
-        ui->info2->show();
-        ui->info4->show();
-        ui -> label -> setText("1");
-
-        ui->info1->hide();
-    }
-    else if (button == ui->info2)
-    {
-        // ui->labelInfo1->show();
-        // ui->label_4->hide();
-        // ui->label->hide();
-
-        // ui->info1->hide();
-        ui->info0->show();
-        ui->info1->show();
-        ui->info4->show();
-        ui->info3->show();
-        ui -> label -> setText("2");
-
-        ui->info2->hide();
-    }
-    else if (button == ui->info3)
-    {
-        ui -> label -> setText("3");
-        ui->info0->show();
-        ui->info1->show();
-        ui->info2->show();
-        ui->info4->show();
-        ui->info3->hide();
-    }
-    else if (button == ui->info4)
-    {
-        ui->info0->show();
-        ui->info1->show();
-        ui->info2->show();
-        ui->info3->show();
-        ui -> label -> setText("4");
-
-        ui->info4->hide();
-    }
-    else if (button == ui->restart)
-    {
-        ui->info0->show();
-        ui->info1->show();
-        ui->info2->show();
-        ui->info3->show();
-        ui->info4->show();
-        ui -> label -> setText("перезапуск индикаторов");
-    }
+//         QString htmlText = R"(
+//             <!DOCTYPE html>
+//             <html lang="ru">
+//             <head>
+//             <meta charset="UTF-8">
+//             <title>Информация об индикаторе</title>
+//             <style>
+//                 body {
+//                     font-family: Arial, sans-serif;
+//                     display: flex;
+//                     justify-content: center;
+//                     align-items: center;
+//                     height: 100vh;
+//                 }
+//                 .container {
+//                     max-width: 600px;
+//                     padding: 20px;
+//                     border-radius: 8px;
+//                     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+//                     text-align: center;
+//                     line-height: 2;
+//                     border: 5px solid #ccc;
+//                     background-color: rgb(194, 194, 194);
+//                     background-image: url(:/image/resources/img/white_back.jpg);
+//                 }
+//                 .header {
+//                     font-size: 30px;
+//                     font-weight: bold;
+//                     margin-bottom: 15px;
+//                 }
+//                 .serial-number,
+//                 .color,
+//                 .current-level {
+//                     margin-bottom: 20px;
+//                 }
+//                 .serial-number-title,
+//                 .color-title,
+//                 .current-level-title {
+//                     font-weight: bold;
+//                     font-size: 22px;
+//                     font-family: 'Random Grotesque Standard Bold', sans-serif;
+//                 }
+//                 .color-value {
+//                     color: #8a0000;
+//                     font-size: 28px;
+//                 }
+//                 .current-level-value {
+//                     font-size: 40px;
+//                     color: #8a0000;
+//                 }
+//                 .serial-number div,
+//                 .color div {
+//                     font-size: 24px;
+//                 }
+//             </style>
+//             </head>
+//             <body>
+//                 <div class="container">
+//                     <div class="header">Информация об индикаторе №0</div>
+//                     <div class="serial-number">
+//                         <div class="serial-number-title">серийный номер:</div>
+//                         <div>tjfxkd-fkencd-kj:sw2</div>
+//                     </div>
+//                     <div class="color">
+//                         <div class="color-title">цвет:</div>
+//                         <div class="color-value">красный</div>
+//                         <div><b>Тип:</b></div>
+//                         <div>индикатор</div>
+//                     </div>
+//                     <div class="current-level">
+//                         <div class="current-level-title">Уровень тока на данный момент</div>
+//                         <div class="current-level-value">2.328 А</div>
+//                     </div>
+//                 </div>
+//             </body>
+//             </html>
+//             )";
 
 
-}
+//         ui->label->setText(htmlText);
+
+//         ui->label->setText(htmlText);
+//         ui->label->setStyleSheet(R"(
+//         QLabel {
+//             border: 5px solid rgb(221, 221, 221);
+//             background-color: rgb(194, 194, 194);
+//             background-image: url(':/image/resources/img/white_back.jpg');
+//             border-radius: 35px;
+//             display: flex;
+//             width: 520px;
+//             height: 590px;
+
+//         }
+//         .header {
+//             font-size: 30px;
+//             font-weight: bold;
+//             margin-bottom: 15px;
+//         }
+//         .serial-number-title, .color-title, .current-level-title {
+//             font-weight: bold;
+//             font-size: 22px;
+//             font-family: 'Random Grotesque Standard Bold', sans-serif;
+//         }
+//         .color-value {
+//             color: #8a0000;
+//             font-size: 28px;
+//         }
+//         .current-level-value {
+//             font-size: 40px;
+//             color: #8a0000;
+//         }
+//         .serial-number div, .color div {
+//             font-size: 24px;
+//         }
+//         )");
+
+//         // Прячем кнопку после нажатия
+//         ui->info0->hide();
+
+//     }
+//     else if (button == ui->info1)
+//     {
+//         // ui->labelInfo1->show();
+//         // ui->label_4->hide();
+//         // ui->label->hide();
+
+//         //ui->info1->hide();
+//         ui->info0->show();
+//         ui->info3->show();
+//         ui->info2->show();
+//         ui->info4->show();
+//         ui -> label -> setText("1");
+
+//         ui->info1->hide();
+//     }
+//     else if (button == ui->info2)
+//     {
+//         // ui->labelInfo1->show();
+//         // ui->label_4->hide();
+//         // ui->label->hide();
+
+//         // ui->info1->hide();
+//         ui->info0->show();
+//         ui->info1->show();
+//         ui->info4->show();
+//         ui->info3->show();
+//         ui -> label -> setText("2");
+
+//         ui->info2->hide();
+//     }
+//     else if (button == ui->info3)
+//     {
+//         ui -> label -> setText("3");
+//         ui->info0->show();
+//         ui->info1->show();
+//         ui->info2->show();
+//         ui->info4->show();
+//         ui->info3->hide();
+//     }
+//     else if (button == ui->info4)
+//     {
+//         ui->info0->show();
+//         ui->info1->show();
+//         ui->info2->show();
+//         ui->info3->show();
+//         ui -> label -> setText("4");
+
+//         ui->info4->hide();
+//     }
+//     else if (button == ui->restart)
+//     {
+//         ui->info0->show();
+//         ui->info1->show();
+//         ui->info2->show();
+//         ui->info3->show();
+//         ui->info4->show();
+//         ui -> label -> setText("перезапуск индикаторов");
+//     }
+
+
+// }
 
 // bool indicator::eventFilter(QObject *obj, QEvent *event)
 // {

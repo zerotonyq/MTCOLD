@@ -2,6 +2,7 @@
 #define INDICATOR_H
 
 #include "errorwindow.h"
+#include "indicatormanager.h"
 #include "qabstractbutton.h"
 #include "restart.h"
 #include "../core/scr/core.h"
@@ -19,6 +20,7 @@ class indicator : public QDialog
 public:
     Core core;
     explicit indicator(QWidget *parent = nullptr);
+
     ~indicator();
 
 private slots:
@@ -34,9 +36,20 @@ private:
     sIndicatorsCountPack count = core.getIndicatorsQuantity();
     Ui::indicator *ui;
     QButtonGroup *buttonGroup;
+
 private:
     restart* restartWindow = nullptr;
     errorWindow* errorwindow = nullptr;
+
+private:
+    IndicatorManager* m_indicatorManager;
+
+public slots:
+    void onValueChanged(int newValue);
+
+protected:
+    void showEvent(QShowEvent *event) override;
+
 };
 
 #endif // INDICATOR_H
