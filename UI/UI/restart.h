@@ -2,6 +2,9 @@
 #define RESTART_H
 
 #include <QDialog>
+#include "../core/scr/core.h"
+#include <QHostAddress>
+#include <QMessageBox>
 
 namespace Ui {
 class restart;
@@ -23,6 +26,8 @@ private:
 protected:
     // void mousePressEvent(QMouseEvent* event) override;
     // bool event(QEvent *event);
+private slots:
+    void on_restart_2_clicked();
 };
 
 #endif // RESTART_H
