@@ -128,9 +128,9 @@ border: 2px solid transparent;</string>
   <widget class="QPushButton" name="macAddress">
    <property name="geometry">
     <rect>
-     <x>800</x>
+     <x>770</x>
      <y>10</y>
-     <width>241</width>
+     <width>271</width>
      <height>41</height>
     </rect>
    </property>
@@ -648,8 +648,8 @@ border-radius: 80px;</string>
       <widget class="QGroupBox" name="group0_2">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>10</y>
+         <x>0</x>
+         <y>0</y>
          <width>349</width>
          <height>71</height>
         </rect>
