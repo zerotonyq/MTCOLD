@@ -59,7 +59,7 @@ indicator::indicator(QWidget *parent)
 void indicator::showEvent(QShowEvent *event) {
     if (event->type() == QEvent::Show) {
         // Тестовое изменение значения для обновления индикаторов
-        int newValue = 3; // Любое тестовое значение
+        int newValue = 0; // Любое тестовое значение
         emit onValueChanged(newValue);
     }
 

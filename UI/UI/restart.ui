@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>271</width>
-    <height>276</height>
+    <width>302</width>
+    <height>293</height>
    </rect>
   </property>
   <property name="font">
@@ -19,23 +19,25 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background: rgba(61, 61, 61, 1);
+   <string notr="true">background: #292929;
 display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
 gap: 37px;
-border-radius: 25px;
+border-radius: 20px;
+z-index: 0;
+
 
 </string>
   </property>
   <widget class="QPushButton" name="restart_2">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>220</y>
-     <width>201</width>
-     <height>41</height>
+     <x>70</x>
+     <y>230</y>
+     <width>161</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -47,13 +49,13 @@ border-radius: 25px;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 400 18px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+    <string notr="true">font: 400 13px &quot;Random Grotesque Standard Book&quot;, sans-serif;
 color: #d9d9d9;
-border-radius: 20px;
+border-radius: 15px;
 
 width: 672px;
 height: 89px;
-background: #1e1e1e;</string>
+background: #181818;</string>
    </property>
    <property name="text">
     <string>Переподключиться</string>
@@ -62,9 +64,9 @@ background: #1e1e1e;</string>
   <widget class="QLineEdit" name="api_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>160</y>
-     <width>251</width>
+     <x>30</x>
+     <y>164</y>
+     <width>241</width>
      <height>41</height>
     </rect>
    </property>
@@ -98,28 +100,39 @@ text-align: center</string>
   <widget class="QLabel" name="api2">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>20</y>
-     <width>151</width>
+     <x>37</x>
+     <y>42</y>
+     <width>231</width>
      <height>31</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Random Grotesque Standard Bold</family>
+     <pointsize>-1</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <stylestrategy>PreferDefault</stylestrategy>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">font: 400 20px &quot;Random Grotesque Standard Bold&quot;, sans-serif;
+    <string notr="true">font-family: &quot;Random Grotesque Standard Bold&quot;, sans-serif;
+background: transparent;
+font-size: 64px;
 font-weight: normal;
 text-align: center;
-color: #fff;</string>
+color: #D9D9D9;</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;IP-адрес:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;IP-адрес:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="port2">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>120</y>
-     <width>111</width>
+     <x>36</x>
+     <y>133</y>
+     <width>231</width>
      <height>31</height>
     </rect>
    </property>
@@ -132,13 +145,15 @@ color: #fff;</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 400 20px &quot;Random Grotesque Standard Bold&quot;, sans-serif;
+    <string notr="true">font-family: &quot;Random Grotesque Standard Bold&quot;, sans-serif;
+background: transparent;
+font-size: 64px;
 font-weight: normal;
 text-align: center;
-color: #fff;</string>
+color: #D9D9D9;</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Порт:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Порт:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -147,9 +162,9 @@ color: #fff;</string>
   <widget class="QLineEdit" name="api_3">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>60</y>
-     <width>251</width>
+     <x>30</x>
+     <y>74</y>
+     <width>241</width>
      <height>41</height>
     </rect>
    </property>
