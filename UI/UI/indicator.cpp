@@ -13,8 +13,9 @@
 #include <QHBoxLayout>
 #include <QMessageBox>
 #include <QEvent>
-
 #include <QButtonGroup>
+#include <QGraphicsDropShadowEffect>
+#include <QTimer>
 
 
 QDialog* dialog = nullptr; // Глобальная переменная для хранения указателя на диалог
@@ -67,8 +68,7 @@ void indicator::showEvent(QShowEvent *event) {
     QWidget::showEvent(event);
 }
 
-indicator::~indicator()
-{
+indicator::~indicator() {
     delete ui;
 }
 
@@ -119,7 +119,7 @@ void indicator::on_build_clicked()
 
     // Получаем позицию кнопки, на которую нажимают
     int offsetX = 30;
-    int offsetY = 40;
+    int offsetY = 45;
     restartWindow->move(QPoint(offsetX, offsetY));
 
     // Открываем новое окно в модальном режиме
@@ -141,8 +141,8 @@ void indicator::on_mistakes_clicked()
     errorwindow = new errorWindow(this);
     errorwindow->setWindowFlags(Qt::CustomizeWindowHint);
 
-    int offsetX = 400;
-    int offsetY = 40;
+    int offsetX = 455;
+    int offsetY = 45;
     errorwindow->move(QPoint(offsetX, offsetY));
 
     // Открываем новое окно в модальном режиме

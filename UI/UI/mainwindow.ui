@@ -56,13 +56,24 @@ background-color: transparent;
      <bool>true</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
-color: #d9d9d9;
-border-radius: 23px;
+     <string notr="true">QPushButton {
+    font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+    color: #d9d9d9;
+    border-radius: 23px;
+    width: 672px;
+    height: 89px;
+    background: #1e1e1e;
+}
 
-width: 672px;
-height: 89px;
-background: #1e1e1e;
+QPushButton:hover {
+    background: transparent;
+    font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+    color: #d9d9d9;
+    border-radius: 23px;
+    border: 1px solid #d9d9d9;
+    width: 672px;
+    height: 89px;
+}
 </string>
     </property>
     <property name="text">

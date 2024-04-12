@@ -304,6 +304,7 @@ D:/programmms/QT/TIHIND/UI/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/DPP_autogen
   D:/programmms/QT/6.7.0/mingw_64/include/QtGui/qtransform.h \
   D:/programmms/QT/6.7.0/mingw_64/include/QtGui/qwindowdefs.h \
   D:/programmms/QT/6.7.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+  D:/programmms/QT/6.7.0/mingw_64/include/QtNetwork/QHostAddress \
   D:/programmms/QT/6.7.0/mingw_64/include/QtNetwork/QNetworkAccessManager \
   D:/programmms/QT/6.7.0/mingw_64/include/QtNetwork/QNetworkRequest \
   D:/programmms/QT/6.7.0/mingw_64/include/QtNetwork/QSslConfiguration \
@@ -364,16 +365,19 @@ D:/programmms/QT/TIHIND/UI/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/DPP_autogen
   D:/programmms/QT/6.7.0/mingw_64/include/QtNetwork/qudpsocket.h \
   D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/QButtonGroup \
   D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/QDialog \
+  D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
   D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
   D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
   D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
   D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/qbuttongroup.h \
   D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/qdialog.h \
+  D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
   D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/qframe.h \
   D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
   D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
   D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
   D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+  D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
   D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   D:/programmms/QT/6.7.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \

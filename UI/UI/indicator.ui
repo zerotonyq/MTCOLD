@@ -71,6 +71,8 @@ background-image: url(:/image/resources/img/background.png);</string>
      <pointsize>-1</pointsize>
      <italic>false</italic>
      <bold>false</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
      <kerning>true</kerning>
     </font>
    </property>
@@ -81,9 +83,18 @@ background-image: url(:/image/resources/img/background.png);</string>
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
-color: #d9d9d9;
-background: #353535;</string>
+    <string notr="true">QPushButton {
+	font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+	color: #d9d9d9;
+	background: #353535;
+	border: 2px solid transparent;
+  	text-decoration: none; 
+}
+
+QPushButton:hover {
+  text-decoration: underline; 
+}
+</string>
    </property>
    <property name="text">
     <string>Сконфигурировать IP-адрес и порт</string>
@@ -98,7 +109,7 @@ background: #353535;</string>
   <widget class="QPushButton" name="mistakes">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>600</x>
      <y>10</y>
      <width>141</width>
      <height>41</height>
@@ -107,8 +118,8 @@ background: #353535;</string>
    <property name="styleSheet">
     <string notr="true">font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
 color: #d9d9d9;
-border-radius: 20px;
-background: #1e1e1e;</string>
+background: #353535;
+border: 2px solid transparent;</string>
    </property>
    <property name="text">
     <string>Ошибки</string>
@@ -124,9 +135,17 @@ background: #1e1e1e;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 400 16px &quot;Random Grotesque Standard Book&quot;, sans-serif;
-color: #d9d9d9;
-background: #353535;
+    <string notr="true">QPushButton {
+	font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+	color: #d9d9d9;
+	background: #353535;
+	border: 2px solid transparent;
+  	text-decoration: none; 
+}
+
+QPushButton:hover {
+  text-decoration: underline; 
+}
 </string>
    </property>
    <property name="text">
@@ -141,7 +160,7 @@ background: #353535;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1051</width>
+     <width>1071</width>
      <height>61</height>
     </rect>
    </property>

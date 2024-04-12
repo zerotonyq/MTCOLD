@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include <QMessageBox>
+#include <QPropertyAnimation>
+#include <QEvent>
 
 
 
@@ -32,6 +34,8 @@ void MainWindow::on_request_clicked() {
     QWidget::close();
     indicator.setModal(true);
     indicator.exec();
+
+
 
     // QHostAddress hostAddress(api);
     // if (!(hostAddress.isNull() || hostAddress.protocol() == QAbstractSocket::UnknownNetworkLayerProtocol) && int_port >= 1 && int_port <= 65535) {

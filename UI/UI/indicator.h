@@ -8,6 +8,7 @@
 #include "../core/scr/core.h"
 #include "../core/scr/Pockets.h"
 #include <QDialog>
+#include "ui_indicator.h"
 
 namespace Ui {
 class indicator;
