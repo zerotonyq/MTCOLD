@@ -176,15 +176,15 @@ height: 112px;</string>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>590</x>
-     <y>260</y>
-     <width>451</width>
-     <height>211</height>
+     <x>380</x>
+     <y>280</y>
+     <width>701</width>
+     <height>201</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Random Grotesque Standard Book</family>
+     <family>random grotesque standard book</family>
      <pointsize>-1</pointsize>
      <italic>false</italic>
      <bold>false</bold>
@@ -195,12 +195,14 @@ height: 112px;</string>
     <bool>true</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
-background-color: transperent;
-text-align: center;
-color: #fff;
-
-
+    <string notr="true">background: transparent;
+align-items: center;
+justify-content: center;
+font-size: 25px; /* или другой размер в зависимости от нужд */
+color: #D9D9D9; 
+font-family: 'random grotesque standard book', sans-serif; 
+text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); /* светлый эффект тени текста */
+padding: 10px 20px; /* немного пространства вокруг текста */
 </string>
    </property>
    <property name="lineWidth">
@@ -213,11 +215,10 @@ p, li { white-space: pre-wrap; }
 hr { height: 1px; border-width: 0; }
 li.unchecked::marker { content: &quot;\2610&quot;; }
 li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Random Grotesque Standard Book','sans-serif'; font-size:20px; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#f3f3f3;&quot;&gt;Чтобы получить данные с&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#f3f3f3;&quot;&gt;индикатора, включите один&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#f3f3f3;&quot;&gt;из доступных и нажмитe&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#f3f3f3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'random grotesque standard book','sans-serif'; font-size:25px; font-weight:400; font-style:normal;&quot; bgcolor=&quot;transparent&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:32px; color:#d9d9d9;&quot;&gt;    Чтобы получить данные с индикатора,&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:32px; color:#d9d9d9;&quot;&gt;    включите один из доступных и&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:32px; color:#d9d9d9;&quot;&gt;    нажмите&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="textFormat">
     <enum>Qt::MarkdownText</enum>
@@ -252,22 +253,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
    </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; color:#bdbdbd;&quot;&gt;Индикаторы, доступные &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#bdbdbd;&quot;&gt;на данный момент: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>800</x>
-     <y>470</y>
-     <width>51</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">image: url(:/image/resources/img/info.png);</string>
-   </property>
-   <property name="text">
-    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="labelInfo0">
@@ -372,7 +357,7 @@ display: flex;</string>
    </property>
    <property name="geometry">
     <rect>
-     <x>550</x>
+     <x>560</x>
      <y>230</y>
      <width>521</width>
      <height>591</height>
@@ -1655,7 +1640,6 @@ border-radius: 80px;</string>
   <zorder>labelInfo0</zorder>
   <zorder>labelInfo1</zorder>
   <zorder>label</zorder>
-  <zorder>label_4</zorder>
   <zorder>restart</zorder>
   <zorder>indiccount</zorder>
  </widget>

@@ -2,6 +2,7 @@
 #include "KRKR4BN5RM/moc_errorwindow.cpp"
 #include "KRKR4BN5RM/moc_indicator.cpp"
 #include "KRKR4BN5RM/moc_indicatormanager.cpp"
+#include "KRKR4BN5RM/moc_indicatorwidget.cpp"
 #include "KRKR4BN5RM/moc_mainwindow.cpp"
 #include "KRKR4BN5RM/moc_restart.cpp"
 #include "SKPPMS2LEH/moc_TestClient.cpp"

@@ -5,6 +5,7 @@ D:/programmms/QT/TIHIND/UI/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/DPP_autogen
   D:/programmms/QT/6.7.0/mingw_64/include/QtCore/QCryptographicHash \
   D:/programmms/QT/6.7.0/mingw_64/include/QtCore/QDeadlineTimer \
   D:/programmms/QT/6.7.0/mingw_64/include/QtCore/QDebug \
+  D:/programmms/QT/6.7.0/mingw_64/include/QtCore/QFile \
   D:/programmms/QT/6.7.0/mingw_64/include/QtCore/QFlags \
   D:/programmms/QT/6.7.0/mingw_64/include/QtCore/QHash \
   D:/programmms/QT/6.7.0/mingw_64/include/QtCore/QIODevice \
