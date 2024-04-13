@@ -3,6 +3,10 @@
 #include "qcheckbox.h"
 #include "qpushbutton.h"
 #include <QAbstractButton>
+#include <QFont>
+#include <QFontMetrics>
+
+#include "indicatorwidget.h"
 
 IndicatorManager::IndicatorManager(QButtonGroup *buttonGroup, QLabel *indicatorCountLabel, QWidget *parentWidget)
     : QObject(parentWidget) // Требуется инициализировать родительский QObject
@@ -12,29 +16,6 @@ IndicatorManager::IndicatorManager(QButtonGroup *buttonGroup, QLabel *indicatorC
     m_layout = new QVBoxLayout(parentWidget); // Инициализация QVBoxLayout с родительским виджетом
     // Другие инициализации и подключения сигналов
 }
-
-// void IndicatorManager::updateIndicatorCount(int count)
-// {
-//     // Очистить текущие индикаторы
-//     for (int i = m_layout->count() - 1; i >= 0; --i) {
-//         QLayoutItem *item = m_layout->itemAt(i);
-//         QWidget *widget = item->widget();
-//         m_layout->removeWidget(widget);
-//         delete widget;
-//     }
-
-//     // Загрузить дизайн из .ui файла
-//     QFile file("../UI/indicatormanager.ui");
-//     file.open(QFile::ReadOnly);
-//     QUiLoader loader;
-//     QWidget *uiWidget = loader.load(&file, this);
-
-//     // Добавить загруженный дизайн в m_layout
-//     m_layout->addWidget(uiWidget);
-
-//     // Обновление отображаемого количества индикаторов
-//     m_indicatorCountLabel->setText(QString("Общее количество индикаторов: %1").arg(count));
-// }
 
 void IndicatorManager::updateIndicatorCount(int count)
 {
@@ -47,47 +28,91 @@ void IndicatorManager::updateIndicatorCount(int count)
 
     // Создать новые индикаторы
     for (int i = 0; i < count; ++i) {
+        // Создание контейнера для индикатора
         QWidget *indicatorContainer = new QWidget();
-        QHBoxLayout *indicatorLayout = new QHBoxLayout(indicatorContainer);
 
-        QLabel *indicatorLabel = new QLabel(QString("Индикатор №%0").arg(i));
-        indicatorLabel->setStyleSheet("styles for indicator"); // Установите стили для лейбла
+        // Создание вертикального лейаута для индикатора
+        QVBoxLayout *mainLayout = new QVBoxLayout(indicatorContainer);
 
+        // Создание горизонтального лейаута для кнопок индикатора
+        QHBoxLayout *buttonLayout = new QHBoxLayout();
+
+        // Создание и стилизация лейбла индикатора
+        QLabel *indicatorLabel = new QLabel(QString("Indicator %0").arg(i));
+
+        // Уменьшение ширины лейбла в два раза
+        QFont font = indicatorLabel->font();
+        QFontMetrics fm(font);
+
+        int textWidth = fm.horizontalAdvance(indicatorLabel->text());
+        int newWidth = 400;
+
+        font.setPixelSize(fm.height()); // Сохраняем высоту шрифта без изменений
+        indicatorLabel->setFont(font);
+        indicatorLabel->setFixedWidth(newWidth);
+
+        indicatorLabel->setStyleSheet("QLabel { height: 50px; border: 2px solid white; border-radius: 15px; padding: 5px; background-color: black; color: white; };");
+
+        // Создание кнопки для отображения информации
         QPushButton *infoButton = new QPushButton("Info");
+        infoButton->setStyleSheet("background-color: #4CAF50; color: white;");
         connect(infoButton, &QPushButton::clicked, this, [this, i](){
-            // Обработка нажатия на кнопку info
-            // Возможно, вызов окна с информацией или другие действия
+            // Действия по нажатию на кнопку Info
+            // Например, показ дополнительной информации
         });
 
-        // QCheckBox *toggle = new QCheckBox();
-        // connect(toggle, &QCheckBox::toggled, this, [this, i](bool checked){
-        //     // Обработка изменения состояния тогла
-        // });
 
-        QString toggleButtonStyleOn = "QPushButton { background-color: green; color: white; border-radius: 10px; }";
-        QString toggleButtonStyleOff = "QPushButton { background-color: red; color: white; border-radius: 10px; }";
-
-        QPushButton *toggleButton = new QPushButton("OFF");
-        toggleButton->setStyleSheet(toggleButtonStyleOff);
-        connect(toggleButton, &QPushButton::clicked, [toggleButton, toggleButtonStyleOn, toggleButtonStyleOff]() {
-            if(toggleButton->text() == "OFF") {
-                toggleButton->setText("ON");
-                toggleButton->setStyleSheet(toggleButtonStyleOn);
+        // Создание кнопки для переключения состояния
+        QCheckBox *toggleButton = new QCheckBox();
+        toggleButton->setStyleSheet("QCheckBox::indicator { width: 60px; height: 80px; background-image: url(:/image/resources/img/info.png); }"
+                                    "QCheckBox::indicator:checked { image: url(:/image/resources/img/on_new.jpg); background-image: url(:/image/resources/img/info.png); }"
+                                    "QCheckBox::indicator:unchecked { image: url(:/image/resources/img/off_new.jpg); background-image: url(:/image/resources/img/info.png); }");
+        connect(toggleButton, &QCheckBox::toggled, this, [toggleButton](){
+            if (toggleButton->isChecked()) {
+                // Действия при включении состояния
             } else {
-                toggleButton->setText("OFF");
-                toggleButton->setStyleSheet(toggleButtonStyleOff);
+                // Действия при выключении состояния
             }
         });
 
-        m_layout->addWidget(indicatorLabel);
-        m_layout->addWidget(infoButton);
-        m_layout->addWidget(toggleButton);
+        // Добавление кнопок в лейаут
+        buttonLayout->addWidget(infoButton);
+        buttonLayout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum)); // Добавляем пустое пространство для выравнивания
+        buttonLayout->addWidget(toggleButton);
+
+        // Добавление элементов в главный вертикальный лейаут
+        mainLayout->addWidget(indicatorLabel);
+        mainLayout->addLayout(buttonLayout);
+
+        // Добавление контейнера в общий лейаут
+        m_layout->addWidget(indicatorContainer);
     }
 
     // Обновление отображаемого количества индикаторов
     m_indicatorCountLabel->setText(QString("Total Indicators: %1").arg(count));
 
 }
+
+// void IndicatorManager::updateIndicatorCount(int count)
+// {
+//     // Очистить текущие индикаторы
+//     QLayoutItem *child;
+//     while ((child = m_layout->takeAt(0)) != nullptr) {
+//         delete child->widget();
+//         delete child;
+//     }
+
+//     // Создать новые индикаторы
+//     for (int i = 0; i < count; ++i) {
+//         IndicatorWidget *indicatorWidget = new IndicatorWidget(QString("Индикатор №%0").arg(i));
+//         m_layout->addWidget(indicatorWidget);
+//     }
+
+//     // Обновление отображаемого количества индикаторов
+//     m_indicatorCountLabel->setText(QString("Total Indicators: %1").arg(count));
+// }
+
+
 
 
 void IndicatorManager::onButtonClicked(QAbstractButton* button)

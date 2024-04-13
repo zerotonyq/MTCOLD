@@ -6,6 +6,7 @@
 #include "restart.h"
 #include "ui_indicator.h"
 #include "indicatormanager.h"
+
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
@@ -17,6 +18,7 @@
 #include <QGraphicsDropShadowEffect>
 #include <QTimer>
 
+#include "indicatorwidget.h"
 
 QDialog* dialog = nullptr; // Глобальная переменная для хранения указателя на диалог
 
@@ -50,13 +52,18 @@ indicator::indicator(QWidget *parent)
 
     m_indicatorManager = new IndicatorManager(buttonGroup, ui->indiccount, this);
 
+    IndicatorWidget *m_indicatorWidget;
+    m_indicatorWidget = new IndicatorWidget("Мой индикатор", this);
+
     // Соединяем метод обновления индикаторов с сигналом о смене значения
     connect(this, SIGNAL(valueChanged(int)), this, SLOT(onValueChanged(int)));
 
-    connect(buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(onButtonClicked(QAbstractButton*)));
-
+    // connect(buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(onButtonClicked(QAbstractButton*)));
 }
 
+indicator::~indicator() {
+    delete ui;
+}
 void indicator::showEvent(QShowEvent *event) {
     if (event->type() == QEvent::Show) {
         // Тестовое изменение значения для обновления индикаторов
@@ -66,10 +73,6 @@ void indicator::showEvent(QShowEvent *event) {
 
     // Вызов реализации по умолчанию
     QWidget::showEvent(event);
-}
-
-indicator::~indicator() {
-    delete ui;
 }
 
 void indicator::onValueChanged(int newValue)

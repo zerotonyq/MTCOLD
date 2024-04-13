@@ -7,10 +7,14 @@
 #include <QButtonGroup>
 #include <QVBoxLayout>
 
+#include <QFile>
+
+
 class IndicatorManager : public QObject
 {
     Q_OBJECT
 public:
+    // IndicatorManager(QWidget *parent);
     IndicatorManager(QButtonGroup *buttonGroup, QLabel *indicatorCountLabel, QWidget *parentWidget);
 
 public slots:

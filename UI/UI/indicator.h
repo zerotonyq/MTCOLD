@@ -10,6 +10,7 @@
 #include <QDialog>
 #include "ui_indicator.h"
 
+
 namespace Ui {
 class indicator;
 }
@@ -50,6 +51,9 @@ public slots:
 
 protected:
     void showEvent(QShowEvent *event) override;
+
+signals:
+    void valueChanged(int newValue);
 
 };
 

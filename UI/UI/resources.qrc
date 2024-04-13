@@ -13,4 +13,5 @@
         <file>resources/img/off_new.jpg</file>
         <file>resources/img/restart.png</file>
     </qresource>
+    <qresource prefix="/indicator"/>
 </RCC>

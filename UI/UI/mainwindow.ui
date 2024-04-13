@@ -85,7 +85,7 @@ QPushButton:hover {
      <rect>
       <x>90</x>
       <y>160</y>
-      <width>621</width>
+      <width>721</width>
       <height>81</height>
      </rect>
     </property>
@@ -186,7 +186,7 @@ box-shadow: transparent; </string>
      <x>0</x>
      <y>0</y>
      <width>863</width>
-     <height>17</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
