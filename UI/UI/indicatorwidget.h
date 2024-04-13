@@ -3,16 +3,23 @@
 
 #include <QWidget>
 
-class IndicatorWidget : public QWidget
+namespace Ui {
+class indicatorwidget;
+}
+
+class indicatorwidget : public QWidget
 {
     Q_OBJECT
+
 public:
-    explicit IndicatorWidget(const QString& text, QWidget *parent = nullptr);
+    explicit indicatorwidget(QWidget *parent = nullptr);
+    ~indicatorwidget();
 
     void setIndicatorName(const QString &name);
 
 private:
-         // Добавьте необходимые элементы дизайна для индикатора (название, кнопки и т. д.)
+    Ui::indicatorwidget *ui;
 };
 
 #endif // INDICATORWIDGET_H
+

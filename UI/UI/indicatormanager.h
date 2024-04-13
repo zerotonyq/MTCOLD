@@ -1,30 +1,30 @@
-
 #ifndef INDICATORMANAGER_H
 #define INDICATORMANAGER_H
 
-#include "qlabel.h"
 #include <QObject>
-#include <QButtonGroup>
 #include <QVBoxLayout>
-
-#include <QFile>
-
+#include <QButtonGroup>
+#include <QLabel>
+#include "indicatorwidget.h"
 
 class IndicatorManager : public QObject
 {
     Q_OBJECT
+
 public:
-    // IndicatorManager(QWidget *parent);
-    IndicatorManager(QButtonGroup *buttonGroup, QLabel *indicatorCountLabel, QWidget *parentWidget);
+    explicit IndicatorManager(QButtonGroup *buttonGroup, QLabel *indicatorCountLabel, QWidget *indicatorCentralWidget);
+    ~IndicatorManager();
+
+    void updateIndicatorCount(int count);
 
 public slots:
-    void onButtonClicked(QAbstractButton* button);
-    void updateIndicatorCount(int count);
+    void addIndicatorWidget(QWidget *indicatorWidget);
 
 private:
     QButtonGroup *m_buttonGroup;
     QLabel *m_indicatorCountLabel;
     QVBoxLayout *m_layout;
+    QWidget *m_indicatorCentralWidget;
 };
 
 #endif // INDICATORMANAGER_H

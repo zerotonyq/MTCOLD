@@ -1,13 +1,19 @@
 #include "indicatorwidget.h"
+#include "ui_indicatorwidget.h"
 
-
-IndicatorWidget::IndicatorWidget(const QString &text, QWidget *parent)
-    : QWidget(parent)
+indicatorwidget::indicatorwidget(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::indicatorwidget)
 {
-    // Инициализация дизайна индикатора, например, через QLabel и QPushButton
+    ui->setupUi(this);
 }
 
-void IndicatorWidget::setIndicatorName(const QString &name)
+indicatorwidget::~indicatorwidget()
 {
-    // Установка названия индикатора
+    delete ui;
+}
+
+void indicatorwidget::setIndicatorName(const QString &name)
+{
+    ui->indicator->setText("vjefvefjvefv");
 }

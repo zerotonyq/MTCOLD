@@ -2,7 +2,9 @@
 #include "error.h"
 #include "errorwindow.h"
 #include "qbuttongroup.h"
+#include "qcheckbox.h"
 #include "qevent.h"
+#include "qscrollarea.h"
 #include "restart.h"
 #include "ui_indicator.h"
 #include "indicatormanager.h"
@@ -17,7 +19,6 @@
 #include <QButtonGroup>
 #include <QGraphicsDropShadowEffect>
 #include <QTimer>
-
 #include "indicatorwidget.h"
 
 QDialog* dialog = nullptr; // Глобальная переменная для хранения указателя на диалог
@@ -33,16 +34,16 @@ indicator::indicator(QWidget *parent)
 
     installEventFilter(this);
 
-    // Создаем объект группы кнопок
-    QButtonGroup *buttonGroup = new QButtonGroup(this);
+    // // Создаем объект группы кнопок
+    // QButtonGroup *buttonGroup = new QButtonGroup(this);
 
-    // Пример связывания кнопок с группой
-    buttonGroup->addButton(ui->info0, 0); // Уникальный идентификатор 0
-    buttonGroup->addButton(ui->info1, 1); // Уникальный идентификатор 1
-    buttonGroup->addButton(ui->info2, 2); // Уникальный идентификатор 2
-    buttonGroup->addButton(ui->info3, 3); // Уникальный идентификатор 3
-    buttonGroup->addButton(ui->info4, 4); // Уникальный идентификатор 4
-    buttonGroup->addButton(ui->restart, 5); // перезапуск
+    // // Пример связывания кнопок с группой
+    // buttonGroup->addButton(ui->info0, 0); // Уникальный идентификатор 0
+    // buttonGroup->addButton(ui->info1, 1); // Уникальный идентификатор 1
+    // buttonGroup->addButton(ui->info2, 2); // Уникальный идентификатор 2
+    // buttonGroup->addButton(ui->info3, 3); // Уникальный идентификатор 3
+    // // buttonGroup->addButton(ui->info4, 4); // Уникальный идентификатор 4
+    // buttonGroup->addButton(ui->restart, 5); // перезапуск
 
     // Количество индикаторов
 
@@ -50,63 +51,52 @@ indicator::indicator(QWidget *parent)
     _itoa_s(sii,scount,10);
     ui->indiccount->setText(scount);
 
-    m_indicatorManager = new IndicatorManager(buttonGroup, ui->indiccount, this);
-
-    IndicatorWidget *m_indicatorWidget;
-    m_indicatorWidget = new IndicatorWidget("Мой индикатор", this);
+    QButtonGroup *buttonGroup = new QButtonGroup(this);
+    QLabel *indicatorCountLabel = new QLabel(this);
+    m_indicatorManager = new IndicatorManager(buttonGroup, indicatorCountLabel, this);
 
     // Соединяем метод обновления индикаторов с сигналом о смене значения
     connect(this, SIGNAL(valueChanged(int)), this, SLOT(onValueChanged(int)));
 
-    // connect(buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(onButtonClicked(QAbstractButton*)));
+    connect(buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(onButtonClicked(QAbstractButton*)));
 }
 
 indicator::~indicator() {
     delete ui;
 }
-void indicator::showEvent(QShowEvent *event) {
+
+void indicator::showEvent(QShowEvent *event)
+{
     if (event->type() == QEvent::Show) {
-        // Тестовое изменение значения для обновления индикаторов
-        int newValue = 0; // Любое тестовое значение
+        // Test value change for updating indicators
+        int newValue = 5; // Any test value
         emit onValueChanged(newValue);
     }
 
-    // Вызов реализации по умолчанию
+    // Call the default implementation
     QWidget::showEvent(event);
 }
 
 void indicator::onValueChanged(int newValue)
 {
-    m_indicatorManager->updateIndicatorCount(newValue);
+    // Удаляем существующие индикаторы из QVBoxLayout
+    while (ui->verticalLayout->count() > 0) {
+        QLayoutItem *item = ui->verticalLayout->takeAt(0);
+        delete item->widget();
+        delete item;
+    }
+
+    // Создаем новые индикаторы
+    for (int i = 0; i < newValue; ++i) {
+        indicatorwidget *indicator = new indicatorwidget(this);
+        ui->verticalLayout->addWidget(indicator);
+    }
 }
-
-void indicator::onButtonClicked(QAbstractButton* button)
-{
-    m_indicatorManager->onButtonClicked(button);
-}
-
-
-// void indicator::on_build_clicked()
+// void indicator::onButtonClicked(QAbstractButton* button)
 // {
-//     // Проверяем, открыто ли уже окно restart
-//     if (restartWindow != nullptr && restartWindow->isVisible())
-//     {
-//         restartWindow->close();
-//         return;
-//     }
 
-//     // Создаем новый экземпляр окна restart
-//     restartWindow = new restart(this);
-//     restartWindow->setWindowFlags(Qt::CustomizeWindowHint);
-//     QPoint mainWinPos = this->pos();
-//     int offsetX = 0;
-//     int offsetY = 0;
-//     restartWindow->move(mainWinPos + QPoint(offsetX, offsetY));
-
-//     // Открываем новое окно в модальном режиме
-//     // restartWindow->exec();
-//     restartWindow->show();
 // }
+
 
 void indicator::on_build_clicked()
 {

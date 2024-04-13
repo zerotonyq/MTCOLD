@@ -34,8 +34,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
             UI/errorwindow.h UI/errorwindow.cpp UI/errorwindow.ui
             UI/indicatormanager.h
             UI/indicatormanager.cpp
-            UI/indicatorwidget.h UI/indicatorwidget.cpp
             UI/indicatorwidget.h UI/indicatorwidget.cpp UI/indicatorwidget.ui
+
+
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET DPP APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

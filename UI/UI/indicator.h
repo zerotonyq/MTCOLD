@@ -28,7 +28,7 @@ public:
 private slots:
     void on_build_clicked();
     void on_mistakes_clicked();
-    void onButtonClicked(QAbstractButton* button);
+    // void onButtonClicked(QAbstractButton* button);
     // bool eventFilter(QObject *obj, QEvent *event);
 
     //void on_toggle0_toggled(bool checked);
@@ -38,6 +38,7 @@ private:
     sIndicatorsCountPack count = core.getIndicatorsQuantity();
     Ui::indicator *ui;
     QButtonGroup *buttonGroup;
+    QWidget *m_indicatorContainerWidget;
 
 private:
     restart* restartWindow = nullptr;
