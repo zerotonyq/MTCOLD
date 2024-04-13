@@ -19,6 +19,12 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>1066</width>
+    <height>0</height>
+   </size>
+  </property>
   <property name="font">
    <font>
     <pointsize>7</pointsize>
@@ -269,8 +275,8 @@ padding: 10px 20px; /* немного пространства вокруг те
    </property>
    <property name="geometry">
     <rect>
-     <x>490</x>
-     <y>70</y>
+     <x>530</x>
+     <y>110</y>
      <width>521</width>
      <height>591</height>
     </rect>
@@ -552,16 +558,92 @@ text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); /* светлый эффек�
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
+  <widget class="QScrollArea" name="scrollArea">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>240</y>
-     <width>401</width>
-     <height>391</height>
+     <x>20</x>
+     <y>230</y>
+     <width>400</width>
+     <height>491</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout"/>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>400</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOn</enum>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustIgnored</enum>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>377</width>
+      <height>489</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout" stretch="0">
+       <property name="spacing">
+        <number>10</number>
+       </property>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetFixedSize</enum>
+       </property>
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>10</number>
+       </property>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <zorder>top</zorder>
   <zorder>build</zorder>
@@ -574,7 +656,7 @@ text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); /* светлый эффек�
   <zorder>restart</zorder>
   <zorder>indiccount</zorder>
   <zorder>label_3</zorder>
-  <zorder>verticalLayoutWidget</zorder>
+  <zorder>scrollArea</zorder>
  </widget>
  <resources>
   <include location="resources.qrc"/>

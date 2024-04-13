@@ -35,6 +35,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
             UI/indicatormanager.h
             UI/indicatormanager.cpp
             UI/indicatorwidget.h UI/indicatorwidget.cpp UI/indicatorwidget.ui
+            UI/macaddress.h UI/macaddress.cpp UI/macaddress.ui
 
 
     )

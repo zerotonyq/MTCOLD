@@ -3,6 +3,7 @@
 
 #include "errorwindow.h"
 #include "indicatormanager.h"
+#include "macaddress.h"
 #include "qabstractbutton.h"
 #include "restart.h"
 #include "../core/scr/core.h"
@@ -33,6 +34,8 @@ private slots:
 
     //void on_toggle0_toggled(bool checked);
 
+    void on_macAddress_clicked();
+
 private:
     char scount[1];
     sIndicatorsCountPack count = core.getIndicatorsQuantity();
@@ -43,6 +46,7 @@ private:
 private:
     restart* restartWindow = nullptr;
     errorWindow* errorwindow = nullptr;
+    macaddress* macAddress = nullptr;
 
 private:
     IndicatorManager* m_indicatorManager;

@@ -15,5 +15,5 @@ indicatorwidget::~indicatorwidget()
 
 void indicatorwidget::setIndicatorName(const QString &name)
 {
-    ui->indicator->setText("vjefvefjvefv");
+    ui->indicatorWidget->setText(name);
 }

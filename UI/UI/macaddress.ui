@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>macaddress</class>
+ <widget class="QWidget" name="macaddress">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>396</width>
+    <height>375</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>391</width>
+     <height>371</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(6, 6, 6);</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; font-size:24px; font-weight:700; color:#ffffff;&quot;&gt;Управление MAC-адресами&lt;/span&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; color:#ffffff;&quot;/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; font-size:18px; color:#ffffff;&quot;&gt;e0:db:55:a9:0c &lt;/span&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; font-size:18px; color:#4caf50;&quot;&gt;Текущий адрес. Изменить&lt;/span&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; color:#ffffff;&quot;/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; font-size:18px; color:#ffffff;&quot;&gt;50:46:5d:6e:8c:20 &lt;/span&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; font-size:18px; color:#4caf50;&quot;&gt;Адрес подключённого устройства. Изменить&lt;/span&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; color:#ffffff;&quot;/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; font-size:14px; color:#ffffff; background-color:rgba(255,255,255,0.098039);&quot;&gt;2023-04-12 08:30:15 - [INFO] - Программа запущена.&lt;/span&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; font-size:14px; color:#ffffff;&quot;/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; font-size:14px; color:#ffffff; background-color:rgba(255,255,255,0.098039);&quot;&gt;...другие логи...&lt;/span&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; font-size:14px; color:#ffffff;&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

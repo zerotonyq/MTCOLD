@@ -1,6 +1,7 @@
 #include "indicator.h"
 #include "error.h"
 #include "errorwindow.h"
+#include "macaddress.h"
 #include "qbuttongroup.h"
 #include "qcheckbox.h"
 #include "qevent.h"
@@ -58,7 +59,7 @@ indicator::indicator(QWidget *parent)
     // Соединяем метод обновления индикаторов с сигналом о смене значения
     connect(this, SIGNAL(valueChanged(int)), this, SLOT(onValueChanged(int)));
 
-    connect(buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(onButtonClicked(QAbstractButton*)));
+    // connect(buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(onButtonClicked(QAbstractButton*)));
 }
 
 indicator::~indicator() {
@@ -68,12 +69,11 @@ indicator::~indicator() {
 void indicator::showEvent(QShowEvent *event)
 {
     if (event->type() == QEvent::Show) {
-        // Test value change for updating indicators
-        int newValue = 5; // Any test value
+
+        int newValue = 5;
         emit onValueChanged(newValue);
     }
 
-    // Call the default implementation
     QWidget::showEvent(event);
 }
 
@@ -89,9 +89,11 @@ void indicator::onValueChanged(int newValue)
     // Создаем новые индикаторы
     for (int i = 0; i < newValue; ++i) {
         indicatorwidget *indicator = new indicatorwidget(this);
+        indicator->setIndicatorName(QString("Индикатор № %1").arg(i));
         ui->verticalLayout->addWidget(indicator);
     }
 }
+
 // void indicator::onButtonClicked(QAbstractButton* button)
 // {
 
@@ -352,4 +354,28 @@ void indicator::on_mistakes_clicked()
 //         core.turnOnIndicator();
 //     }
 // }
+
+
+
+void indicator::on_macAddress_clicked()
+{
+    if (macAddress != nullptr && macAddress->isVisible())
+    {
+        macAddress->close();
+        return;
+    }
+
+    // Создаем новый экземпляр окна macaddress
+    macAddress = new macaddress(this);
+    macAddress->setWindowFlags(Qt::CustomizeWindowHint);
+
+    // Устанавливаем позицию для окна
+    int offsetX = 720;
+    int offsetY = 45;
+    macAddress->move(QPoint(offsetX, offsetY));
+
+    // Открываем новое окно
+    macAddress->show();
+}
+
 
