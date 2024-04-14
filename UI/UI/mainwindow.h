@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "indicator.h"
+#include "restart.h"
 #include "../core/scr/core.h"
 #include <QCoreApplication>
 #include <QHostAddress>
@@ -20,6 +21,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    Core core;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 

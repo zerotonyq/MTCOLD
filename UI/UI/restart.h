@@ -15,10 +15,14 @@ class restart : public QDialog
     Q_OBJECT
 
 public:
+    void setCore(Core *core){
+        this->core = core;
+    }
     explicit restart(QWidget *parent = nullptr);
     ~restart();
 
 private:
+    Core *core;
     Ui::restart *ui;
     restart* restartWindow = nullptr;
 

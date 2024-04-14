@@ -31,6 +31,8 @@ void MainWindow::on_request_clicked() {
 
     indicator indicator;
 
+    //Core core(api,int_port);
+    //restart.setCore(&core);
     QWidget::close();
     indicator.setModal(true);
     indicator.exec();
