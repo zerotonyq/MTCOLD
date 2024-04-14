@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>336</width>
-    <height>95</height>
+    <height>70</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -83,7 +83,7 @@ QCheckBox::indicator:unchecked {
 	image: url(:/image/resources/img/off_new.jpg);
 	background-image: url(:/image/resources/img/info.png);
 }
-
+*/
 </string>
    </property>
    <property name="text">
@@ -147,7 +147,6 @@ border-radius: 80px;</string>
   <zorder>indicatorWidget</zorder>
   <zorder>info0_2</zorder>
   <zorder>toggle0_2</zorder>
-  <zorder>verticalSpacer</zorder>
  </widget>
  <resources/>
  <connections/>

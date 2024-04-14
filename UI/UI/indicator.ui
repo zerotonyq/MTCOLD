@@ -467,10 +467,10 @@ display: flex;</string>
    </property>
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>170</y>
+     <x>385</x>
+     <y>180</y>
      <width>31</width>
-     <height>21</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -519,9 +519,9 @@ background: transparent;</string>
   <widget class="QLabel" name="indiccount">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>170</y>
-     <width>71</width>
+     <x>350</x>
+     <y>168</y>
+     <width>31</width>
      <height>41</height>
     </rect>
    </property>
@@ -533,7 +533,7 @@ text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); /* светлый эффек�
 </string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#ffffff;&quot;&gt;5&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt; color:#ffffff;&quot;&gt;5&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -563,12 +563,12 @@ text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); /* светлый эффек�
     <rect>
      <x>20</x>
      <y>230</y>
-     <width>400</width>
+     <width>391</width>
      <height>491</height>
     </rect>
    </property>
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
@@ -580,10 +580,10 @@ text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); /* светлый эффек�
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">border-color: rgb(0, 0, 0);</string>
    </property>
    <property name="verticalScrollBarPolicy">
-    <enum>Qt::ScrollBarAlwaysOn</enum>
+    <enum>Qt::ScrollBarAsNeeded</enum>
    </property>
    <property name="sizeAdjustPolicy">
     <enum>QAbstractScrollArea::AdjustIgnored</enum>
@@ -592,54 +592,38 @@ text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); /* светлый эффек�
     <bool>true</bool>
    </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignHCenter|Qt::AlignTop</set>
    </property>
-   <widget class="QWidget" name="scrollAreaWidget">
+   <widget class="QWidget" name="indicatorwidget">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>377</width>
+      <width>389</width>
       <height>489</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout" stretch="0">
+      <layout class="QVBoxLayout" name="verticalLayout" stretch="">
        <property name="spacing">
-        <number>10</number>
+        <number>7</number>
        </property>
        <property name="sizeConstraint">
-        <enum>QLayout::SetFixedSize</enum>
+        <enum>QLayout::SetDefaultConstraint</enum>
        </property>
        <property name="leftMargin">
-        <number>10</number>
+        <number>7</number>
        </property>
        <property name="topMargin">
-        <number>10</number>
+        <number>7</number>
        </property>
        <property name="rightMargin">
-        <number>10</number>
+        <number>7</number>
        </property>
        <property name="bottomMargin">
-        <number>10</number>
+        <number>7</number>
        </property>
-       <item>
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
       </layout>
      </item>
     </layout>

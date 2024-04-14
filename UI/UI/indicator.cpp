@@ -52,6 +52,7 @@ indicator::indicator(QWidget *parent)
     _itoa_s(sii,scount,10);
     ui->indiccount->setText(scount);
 
+
     QButtonGroup *buttonGroup = new QButtonGroup(this);
     QLabel *indicatorCountLabel = new QLabel(this);
     m_indicatorManager = new IndicatorManager(buttonGroup, indicatorCountLabel, this);
@@ -90,8 +91,13 @@ void indicator::onValueChanged(int newValue)
     for (int i = 0; i < newValue; ++i) {
         indicatorwidget *indicator = new indicatorwidget(this);
         indicator->setIndicatorName(QString("Индикатор № %1").arg(i));
+        indicator->setFixedSize(330, 71);
         ui->verticalLayout->addWidget(indicator);
     }
+    ui->indiccount->setFont(QFont("SansSerif", 24));
+    ui->indiccount->setText(QString("%1").arg(newValue));
+    QSpacerItem *verticalSpacer = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
+    ui->verticalLayout->addItem(verticalSpacer);
 }
 
 // void indicator::onButtonClicked(QAbstractButton* button)

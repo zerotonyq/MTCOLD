@@ -27,6 +27,9 @@ private:
     QLabel *m_indicatorCountLabel;
     QWidget *m_indicatorCentralWidget;
     QVBoxLayout *m_layout;
+
+private:
+    QWidget *m_containerWidget;
 };
 
 #endif // INDICATORMANAGER_H

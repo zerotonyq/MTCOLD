@@ -8,6 +8,8 @@
 
 #include "indicatormanager.h"
 
+constexpr int MAX_VISIBLE_INDICATORS = 10; // Примерное количество индикаторов, видимых без прокрутки
+
 
 IndicatorManager::IndicatorManager(QButtonGroup *buttonGroup, QLabel *indicatorCountLabel, QWidget *indicatorCentralWidget)
     : QObject(indicatorCentralWidget)
@@ -33,25 +35,21 @@ void IndicatorManager::addIndicatorWidget(QWidget *indicatorWidget)
 
 void IndicatorManager::updateIndicatorCount(int count) {
 
-    QLayoutItem *child;
-    while ((child = m_layout->takeAt(0)) != nullptr) {
-        delete child->widget();
-        delete child;
-    }
-
-    for (int i = 0; i < count; ++i) {
-
-        indicatorwidget *indicatorWidget = new indicatorwidget(m_indicatorCentralWidget); // Установка родительского виджета
+    for (int i = m_layout->count(); i < count; ++i) {
+        indicatorwidget *indicatorWidget = new indicatorwidget(m_indicatorCentralWidget);
         QString indicatorName = QString("Индикатор № %1").arg(i);
         indicatorWidget->setIndicatorName(indicatorName);
 
+        // Установка родительского виджета
+        indicatorWidget->setParent(m_indicatorCentralWidget);
+
         // Set up the toggle button
         QCheckBox *toggleButton = indicatorWidget->findChild<QCheckBox*>("toggle");
-        connect(toggleButton, &QCheckBox::toggled, [toggleButton](){
+        connect(toggleButton, &QCheckBox::toggled, [toggleButton]() {
             if (toggleButton->isChecked()) {
-
+                // Код обработки действий при включении кнопки
             } else {
-
+                // Код обработки действий при выключении кнопки
             }
         });
 
@@ -59,7 +57,46 @@ void IndicatorManager::updateIndicatorCount(int count) {
     }
 
     m_indicatorCountLabel->setText(QString("Total Indicators: %1").arg(count));
+
 }
+
+// // Добавляем QScrollArea для прокрутки при переполнении
+// if (m_layout->count() > MAX_VISIBLE_INDICATORS) {
+//     if (!m_scrollArea) {
+//         m_scrollArea = new QScrollArea;
+//         m_scrollArea->setWidget(m_layout->parentWidget());
+//         m_indicatorCentralWidget->layout()->addWidget(m_scrollArea); // Добавляем QScrollArea вместо m_layout
+//     }
+// }
+// void IndicatorManager::updateIndicatorCount(int count) {
+
+//     QLayoutItem *child;
+//     while ((child = m_layout->takeAt(0)) != nullptr) {
+//         delete child->widget();
+//         delete child;
+//     }
+
+//     for (int i = 0; i < count; ++i) {
+
+//         indicatorwidget *indicatorWidget = new indicatorwidget(m_indicatorCentralWidget); // Установка родительского виджета
+//         QString indicatorName = QString("Индикатор № %1").arg(i);
+//         indicatorWidget->setIndicatorName(indicatorName);
+
+//         // Set up the toggle button
+//         QCheckBox *toggleButton = indicatorWidget->findChild<QCheckBox*>("toggle");
+//         connect(toggleButton, &QCheckBox::toggled, [toggleButton](){
+//             if (toggleButton->isChecked()) {
+
+//             } else {
+
+//             }
+//         });
+
+//         m_layout->addWidget(indicatorWidget);
+//     }
+
+//     m_indicatorCountLabel->setText(QString("Total Indicators: %1").arg(count));
+// }
 
 
 // void IndicatorManager::onButtonClicked(QAbstractButton* button)
