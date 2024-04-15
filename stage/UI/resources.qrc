@@ -20,4 +20,8 @@
         <file>resources/img/iconbig.ico</file>
     </qresource>
     <qresource prefix="/indicator"/>
+    <qresource prefix="/">
+        <file>resources/fonts/RG-StandardBold.ttf</file>
+        <file>resources/fonts/RG-StandardBook.ttf</file>
+    </qresource>
 </RCC>
