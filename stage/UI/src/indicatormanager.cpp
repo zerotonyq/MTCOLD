@@ -43,11 +43,13 @@ void IndicatorManager::updateIndicatorCount(int count) {
 
         // Set up the toggle button
         QCheckBox *toggleButton = indicatorWidget->findChild<QCheckBox*>("toggle");
-        connect(toggleButton, &QCheckBox::toggled, [toggleButton]() {
+        connect(toggleButton, &QCheckBox::toggled, [toggleButton, i, this]() {
             if (toggleButton->isChecked()) {
                 // Код обработки действий при включении кнопки
+                core->turnOnIndicator(i);
             } else {
                 // Код обработки действий при выключении кнопки
+                core->turnOffIndicator(i);
             }
         });
 

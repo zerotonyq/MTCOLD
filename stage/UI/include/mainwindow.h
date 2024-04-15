@@ -21,7 +21,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    Core core;
+    Core *core;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 

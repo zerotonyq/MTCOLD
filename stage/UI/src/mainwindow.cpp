@@ -41,7 +41,9 @@ void MainWindow::on_request_clicked() {
 
     // QHostAddress hostAddress(api);
     // if (!(hostAddress.isNull() || hostAddress.protocol() == QAbstractSocket::UnknownNetworkLayerProtocol) && int_port >= 1 && int_port <= 65535) {
-    //     Core core(api,int_port);
+    //     core = new Core(api,int_port);
+    //     restart* Restart = new restart();
+    //     Restart->setCore(core);
     //     QWidget::close();
     //     indicator.setModal(true);
     //     indicator.exec();
@@ -67,7 +69,6 @@ void MainWindow::on_request_clicked() {
     //     // ui -> label_2 -> setText("АУЕ");
 
     // }
-
 
 
 }
