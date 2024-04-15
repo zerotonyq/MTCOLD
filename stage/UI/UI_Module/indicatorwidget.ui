@@ -33,28 +33,31 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>9</pointsize>
+     <family>Random Grotesque Standard Book</family>
+     <pointsize>14</pointsize>
      <fontweight>ExtraLight</fontweight>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">width: 400px;
+    <string notr="true">font-family: &quot;Random Grotesque Standard Book&quot;, sans-serif;
+font-size:14pt;
+width: 400px;
 color: rgb(0, 0, 0);
 height: 50px;
- background-color: white;
+background-color: #FDFDFB;
 border-radius: 25px; /* Половина высоты для полного скругления */
 display: flex;
 align-items: center; /* Вертикальное выравнивание текста */
 padding: 0 20px; /* Отступы с обоих концов */
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Небольшая тень для эффекта всплытия */
- margin: 10px 0; /* Для отступа между элементами, если их несколько */
+margin: 10px 0; /* Для отступа между элементами, если их несколько */
 </string>
    </property>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Индикатор № 0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Индикатор № 0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QCheckBox" name="toggle0_2">
@@ -73,18 +76,23 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Небольшая тень для 
     <string notr="true">QCheckBox::indicator {
 	width: 60px;
 	height: 80px;
-	background-image: url(:/image/resources/img/info.png);
+	background: white;
 }
 
 QCheckBox::indicator:checked {
-	image: url(:/image/resources/img/on_new.jpg);
-	background-image: url(:/image/resources/img/info.png);
+	image: url(:/image/resources/img/ON_final.png);
+	background-size: cover;  
+    background-position: center;  
+    background-repeat: no-repeat;  
 }
 
 QCheckBox::indicator:unchecked {
-	image: url(:/image/resources/img/off_new.jpg);
-	background-image: url(:/image/resources/img/info.png);
+	image: url(:/image/resources/img/OFF_final.png);
+	background-size: cover;  
+    background-position: center;  
+    background-repeat: no-repeat;
 }
+
 
 </string>
    </property>
@@ -98,10 +106,10 @@ QCheckBox::indicator:unchecked {
    </property>
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>26</y>
-     <width>21</width>
-     <height>21</height>
+     <x>160</x>
+     <y>27</y>
+     <width>19</width>
+     <height>19</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -130,7 +138,7 @@ QCheckBox::indicator:unchecked {
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/image/resources/img/info_black.png);
+    <string notr="true">image: url(:/image/resources/img/info_black3.png);
 border-radius: 80px;</string>
    </property>
    <property name="text">

@@ -50,6 +50,7 @@ private:
 
 private:
     IndicatorManager* m_indicatorManager;
+    void errorFlashing();
 
 public slots:
     void onValueChanged(int newValue);

@@ -59,6 +59,10 @@ indicator::indicator(QWidget *parent)
     connect(this, SIGNAL(valueChanged(int)), this, SLOT(onValueChanged(int)));
 
     // connect(buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(onButtonClicked(QAbstractButton*)));
+    QTimer *timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &indicator::errorFlashing);
+    timer->start(1000);
+
 }
 
 indicator::~indicator() {
@@ -75,6 +79,7 @@ void indicator::showEvent(QShowEvent *event)
 
     QWidget::showEvent(event);
 }
+
 
 void indicator::onValueChanged(int newValue)
 {
@@ -103,6 +108,30 @@ void indicator::onValueChanged(int newValue)
 
 // }
 
+void indicator::errorFlashing() {
+    static bool isRed = false; // Статическая переменная для сохранения состояния
+    QString basicStyle = "QPushButton {"
+                         "font: 400 20px 'Random Grotesque Standard Book', sans-serif;"
+                         "color: #FDFDFB;"
+                         "background: #353535;"
+                         "border: none;"
+                         "}";
+
+    QString hoverStyle = "QPushButton:hover {"
+                         "text-decoration: underline;"
+                         "}";
+
+    if (isRed) {
+        // Возвращаем к стандартному стилю
+        ui->mistakes->setStyleSheet(basicStyle + hoverStyle);
+    } else {
+        // Изменяем на красный с эффектом свечения
+        ui->mistakes->setStyleSheet(basicStyle +
+                                    "QPushButton { color: #8A0000; box-shadow: 0 0 10px red; }" +
+                                    hoverStyle);
+    }
+    isRed = !isRed; // Переключаем флаг
+}
 
 void indicator::on_build_clicked()
 {
@@ -374,7 +403,7 @@ void indicator::on_macAddress_clicked()
     macAddress->setWindowFlags(Qt::CustomizeWindowHint);
 
     // Устанавливаем позицию для окна
-    int offsetX = 720;
+    int offsetX = 650;
     int offsetY = 45;
     macAddress->move(QPoint(offsetX, offsetY));
 

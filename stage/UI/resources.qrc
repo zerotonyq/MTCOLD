@@ -12,6 +12,12 @@
         <file>resources/img/on_new.jpg</file>
         <file>resources/img/off_new.jpg</file>
         <file>resources/img/restart.png</file>
+        <file>resources/img/info_black2.png</file>
+        <file>resources/img/OFF_final.png</file>
+        <file>resources/img/ON_final.png</file>
+        <file>resources/img/info_black3.png</file>
+        <file>resources/img/icon.ico</file>
+        <file>resources/img/iconbig.ico</file>
     </qresource>
     <qresource prefix="/indicator"/>
 </RCC>
