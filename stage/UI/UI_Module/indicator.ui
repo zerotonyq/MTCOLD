@@ -266,7 +266,7 @@ padding: 10px 20px; /* немного пространства вокруг те
     <enum>QFrame::Raised</enum>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt; color:#ffffff;&quot;&gt;Индикаторы, доступные &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt; color:#ffffff;&quot;&gt;на данный момент: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#ffffff;&quot;&gt;Индикаторы, доступные &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#ffffff;&quot;&gt;на данный момент: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="labelInfo0">
@@ -276,7 +276,7 @@ padding: 10px 20px; /* немного пространства вокруг те
    <property name="geometry">
     <rect>
      <x>530</x>
-     <y>110</y>
+     <y>170</y>
      <width>521</width>
      <height>591</height>
     </rect>
@@ -467,10 +467,10 @@ display: flex;</string>
    </property>
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>180</y>
-     <width>41</width>
-     <height>31</height>
+     <x>290</x>
+     <y>165</y>
+     <width>25</width>
+     <height>25</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -519,15 +519,15 @@ background: transparent;</string>
   <widget class="QLabel" name="indiccount">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>167</y>
-     <width>71</width>
-     <height>41</height>
+     <x>272</x>
+     <y>165</y>
+     <width>21</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;
-color: #D9D9D9; 
+color: #fff; 
 font-family: 'random grotesque standard book', sans-serif; 
 text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); /* светлый эффект тени текста */
 </string>
@@ -562,9 +562,9 @@ text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); /* светлый эффек�
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>230</y>
+     <y>204</y>
      <width>400</width>
-     <height>491</height>
+     <height>511</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -580,7 +580,37 @@ text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); /* светлый эффек�
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">QScrollArea{
+	background: transparent;
+	border: none;
+}
+QScrollArea QWidget#scrollAreaWidgetContents {
+    background-color: solid white; /* Замените #f0f0f0 на желаемый цвет фона */
+}
+QScrollBar:vertical {
+    border: none;
+    background: rgba(0, 0, 0, 0.1); 
+    width: 8px; 
+    border-radius: 4px; 
+}
+
+QScrollBar::handle:vertical {
+    background: rgba(0, 0, 0, 0.5); 
+    min-height: 25px;
+    border-radius: 4px; 
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px; 
+}
+
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+    background: none; 
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none; 
+}</string>
    </property>
    <property name="verticalScrollBarPolicy">
     <enum>Qt::ScrollBarAlwaysOn</enum>
@@ -599,9 +629,12 @@ text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); /* светлый эффек�
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>377</width>
-      <height>489</height>
+      <width>392</width>
+      <height>511</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;</string>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
