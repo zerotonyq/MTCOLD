@@ -1,0 +1,31 @@
+{
+	"BUILD_DIR" : "C:/Users/User/Desktop/qt/TIHIND/stage/DPP_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/User/Desktop/qt/TIHIND/stage",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/User/Desktop/qt/TIHIND/stage",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/User/Desktop/qt/TIHIND/stage",
+	"CMAKE_SOURCE_DIR" : "C:/Users/User/Desktop/qt/TIHIND/stage",
+	"INCLUDE_DIR" : "C:/Users/User/Desktop/qt/TIHIND/stage/DPP_autogen/include",
+	"INPUTS" : 
+	[
+		"C:/Users/User/Desktop/qt/TIHIND/stage/UI/style.css",
+		"C:/Users/User/Desktop/qt/TIHIND/stage/UI/resources/img/off.png",
+		"C:/Users/User/Desktop/qt/TIHIND/stage/UI/resources/img/off_new.jpg",
+		"C:/Users/User/Desktop/qt/TIHIND/stage/UI/resources/img/white_back.jpg",
+		"C:/Users/User/Desktop/qt/TIHIND/stage/UI/resources/img/background.png",
+		"C:/Users/User/Desktop/qt/TIHIND/stage/UI/resources/img/on_new.jpg",
+		"C:/Users/User/Desktop/qt/TIHIND/stage/UI/resources/img/info_black.png",
+		"C:/Users/User/Desktop/qt/TIHIND/stage/UI/resources/img/on.png",
+		"C:/Users/User/Desktop/qt/TIHIND/stage/UI/resources/img/info.png",
+		"C:/Users/User/Desktop/qt/TIHIND/stage/UI/resources/img/restart.png"
+	],
+	"LOCK_FILE" : "C:/Users/User/Desktop/qt/TIHIND/stage/CMakeFiles/DPP_autogen.dir/AutoRcc_resources_KRKR4BN5RM_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "KRKR4BN5RM",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "C:/Qt/6.6.2/mingw_64/./bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "C:/Users/User/Desktop/qt/TIHIND/stage/CMakeFiles/DPP_autogen.dir/AutoRcc_resources_KRKR4BN5RM_Used.txt",
+	"SOURCE" : "C:/Users/User/Desktop/qt/TIHIND/stage/UI/resources.qrc",
+	"VERBOSITY" : 0
+}
