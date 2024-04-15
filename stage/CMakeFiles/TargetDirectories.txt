@@ -1,9 +1,0 @@
-C:/Users/User/Desktop/qt/TIHIND/stage/CMakeFiles/DPP.dir
-C:/Users/User/Desktop/qt/TIHIND/stage/CMakeFiles/edit_cache.dir
-C:/Users/User/Desktop/qt/TIHIND/stage/CMakeFiles/rebuild_cache.dir
-C:/Users/User/Desktop/qt/TIHIND/stage/CMakeFiles/list_install_components.dir
-C:/Users/User/Desktop/qt/TIHIND/stage/CMakeFiles/install.dir
-C:/Users/User/Desktop/qt/TIHIND/stage/CMakeFiles/install/local.dir
-C:/Users/User/Desktop/qt/TIHIND/stage/CMakeFiles/install/strip.dir
-C:/Users/User/Desktop/qt/TIHIND/stage/CMakeFiles/DPP_autogen_timestamp_deps.dir
-C:/Users/User/Desktop/qt/TIHIND/stage/CMakeFiles/DPP_autogen.dir
