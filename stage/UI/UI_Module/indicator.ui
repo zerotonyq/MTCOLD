@@ -253,7 +253,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    </property>
    <property name="font">
     <font>
-     <family>random grotesque standard book</family>
+     <family>Random Grotesque Standard Book</family>
      <pointsize>9</pointsize>
      <fontweight>Medium</fontweight>
     </font>
@@ -261,7 +261,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <property name="styleSheet">
     <string notr="true">background: transparent;
 color: #FDFDFB; 
-font-family: 'random grotesque standard book', sans-serif; 
+font-family: Random Grotesque Standard Book; 
 text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); /* светлый эффект тени текста */
 padding: 10px 20px; /* немного пространства вокруг текста */</string>
    </property>
