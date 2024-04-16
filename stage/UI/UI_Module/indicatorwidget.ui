@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>indicatorwidget</class>
+ <widget class="QWidget" name="indicatorwidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>346</width>
+    <height>95</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: transparent;</string>
+  </property>
+  <widget class="QLabel" name="indicatorWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>321</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>Random Grotesque Standard Book</family>
+     <pointsize>14</pointsize>
+     <fontweight>ExtraLight</fontweight>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-family: &quot;Random Grotesque Standard Book&quot;, sans-serif;
+font-size:14pt;
+width: 400px;
+color: rgb(0, 0, 0);
+height: 50px;
+background-color: #FDFDFB;
+border-radius: 25px; /* Половина высоты для полного скругления */
+display: flex;
+align-items: center; /* Вертикальное выравнивание текста */
+padding: 0 20px; /* Отступы с обоих концов */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Небольшая тень для эффекта всплытия */
+margin: 10px 0; /* Для отступа между элементами, если их несколько */
+</string>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Индикатор № 0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="toggle0_2">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>257</x>
+     <y>21</y>
+     <width>61</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox::indicator {
+	width: 60px;
+	height: 80px;
+	background: white;
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/image/resources/img/ON_final.png);
+	background-size: cover;  
+    background-position: center;  
+    background-repeat: no-repeat;  
+}
+
+QCheckBox::indicator:unchecked {
+	image: url(:/image/resources/img/OFF_final.png);
+	background-size: cover;  
+    background-position: center;  
+    background-repeat: no-repeat;
+}
+
+
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="info0_2">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>27</y>
+     <width>19</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+     <bold>false</bold>
+     <stylestrategy>PreferAntialias</stylestrategy>
+    </font>
+   </property>
+   <property name="mouseTracking">
+    <bool>true</bool>
+   </property>
+   <property name="tabletTracking">
+    <bool>true</bool>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::StrongFocus</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/image/resources/img/info_black3.png);
+border-radius: 80px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <zorder>indicatorWidget</zorder>
+  <zorder>info0_2</zorder>
+  <zorder>toggle0_2</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
