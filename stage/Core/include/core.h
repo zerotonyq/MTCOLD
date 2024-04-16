@@ -1,19 +1,22 @@
 #pragma once
 #include <QtNetwork>
-#include "Pockets.h"
+#include "Packets.h"
 
-class Core {
+class Core : public QObject {
+Q_OBJECT
 public:
     Core();
     Core(const QString& addres, const quint16 port);
     ~Core();
-    MainPocket sendRecievePocket(Pocket& sendPocket, quint16 command);
-    void sendPocket(Pocket& pocket, quint16 command);
     void changeAddres(const QString& newAddr, const quint16 newPort);
     sIndicatorsCountPack getIndicatorsQuantity();
-    sIndicatorStatisticsPack getIndicatorStat(quint16 indicatorIndex);
-    void turnOnIndicator(quint16 indicatorIndex);
-    void turnOffIndicator(quint16 indicatorIndex);
+    sIndicatorStatisticsPack getIndicatorStat(quint32 indicatorIndex);
+    void turnOnIndicator(quint32 indicatorIndex);
+    void turnOffIndicator(quint32 indicatorIndex);
+
+private:
+    MainPacket sendRecievePacket(Packet& sendPocket, quint32 command);
+    void sendPacket(Packet& packet, quint32 command);
 
 private:
     QString currentAddres = "127.0.0.1";
