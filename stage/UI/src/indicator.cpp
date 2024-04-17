@@ -71,7 +71,7 @@ void indicator::showEvent(QShowEvent *event)
 {
     if (event->type() == QEvent::Show) {
 
-        int newValue = 8;
+        int newValue = 4;
         emit onValueChanged(newValue);
     }
 
@@ -92,7 +92,7 @@ void indicator::onValueChanged(int newValue)
     for (int i = 0; i < newValue; ++i) {
         indicatorwidget *indicator = new indicatorwidget(this);
         indicator->setIndicatorName(QString("Индикатор № %1").arg(i));
-        indicator->setFixedSize(330, 71);
+        indicator->setFixedSize(330, 73);
         indicator->setInfoText("This is the information for indicator" + QString::number(i));
         ui->verticalLayout->addWidget(indicator);
     }

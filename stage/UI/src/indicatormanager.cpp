@@ -6,8 +6,6 @@
 #include <QFont>
 #include <QFontMetrics>
 
-constexpr int MAX_VISIBLE_INDICATORS = 10; // Примерное количество индикаторов, видимых без прокрутки
-
 
 IndicatorManager::IndicatorManager(QButtonGroup *buttonGroup, QLabel *indicatorCountLabel, QWidget *indicatorCentralWidget)
     : QObject(indicatorCentralWidget)
@@ -38,7 +36,6 @@ void IndicatorManager::updateIndicatorCount(int count) {
         QString indicatorName = QString("Индикатор № %1").arg(i);
         indicatorWidget->setIndicatorName(indicatorName);
 
-        // Установка родительского виджета
         indicatorWidget->setParent(m_indicatorCentralWidget);
 
         // Set up the toggle button
@@ -57,21 +54,6 @@ void IndicatorManager::updateIndicatorCount(int count) {
     }
 
     m_indicatorCountLabel->setText(QString("Total Indicators: %1").arg(count));
-
 }
 
-// // Добавляем QScrollArea для прокрутки при переполнении
-// if (m_layout->count() > MAX_VISIBLE_INDICATORS) {
-//     if (!m_scrollArea) {
-//         m_scrollArea = new QScrollArea;
-//         m_scrollArea->setWidget(m_layout->parentWidget());
-//         m_indicatorCentralWidget->layout()->addWidget(m_scrollArea); // Добавляем QScrollArea вместо m_layout
-//     }
-// }
 
-
-
-// void IndicatorManager::onButtonClicked(QAbstractButton* button)
-// {
-//     // Ваша обработка событий нажатия на кнопки с индикаторами
-// }

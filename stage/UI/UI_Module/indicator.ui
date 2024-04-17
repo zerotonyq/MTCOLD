@@ -374,8 +374,8 @@ display: flex;</string>
    </property>
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>230</y>
+     <x>470</x>
+     <y>140</y>
      <width>521</width>
      <height>591</height>
     </rect>
