@@ -34,19 +34,6 @@ indicator::indicator(QWidget *parent)
 
     installEventFilter(this);
 
-    // // Создаем объект группы кнопок
-    // QButtonGroup *buttonGroup = new QButtonGroup(this);
-
-    // // Пример связывания кнопок с группой
-    // buttonGroup->addButton(ui->info0, 0); // Уникальный идентификатор 0
-    // buttonGroup->addButton(ui->info1, 1); // Уникальный идентификатор 1
-    // buttonGroup->addButton(ui->info2, 2); // Уникальный идентификатор 2
-    // buttonGroup->addButton(ui->info3, 3); // Уникальный идентификатор 3
-    // // buttonGroup->addButton(ui->info4, 4); // Уникальный идентификатор 4
-    // buttonGroup->addButton(ui->restart, 5); // перезапуск
-
-    // Количество индикаторов
-
     quint32 sii = static_cast<quint32>(count);
     scount = QString::number(sii);
     ui->indiccount->setText(scount);
