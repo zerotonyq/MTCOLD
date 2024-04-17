@@ -8,7 +8,8 @@ indicatorwidget::indicatorwidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::indicatorwidget),
     buttonGroup(new QButtonGroup(this)),
-    infoLabel(new QLabel(this))
+    infoLabel(new QLabel(this))/*,
+    infoDialog(new QDialog(this))*/
 {
     ui->setupUi(this);
     infoLabel->setVisible(false);
@@ -18,12 +19,13 @@ indicatorwidget::indicatorwidget(QWidget *parent) :
     buttonGroup->addButton(ui->infoButton);
     connect(buttonGroup, &QButtonGroup::buttonClicked, this, &indicatorwidget::onButtonGroupClicked);
     setIndicatorName("Indicator 1");
+    setInfoText("This is the information for indicator 1");
 
-    infoDialog = new QDialog(this);
-    infoDialog->setWindowTitle("Indicator Information");
-    QVBoxLayout *layout = new QVBoxLayout(infoDialog);
-    layout->addWidget(infoLabel);
-    infoDialog->setLayout(layout);
+    // infoDialog = new QDialog(this);
+    // infoDialog->setWindowTitle("Indicator Information");
+    // QVBoxLayout *layout = new QVBoxLayout(infoDialog);
+    // layout->addWidget(infoLabel);
+    // infoDialog->setLayout(layout);
 }
 
 indicatorwidget::~indicatorwidget()
@@ -36,11 +38,23 @@ void indicatorwidget::setIndicatorName(const QString &name)
     ui->indicatorWidget->setText(name);
 }
 
+void indicatorwidget::setInfoText(const QString &text)
+{
+    infoText = text;
+}
+
 void indicatorwidget::infoButtonClicked()
 {
     infoLabel->setVisible(ui->infoButton->isChecked());
-    infoDialog->show();
-    QMessageBox::information(this, "Indicator Information", infoLabel->text());
+    infoLabel->setText(infoText);
+    // infoDialog->show();
+    QMessageBox msgBox;
+    msgBox.setWindowTitle("Indicator Information");
+    msgBox.setText(infoText);
+    msgBox.setIcon(QMessageBox::Information);
+    msgBox.setStyleSheet("QMessageBox { background-color: white; color: black; }");
+    msgBox.exec();
+    qDebug() << "Info text:" << infoText;
 }
 
 void indicatorwidget::onButtonGroupClicked(QAbstractButton *button)

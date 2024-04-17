@@ -42,6 +42,8 @@ private:
     Ui::indicator *ui;
     QButtonGroup *buttonGroup;
     QWidget *m_indicatorContainerWidget;
+    QLabel *infoLabel;
+    QVector<indicatorwidget*> indicators;
 
 private:
     restart* restartWindow = nullptr;

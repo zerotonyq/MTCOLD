@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>509</width>
-    <height>179</height>
+    <height>89</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -154,23 +154,9 @@ border-radius: 80px;</string>
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="infoLabel">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>80</y>
-     <width>221</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Индикатор 0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </widget>
   <zorder>indicatorWidget</zorder>
   <zorder>infoButton</zorder>
   <zorder>toggle0_2</zorder>
-  <zorder>infoLabel</zorder>
  </widget>
  <resources/>
  <connections/>

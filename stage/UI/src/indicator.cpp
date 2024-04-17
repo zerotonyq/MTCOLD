@@ -25,12 +25,23 @@ QDialog* dialog = nullptr; // Глобальная переменная для �
 
 indicator::indicator(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::indicator)
+    , ui(new Ui::indicator),
+    buttonGroup(new QButtonGroup(this))
 {
     ui->setupUi(this);
 
     ui->labelInfo0->hide();
     ui->labelInfo1->hide();
+
+
+    indicatorwidget *indicator1 = new indicatorwidget(this);
+    indicatorwidget *indicator2 = new indicatorwidget(this);
+
+    indicator1->setInfoText("This is the information for indicator 1");
+    indicator2->setInfoText("This is the information for indicator 2");
+
+    ui->verticalLayout->addWidget(indicator1);
+    ui->verticalLayout->addWidget(indicator2);
 
     installEventFilter(this);
 
@@ -82,6 +93,7 @@ void indicator::onValueChanged(int newValue)
         indicatorwidget *indicator = new indicatorwidget(this);
         indicator->setIndicatorName(QString("Индикатор № %1").arg(i));
         indicator->setFixedSize(330, 71);
+        indicator->setInfoText("This is the information for indicator" + QString::number(i));
         ui->verticalLayout->addWidget(indicator);
     }
     ui->indiccount->setFont(QFont("SansSerif", 24));
