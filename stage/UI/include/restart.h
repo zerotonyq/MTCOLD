@@ -26,10 +26,6 @@ private:
     Ui::restart *ui;
     restart* restartWindow = nullptr;
 
-
-protected:
-    // void mousePressEvent(QMouseEvent* event) override;
-    // bool event(QEvent *event);
 private slots:
     void on_restart_2_clicked();
 };

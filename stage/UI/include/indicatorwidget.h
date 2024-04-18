@@ -21,8 +21,11 @@ class indicatorwidget : public QWidget
 public:
     explicit indicatorwidget(QWidget *parent = nullptr);
     ~indicatorwidget();
+
     void setIndicatorName(const QString &name);
     void setInfoText(const QString &text);
+    void showInfoButton();
+    void hideInfoButton();
 
 private slots:
     void infoButtonClicked();
@@ -30,15 +33,12 @@ private slots:
 
 private:
     Ui::indicatorwidget *ui;
+
     QButtonGroup *buttonGroup;
-    QLabel *infoLabel;
-    QDialog *infoDialog;
     QString infoText;
 
 signals:
     void infoTextChanged(const QString &text);
-
-signals:
     void indicatorClicked(int indicatorIndex);
 };
 

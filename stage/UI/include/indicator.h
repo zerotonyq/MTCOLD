@@ -23,35 +23,30 @@ class indicator : public QDialog
 public:
     Core core;
     explicit indicator(QWidget *parent = nullptr);
-
     ~indicator();
 
 private slots:
     void on_build_clicked();
     void on_mistakes_clicked();
-    // void onButtonClicked(QAbstractButton* button);
-    // bool eventFilter(QObject *obj, QEvent *event);
-
-    //void on_toggle0_toggled(bool checked);
-
     void on_macAddress_clicked();
 
 private:
     QString scount;
     sIndicatorsCountPack count = core.getIndicatorsQuantity();
+
     Ui::indicator *ui;
+
     QButtonGroup *buttonGroup;
     QWidget *m_indicatorContainerWidget;
     QLabel *infoLabel;
     QVector<indicatorwidget*> indicators;
-
-private:
+    indicatorwidget *activeInfoButton;
     restart* restartWindow = nullptr;
     errorWindow* errorwindow = nullptr;
     macaddress* macAddress = nullptr;
-
-private:
     IndicatorManager* m_indicatorManager;
+    indicatorwidget *m_activeIndicatorWidget = nullptr;
+
     void errorFlashing();
 
 public slots:
@@ -62,15 +57,9 @@ protected:
 
 signals:
     void valueChanged(int newValue);
-
-signals:
-    // Сигнал для передачи информации об изменении текста
     void infoTextChanged(const QString &text);
 
 private slots:
-    // Слот для обработки изменения информации внутри индикатора
     void onInfoTextChanged(const QString &text);
-
 };
-
 #endif // INDICATOR_H
