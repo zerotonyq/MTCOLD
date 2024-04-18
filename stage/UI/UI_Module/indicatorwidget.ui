@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>346</width>
-    <height>95</height>
+    <width>369</width>
+    <height>114</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -100,7 +100,7 @@ QCheckBox::indicator:unchecked {
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="info0_2">
+  <widget class="QPushButton" name="infoButton">
    <property name="enabled">
     <bool>true</bool>
    </property>
@@ -155,7 +155,7 @@ border-radius: 80px;</string>
    </property>
   </widget>
   <zorder>indicatorWidget</zorder>
-  <zorder>info0_2</zorder>
+  <zorder>infoButton</zorder>
   <zorder>toggle0_2</zorder>
  </widget>
  <resources/>

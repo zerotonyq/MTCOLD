@@ -7,7 +7,6 @@
 #include <QLabel>
 #include "../../Core/include/core.h"
 #include "indicatorwidget.h"
-#include "qscrollarea.h"
 
 class IndicatorManager : public QObject
 {
@@ -15,20 +14,16 @@ class IndicatorManager : public QObject
 
 public:
     explicit IndicatorManager(QButtonGroup *buttonGroup, QLabel *indicatorCountLabel, QWidget *indicatorCentralWidget);
-    IndicatorManager(Core *core): core(core){};
     ~IndicatorManager();
 
-    void updateIndicatorCount(int count);
+    IndicatorManager(Core *core): core(core){};
 
 public slots:
     void addIndicatorWidget(QWidget *indicatorWidget);
 
 private:
     Core *core;
-    QScrollArea *m_scrollArea;
-    QButtonGroup *m_buttonGroup;
-    QLabel *m_indicatorCountLabel;
-    QWidget *m_indicatorCentralWidget;
+
     QVBoxLayout *m_layout;
 };
 

@@ -36,7 +36,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
             UI/include/indicatorwidget.h UI/src/indicatorwidget.cpp UI/UI_Module/indicatorwidget.ui
             UI/include/macaddress.h UI/src/macaddress.cpp UI/UI_Module/macaddress.ui
 
-
     )
     # Define target properties for Android with Qt 6 as:
     #    set_property(TARGET DPP APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

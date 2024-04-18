@@ -2,6 +2,13 @@
 #define INDICATORWIDGET_H
 
 #include <QWidget>
+#include "qbuttongroup.h"
+#include "qlabel.h"
+
+#include <QWidget>
+#include <QPushButton>
+#include <QLabel>
+#include <QButtonGroup>
 
 namespace Ui {
 class indicatorwidget;
@@ -16,9 +23,23 @@ public:
     ~indicatorwidget();
 
     void setIndicatorName(const QString &name);
+    void setInfoText(const QString &text);
+    void showInfoButton();
+    void hideInfoButton();
+
+private slots:
+    void infoButtonClicked();
+    void onButtonGroupClicked(QAbstractButton *button);
 
 private:
     Ui::indicatorwidget *ui;
+
+    QButtonGroup *buttonGroup;
+    QString infoText;
+
+signals:
+    void infoTextChanged(const QString &text);
+    void indicatorClicked(int indicatorIndex);
 };
 
 #endif // INDICATORWIDGET_H
