@@ -34,6 +34,12 @@ private:
     QLabel *infoLabel;
     QDialog *infoDialog;
     QString infoText;
+
+signals:
+    void infoTextChanged(const QString &text);
+
+signals:
+    void indicatorClicked(int indicatorIndex);
 };
 
 #endif // INDICATORWIDGET_H

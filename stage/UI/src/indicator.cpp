@@ -21,7 +21,7 @@
 #include <QTimer>
 #include "../include/indicatorwidget.h"
 
-QDialog* dialog = nullptr; // Глобальная переменная для хранения указателя на диалог
+QDialog* dialog = nullptr;
 
 indicator::indicator(QWidget *parent)
     : QDialog(parent)
@@ -36,6 +36,9 @@ indicator::indicator(QWidget *parent)
 
     indicatorwidget *indicator1 = new indicatorwidget(this);
     indicatorwidget *indicator2 = new indicatorwidget(this);
+
+    connect(indicator1, &indicatorwidget::infoTextChanged, this, &indicator::onInfoTextChanged);
+    connect(indicator2, &indicatorwidget::infoTextChanged, this, &indicator::onInfoTextChanged);
 
     indicator1->setInfoText("This is the information for indicator 1");
     indicator2->setInfoText("This is the information for indicator 2");
@@ -78,6 +81,10 @@ void indicator::showEvent(QShowEvent *event)
     QWidget::showEvent(event);
 }
 
+void indicator::onInfoTextChanged(const QString &text)
+{
+    ui->label->setText(text);
+}
 
 void indicator::onValueChanged(int newValue)
 {
@@ -92,9 +99,10 @@ void indicator::onValueChanged(int newValue)
     for (int i = 0; i < newValue; ++i) {
         indicatorwidget *indicator = new indicatorwidget(this);
         indicator->setIndicatorName(QString("Индикатор № %1").arg(i));
-        indicator->setFixedSize(330, 73);
+        indicator->setFixedSize(330, 74);
         indicator->setInfoText("This is the information for indicator" + QString::number(i));
         ui->verticalLayout->addWidget(indicator);
+        connect(indicator, &indicatorwidget::infoTextChanged, this, &indicator::onInfoTextChanged);
     }
     ui->indiccount->setFont(QFont("SansSerif", 24));
     ui->indiccount->setText(QString("%1").arg(newValue));

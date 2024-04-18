@@ -63,6 +63,14 @@ protected:
 signals:
     void valueChanged(int newValue);
 
+signals:
+    // Сигнал для передачи информации об изменении текста
+    void infoTextChanged(const QString &text);
+
+private slots:
+    // Слот для обработки изменения информации внутри индикатора
+    void onInfoTextChanged(const QString &text);
+
 };
 
 #endif // INDICATOR_H

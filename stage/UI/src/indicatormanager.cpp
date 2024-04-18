@@ -55,5 +55,3 @@ void IndicatorManager::updateIndicatorCount(int count) {
 
     m_indicatorCountLabel->setText(QString("Total Indicators: %1").arg(count));
 }
-
-

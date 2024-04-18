@@ -45,13 +45,19 @@ void indicatorwidget::setInfoText(const QString &text)
     infoText = text;
 }
 \
+//     void indicatorwidget::infoButtonClicked()
+// {
+//     infoLabel->setVisible(ui->infoButton->isChecked());
+//     QLabel *infoLabel = qobject_cast<QLabel*>(infoDialog->layout()->itemAt(0)->widget());
+//     infoLabel->setText(infoText + " " + QString::number(QObject::sender()->parent()->property("index").toInt()));
+//     infoDialog->show();
+//     qDebug() << "Info text:" << infoText;
+// }
+
 void indicatorwidget::infoButtonClicked()
 {
-    infoLabel->setVisible(ui->infoButton->isChecked());
-    QLabel *infoLabel = qobject_cast<QLabel*>(infoDialog->layout()->itemAt(0)->widget());
-    infoLabel->setText(infoText + " " + QString::number(QObject::sender()->parent()->property("index").toInt()));
-    infoDialog->show();
-    qDebug() << "Info text:" << infoText;
+    int indicatorIndex = QObject::sender()->parent()->property("index").toInt();
+    emit infoTextChanged(infoText + " " + QString::number(QObject::sender()->parent()->property("index").toInt()));
 }
 
 void indicatorwidget::onButtonGroupClicked(QAbstractButton *button)
