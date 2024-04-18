@@ -7,7 +7,7 @@
 #include "qabstractbutton.h"
 #include "restart.h"
 #include "../../Core/include/core.h"
-#include "../../Core/include/Pockets.h"
+#include "../../Core/include/Packets.h"
 #include <QDialog>
 #include "../UI_Module/ui_indicator.h"
 

@@ -1,4 +1,4 @@
-#include "../include/Pockets.h"
+#include "../include/Packets.h"
 
 QByteArray sIndicatorCommand::serializeData() const {
     QByteArray bytesData;
@@ -7,7 +7,7 @@ QByteArray sIndicatorCommand::serializeData() const {
     return bytesData;
 }
 
-Pocket& sIndicatorCommand::deserializeData(QByteArray& bytesData) {
+Packet& sIndicatorCommand::deserializeData(QByteArray& bytesData) {
     QDataStream dataStream(&bytesData, QIODevice::ReadOnly);
     dataStream >> crc32 >> indicatorIndex >> command;
     return *this;
@@ -20,7 +20,7 @@ QByteArray sIndicatorsCountPack::serializeData() const {
     return bytesData;
 }
 
-Pocket& sIndicatorsCountPack::deserializeData(QByteArray& bytesData) {
+Packet& sIndicatorsCountPack::deserializeData(QByteArray& bytesData) {
     QDataStream dataStream(&bytesData, QIODevice::ReadOnly);
     dataStream >> indicatorsCount >> crc32 >> command;
     return *this;
@@ -33,7 +33,7 @@ QByteArray sOneIndicatorStats::serializeData() const {
     return bytesData;
 }
 
-Pocket& sOneIndicatorStats::deserializeData(QByteArray& bytesData) {
+Packet& sOneIndicatorStats::deserializeData(QByteArray& bytesData) {
     QDataStream dataStream(&bytesData, QIODevice::ReadOnly);
     dataStream >> serialNumber >> type >> power >> color >> current_ma >> reserve >> error_code;
     return *this;
@@ -46,7 +46,7 @@ QByteArray sIndicatorStatisticsPack::serializeData() const {
     return bytesData;
 }
 
-Pocket& sIndicatorStatisticsPack::deserializeData(QByteArray& bytesData) {
+Packet& sIndicatorStatisticsPack::deserializeData(QByteArray& bytesData) {
     QDataStream dataStream(&bytesData, QIODevice::ReadOnly);
     QByteArray data;
     dataStream >> command >> indicatorIndex >> data >> crc32;
@@ -54,24 +54,24 @@ Pocket& sIndicatorStatisticsPack::deserializeData(QByteArray& bytesData) {
     return *this;
 }
 
-QByteArray MainPocket::serializeData() const {
+QByteArray MainPacket::serializeData() const {
     QByteArray bytesData;
     QDataStream dataStream(&bytesData, QIODevice::WriteOnly);
     dataStream << data << command;
     return bytesData;
 }
 
-MainPocket& MainPocket::deserializeData(QByteArray& bytesData) {
+MainPacket& MainPacket::deserializeData(QByteArray& bytesData) {
     QDataStream dataStream(&bytesData, QIODevice::ReadOnly);
     dataStream >> data >> command;
     return *this;
 }
 
 
-QByteArray SerializeDeserializePocket::serializePocket(Pocket& pocket) {
-    return pocket.serializeData();
+QByteArray SerializeDeserializePacket::serializePacket(Packet& packet) {
+    return packet.serializeData();
 }
 
-Pocket& SerializeDeserializePocket::deserializePocket(QByteArray& bytesData, Pocket& pocket) {
-    return pocket.deserializeData(bytesData);
+Packet& SerializeDeserializePacket::deserializePacket(QByteArray& bytesData, Packet& packet) {
+    return packet.deserializeData(bytesData);
 }

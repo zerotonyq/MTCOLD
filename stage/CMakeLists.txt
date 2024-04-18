@@ -23,7 +23,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(DPP
             MANUAL_FINALIZATION
             ${PROJECT_SOURCES}
-            Core/include/Pockets.h
+            Core/include/Packets.h
             Core/src/Pockets.cpp
             UI/include/indicator.h UI/src/indicator.cpp UI/UI_Module/indicator.ui
             Core/include/core.h Core/src/core.cpp
