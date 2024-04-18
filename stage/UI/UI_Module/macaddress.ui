@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>macaddress</class>
+ <widget class="QWidget" name="macaddress">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>412</width>
+    <height>684</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: transparent;</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>20</y>
+     <width>321</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-family: &quot;Random Grotesque Standard Book&quot;, sans-serif;
+color: #FDFDFB;
+font-size: 40px;
+border-radius: 20px;
+text-align: center;
+display: flex;
+justify-content: center;</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Управление&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;MAC-адресами&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="current_device_address">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>164</y>
+     <width>291</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+     <horstretch>10</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 20px;                     
+background: transparent;
+border: none;
+border-radius: 20px;
+font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+color: #000;
+text-align: center;
+box-shadow: transparent; </string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="connected_device_address">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>254</y>
+     <width>291</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+     <horstretch>10</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 20px;                     
+background: transparent;
+border: none;
+border-radius: 20px;
+font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+color: #000;
+text-align: center;
+box-shadow: transparent; </string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>411</width>
+     <height>681</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: #292929;
+border-radius: 20px;
+text-align: center;
+display: flex;
+justify-content: center;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>224</y>
+     <width>211</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-family: &quot;Random Grotesque Standard Book&quot;, sans-serif;
+color: #FDFDFB;
+font-size: 18px;
+border-radius: 20px;
+text-align: center;
+display: flex;
+justify-content: center;</string>
+   </property>
+   <property name="text">
+    <string>Адрес текущего устройства</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>314</y>
+     <width>251</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-family: &quot;Random Grotesque Standard Book&quot;, sans-serif;
+color: #FDFDFB;
+font-size: 18px;
+border-radius: 20px;
+text-align: center;
+display: flex;
+justify-content: center;</string>
+   </property>
+   <property name="text">
+    <string>Адрес подкючённого устройства</string>
+   </property>
+  </widget>
+  <widget class="QScrollArea" name="logs">
+   <property name="geometry">
+    <rect>
+     <x>27</x>
+     <y>407</y>
+     <width>361</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QScrollArea {
+    background-color: transparent;
+    border-radius: 30px;
+	border: #313131;
+}
+
+QScrollBar:vertical {
+    border: none;
+    background: rgba(0, 0, 0, 0.1); 
+    width: 8px; 
+    border-radius: 4px; 
+}
+
+QScrollBar::handle:vertical {
+    background: rgba(0, 0, 0, 0.5); 
+    min-height: 25px;
+    border-radius: 4px; 
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px; 
+}
+
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+    background: none; 
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none; 
+}
+
+</string>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>361</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: #313131;
+border: none;
+border-radius: 30px;
+text-align: center;
+align-items: center;
+justify-content: center;
+font-size: 16px; /* или другой размер в зависимости от нужд */
+color: #D9D9D9; 
+font-family: 'random grotesque standard book', sans-serif; 
+text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); /* светлый эффект тени текста */
+padding: 10px 20px; /* немного пространства вокруг текста */</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>тут будут логи!</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="restart_2">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>350</y>
+     <width>181</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Random Grotesque Standard Book</family>
+     <pointsize>-1</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    font: 400 15px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+    color: #d9d9d9;
+    border-radius: 15px;
+    width: 672px;
+    height: 89px;
+    background: #1e1e1e;
+}
+
+QPushButton:hover {
+    background: transparent;
+    font: 400 15px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+    color: #d9d9d9;
+    border-radius: 15px;
+    border: 1px solid #d9d9d9;
+    width: 672px;
+    height: 89px;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Переподключиться</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="writeInFile">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>640</y>
+     <width>151</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	font: 400 16px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+	color: #FDFDFB;
+	background: transparent;
+	border: 2px solid transparent;
+  	text-decoration: none; 
+}
+
+QPushButton:hover {
+  text-decoration: underline; 
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Записать в файл</string>
+   </property>
+  </widget>
+  <zorder>label_2</zorder>
+  <zorder>label</zorder>
+  <zorder>current_device_address</zorder>
+  <zorder>connected_device_address</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_4</zorder>
+  <zorder>logs</zorder>
+  <zorder>restart_2</zorder>
+  <zorder>writeInFile</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

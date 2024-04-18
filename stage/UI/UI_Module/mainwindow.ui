@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>863</width>
+    <height>674</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>32</pointsize>
+   </font>
+  </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::TabFocus</enum>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resources.qrc">
+    <normaloff>:/image/resources/img/iconbig.ico</normaloff>:/image/resources/img/iconbig.ico</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/image/resources/img/background.png);
+background-color: rgba(145, 145, 145, 0);
+background-color: transparent;
+</string>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="request">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>450</y>
+      <width>461</width>
+      <height>46</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+    color: #d9d9d9;
+    border-radius: 23px;
+    width: 672px;
+    height: 89px;
+    background: #1e1e1e;
+}
+
+QPushButton:hover {
+    background: transparent;
+    font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+    color: #d9d9d9;
+    border-radius: 23px;
+    border: 1px solid #d9d9d9;
+    width: 672px;
+    height: 89px;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Отправить запрос на подключение</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>160</y>
+      <width>721</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>random grotesque standard book</family>
+      <pointsize>-1</pointsize>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;
+align-items: center;
+justify-content: center;
+font-size: 40px; /* или другой размер в зависимости от нужд */
+color: #FDFDFB; 
+font-family: 'random grotesque standard book', sans-serif; 
+text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); /* светлый эффект тени текста */
+padding: 10px 20px; /* немного пространства вокруг текста */</string>
+    </property>
+    <property name="text">
+     <string>Панель управления индикаторами</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="api">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>270</y>
+      <width>459</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+      <horstretch>10</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 20px;                     
+background: #FDFDFB;
+border-radius: 30px;
+font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+color: #000;
+text-align: center;
+box-shadow: transparent; </string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="port">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>340</y>
+      <width>459</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 30px;
+background: #FDFDFB;
+font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+color: #000;
+box-shadow: transparent; </string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
