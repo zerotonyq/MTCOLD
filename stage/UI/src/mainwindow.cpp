@@ -57,18 +57,4 @@ void MainWindow::on_request_clicked() {
     //     // QLabel *label = new QLabel(message);
     //     // label->setAlignment(Qt::AlignCenter);
     //     // label->setStyleSheet("QLabel { color : red; }");
-
-    //     // QVBoxLayout *layout = new QVBoxLayout;
-    //     // layout->addWidget(label);
-    //     // layout->addStretch(); // добавляем растягивающий элемент
-
-    //     // // Добавляем вашу логику для размещения виджета под кнопкой в основном окне
-    //     // // Например, если у вас есть главное окно mainWindow, то можете добавить label к нему так:
-    //     // isWindow()->layout()->addLayout(layout);
-
-    //     // ui -> label_2 -> setText("АУЕ");
-
-    // }
-
-
 }

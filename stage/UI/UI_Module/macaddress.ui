@@ -26,9 +26,9 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font-family: &quot;Random Grotesque Standard Book&quot;, sans-serif;
+    <string notr="true">font-family: &quot;Trebuchet MS&quot;, sans-serif;
 color: #FDFDFB;
-font-size: 40px;
+font-size: 38px;
 border-radius: 20px;
 text-align: center;
 display: flex;
@@ -60,14 +60,18 @@ justify-content: center;</string>
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-radius: 20px;                     
-background: transparent;
+    <string notr="true">QLineEdit {
+    color: #FDFDFB;
+font: 30pt 'Trebuchet MS';
 border: none;
-border-radius: 20px;
-font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
-color: #000;
-text-align: center;
-box-shadow: transparent; </string>
+}
+
+QLineEdit::placeholderText {
+    color: black;
+font: 30pt 'Trebuchet MS';
+border: none;
+}
+</string>
    </property>
    <property name="text">
     <string/>
@@ -98,14 +102,17 @@ box-shadow: transparent; </string>
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-radius: 20px;                     
-background: transparent;
-border: none;
-border-radius: 20px;
-font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
-color: #000;
-text-align: center;
-box-shadow: transparent; </string>
+    <string notr="true">QLineEdit {
+    color: #FDFDFB;
+	font: 30pt 'Trebuchet MS';
+	border: none;
+}
+
+QLineEdit::placeholderText {
+    color: black;
+	font: 30pt 'Trebuchet MS';
+	border: none;
+}</string>
    </property>
    <property name="text">
     <string/>
@@ -137,17 +144,17 @@ justify-content: center;</string>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>107</x>
      <y>224</y>
-     <width>211</width>
+     <width>231</width>
      <height>16</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font-family: &quot;Random Grotesque Standard Book&quot;, sans-serif;
+    <string notr="true">font-family: &quot;Trebuchet MS&quot;, sans-serif;
 color: #FDFDFB;
 font-size: 18px;
-border-radius: 20px;
+border-radius: 18px;
 text-align: center;
 display: flex;
 justify-content: center;</string>
@@ -159,17 +166,17 @@ justify-content: center;</string>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>87</x>
      <y>314</y>
-     <width>251</width>
+     <width>271</width>
      <height>16</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font-family: &quot;Random Grotesque Standard Book&quot;, sans-serif;
+    <string notr="true">font-family: &quot;Trebuchet MS&quot;, sans-serif;
 color: #FDFDFB;
 font-size: 18px;
-border-radius: 20px;
+border-radius: 18px;
 text-align: center;
 display: flex;
 justify-content: center;</string>
@@ -240,9 +247,9 @@ border-radius: 30px;
 text-align: center;
 align-items: center;
 justify-content: center;
-font-size: 16px; /* или другой размер в зависимости от нужд */
+font-size: 14px; /* или другой размер в зависимости от нужд */
 color: #D9D9D9; 
-font-family: 'random grotesque standard book', sans-serif; 
+font-family: 'Trebuchet MS', sans-serif; 
 text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); /* светлый эффект тени текста */
 padding: 10px 20px; /* немного пространства вокруг текста */</string>
     </property>
@@ -268,7 +275,7 @@ padding: 10px 20px; /* немного пространства вокруг те
    </property>
    <property name="font">
     <font>
-     <family>Random Grotesque Standard Book</family>
+     <family>Trebuchet MS</family>
      <pointsize>-1</pointsize>
      <italic>false</italic>
      <bold>false</bold>
@@ -276,7 +283,7 @@ padding: 10px 20px; /* немного пространства вокруг те
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-    font: 400 15px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+    font: 400 13px &quot;Trebuchet MS&quot;, sans-serif;
     color: #d9d9d9;
     border-radius: 15px;
     width: 672px;
@@ -286,7 +293,7 @@ padding: 10px 20px; /* немного пространства вокруг те
 
 QPushButton:hover {
     background: transparent;
-    font: 400 15px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+    font: 400 13px &quot;Trebuchet MS&quot;, sans-serif;
     color: #d9d9d9;
     border-radius: 15px;
     border: 1px solid #d9d9d9;
@@ -310,7 +317,7 @@ QPushButton:hover {
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-	font: 400 16px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+	font: 400 14px &quot;Trebuchet MS&quot;, sans-serif;
 	color: #FDFDFB;
 	background: transparent;
 	border: 2px solid transparent;

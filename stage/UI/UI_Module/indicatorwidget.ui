@@ -33,16 +33,16 @@
    </property>
    <property name="font">
     <font>
-     <family>Random Grotesque Standard Book</family>
-     <pointsize>14</pointsize>
+     <family>Trebuchet MS</family>
+     <pointsize>12</pointsize>
      <fontweight>ExtraLight</fontweight>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">font-family: &quot;Random Grotesque Standard Book&quot;, sans-serif;
-font-size:14pt;
+    <string notr="true">font-family: &quot;Trebuchet MS&quot;, sans-serif;
+font-size:12pt;
 width: 400px;
-color: rgb(0, 0, 0);
+color: #1E1E1E;
 height: 50px;
 background-color: #FDFDFB;
 border-radius: 25px; /* Половина высоты для полного скругления */
@@ -106,10 +106,10 @@ QCheckBox::indicator:unchecked {
    </property>
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>150</x>
      <y>27</y>
-     <width>19</width>
-     <height>19</height>
+     <width>18</width>
+     <height>18</height>
     </rect>
    </property>
    <property name="sizePolicy">

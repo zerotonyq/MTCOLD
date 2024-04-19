@@ -18,6 +18,8 @@
         <file>resources/img/info_black3.png</file>
         <file>resources/img/icon.ico</file>
         <file>resources/img/iconbig.ico</file>
+        <file>resources/img/info_back.png</file>
+        <file>resources/img/info_ind_back.png</file>
     </qresource>
     <qresource prefix="/indicator"/>
     <qresource prefix="/fonts"/>

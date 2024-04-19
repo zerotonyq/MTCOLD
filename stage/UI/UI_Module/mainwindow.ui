@@ -61,7 +61,7 @@ background-color: transparent;
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-    font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+    font: 400 18px &quot;Trebuchet MS&quot;, sans-serif;
     color: #d9d9d9;
     border-radius: 23px;
     width: 672px;
@@ -71,7 +71,7 @@ background-color: transparent;
 
 QPushButton:hover {
     background: transparent;
-    font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+    font: 400 18px &quot;Trebuchet MS&quot;, sans-serif;
     color: #d9d9d9;
     border-radius: 23px;
     border: 1px solid #d9d9d9;
@@ -95,7 +95,7 @@ QPushButton:hover {
     </property>
     <property name="font">
      <font>
-      <family>random grotesque standard book</family>
+      <family>Trebuchet MS</family>
       <pointsize>-1</pointsize>
       <kerning>true</kerning>
      </font>
@@ -110,9 +110,9 @@ QPushButton:hover {
      <string notr="true">background: transparent;
 align-items: center;
 justify-content: center;
-font-size: 40px; /* или другой размер в зависимости от нужд */
+font-size: 36px; /* или другой размер в зависимости от нужд */
 color: #FDFDFB; 
-font-family: 'random grotesque standard book', sans-serif; 
+font-family: 'Trebuchet MS', sans-serif; 
 text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); /* светлый эффект тени текста */
 padding: 10px 20px; /* немного пространства вокруг текста */</string>
     </property>
@@ -145,7 +145,7 @@ padding: 10px 20px; /* немного пространства вокруг те
      <string notr="true">border-radius: 20px;                     
 background: #FDFDFB;
 border-radius: 30px;
-font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+font: 400 18px &quot;Trebuchet MS&quot;, sans-serif;
 color: #000;
 text-align: center;
 box-shadow: transparent; </string>
@@ -175,7 +175,7 @@ box-shadow: transparent; </string>
     <property name="styleSheet">
      <string notr="true">border-radius: 30px;
 background: #FDFDFB;
-font: 400 20px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+font: 400 18px &quot;Trebuchet MS&quot;, sans-serif;
 color: #000;
 box-shadow: transparent; </string>
     </property>

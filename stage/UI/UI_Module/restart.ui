@@ -42,7 +42,7 @@ z-index: 0;
    </property>
    <property name="font">
     <font>
-     <family>Random Grotesque Standard Book</family>
+     <family>Trebuchet MS</family>
      <pointsize>-1</pointsize>
      <italic>false</italic>
      <bold>false</bold>
@@ -50,7 +50,7 @@ z-index: 0;
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-    font: 400 15px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+    font: 400 13px &quot;Trebuchet MS&quot;, sans-serif;
     color: #d9d9d9;
     border-radius: 15px;
     width: 672px;
@@ -60,7 +60,7 @@ z-index: 0;
 
 QPushButton:hover {
     background: transparent;
-    font: 400 15px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+    font: 400 13px &quot;Trebuchet MS&quot;, sans-serif;
     color: #d9d9d9;
     border-radius: 15px;
     border: 1px solid #d9d9d9;
@@ -98,7 +98,7 @@ QPushButton:hover {
     <string notr="true">border-radius: 16px;                     
 background: #FDFDFB;
 border-radius: 20px;
-font: 400 16px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+font: 400 14px &quot;Trebuchet MS&quot;, sans-serif;
 color: #000;
 text-align: center</string>
    </property>
@@ -113,14 +113,14 @@ text-align: center</string>
    <property name="geometry">
     <rect>
      <x>37</x>
-     <y>42</y>
+     <y>40</y>
      <width>231</width>
      <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Random Grotesque Standard Bold</family>
+     <family>Trebuchet MS</family>
      <pointsize>-1</pointsize>
      <italic>false</italic>
      <bold>false</bold>
@@ -128,7 +128,7 @@ text-align: center</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">font-family: &quot;Random Grotesque Standard Bold&quot;, sans-serif;
+    <string notr="true">font-family: &quot;Trebuchet MS&quot;, sans-serif;
 background: transparent;
 font-size: 64px;
 font-weight: normal;
@@ -136,28 +136,28 @@ text-align: center;
 color: #FDFDFB;</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;IP-адрес:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;IP-адрес:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="port2">
    <property name="geometry">
     <rect>
      <x>36</x>
-     <y>133</y>
+     <y>131</y>
      <width>231</width>
      <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Random Grotesque Standard Bold</family>
+     <family>Trebuchet MS</family>
      <pointsize>-1</pointsize>
      <italic>false</italic>
      <bold>false</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">font-family: &quot;Random Grotesque Standard Bold&quot;, sans-serif;
+    <string notr="true">font-family: &quot;Trebuchet MS&quot;, sans-serif;
 background: transparent;
 font-size: 64px;
 font-weight: normal;
@@ -165,7 +165,7 @@ text-align: center;
 color: #FDFDFB;</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#fdfdfb;&quot;&gt;Порт:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; color:#fdfdfb;&quot;&gt;Порт:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -196,7 +196,7 @@ color: #FDFDFB;</string>
     <string notr="true">border-radius: 16px;                     
 background: #FDFDFB;
 border-radius: 20px;
-font: 400 16px &quot;Random Grotesque Standard Book&quot;, sans-serif;
+font: 400 14px &quot;Trebuchet MS&quot;, sans-serif;
 color: #000;
 text-align: center</string>
    </property>
