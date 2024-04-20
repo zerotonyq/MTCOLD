@@ -6,8 +6,7 @@
 #include "macaddress.h"
 #include "qabstractbutton.h"
 #include "restart.h"
-#include "../../Core/include/core.h"
-#include "../../Core/include/Pockets.h"
+#include "connectcore.h"
 #include <QDialog>
 #include "../UI_Module/ui_indicator.h"
 
@@ -21,7 +20,6 @@ class indicator : public QDialog
     Q_OBJECT
 
 public:
-    Core core;
     explicit indicator(QWidget *parent = nullptr);
     ~indicator();
 
@@ -31,8 +29,9 @@ private slots:
     void on_macAddress_clicked();
 
 private:
-    QString scount;
-    sIndicatorsCountPack count = core.getIndicatorsQuantity();
+    ConnectCore *core;
+    quint32 indicatorsQuantity;
+
 
     Ui::indicator *ui;
 

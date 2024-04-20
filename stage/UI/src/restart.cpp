@@ -27,7 +27,7 @@ void restart::on_restart_2_clicked()
 
     QHostAddress hostAddress(api);
     if (!(hostAddress.isNull() || hostAddress.protocol() == QAbstractSocket::UnknownNetworkLayerProtocol) && int_port >= 1 && int_port <= 65535) {
-        Core core(api,int_port);
+        core->changeAddress(api, int_port);
     }else {
         QString message = "<html><style>p {color: white;}</style><p>Неверный API или порт</p></body></html>";
         QMessageBox msgBox;

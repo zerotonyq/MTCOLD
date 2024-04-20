@@ -35,9 +35,10 @@ indicator::indicator(QWidget *parent)
 
     installEventFilter(this);
 
-    quint32 sii = static_cast<quint32>(count);
-    scount = QString::number(sii);
-    ui->indiccount->setText(scount);
+    indicatorsQuantity = 9;
+    //indicatorsQuantity = core->getIndicatorsQuantity();
+    QString stringIndicatorsQuantity = QString::number(indicatorsQuantity);
+    ui->indiccount->setText(stringIndicatorsQuantity);
 
     QButtonGroup *buttonGroup = new QButtonGroup(this);
     QLabel *indicatorCountLabel = new QLabel(this);
@@ -58,8 +59,7 @@ void indicator::showEvent(QShowEvent *event)
 {
     if (event->type() == QEvent::Show) {
 
-        int newValue = 8;
-        emit onValueChanged(newValue);
+        emit onValueChanged(indicatorsQuantity);
     }
 
     QWidget::showEvent(event);

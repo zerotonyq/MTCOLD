@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "indicator.h"
 #include "restart.h"
-#include "../../Core/include/core.h"
+#include "connectcore.h"
 #include <QCoreApplication>
 #include <QHostAddress>
 #include <QDebug>
@@ -21,7 +21,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    Core *core;
+    ConnectCore *core;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 

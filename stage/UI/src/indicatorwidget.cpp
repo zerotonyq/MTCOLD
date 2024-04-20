@@ -60,3 +60,15 @@ void indicatorwidget::onButtonGroupClicked(QAbstractButton *button)
         hideInfoButton();
     }
 }
+void indicatorwidget::setIndicatorsNumber(int number){
+    indicatorsNumber = number;
+}
+
+void indicatorwidget::toggle(bool checked)
+{
+    if (checked){
+        core->turnOnIndicator(indicatorsNumber);
+    } else {
+        core->turnOffIndicator(indicatorsNumber);
+    }
+}

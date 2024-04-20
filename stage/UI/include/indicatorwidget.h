@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "qbuttongroup.h"
 #include "qlabel.h"
+#include "connectcore.h"
 
 #include <QWidget>
 #include <QPushButton>
@@ -26,6 +27,8 @@ public:
     void setInfoText(const QString &text);
     void showInfoButton();
     void hideInfoButton();
+    void setIndicatorsNumber(int number);
+    void toggle(bool checked);
 
 private slots:
     void infoButtonClicked();
@@ -34,6 +37,8 @@ private slots:
 private:
     Ui::indicatorwidget *ui;
 
+    int indicatorsNumber;
+    ConnectCore *core;
     QButtonGroup *buttonGroup;
     QString infoText;
 

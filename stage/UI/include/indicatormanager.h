@@ -5,7 +5,6 @@
 #include <QVBoxLayout>
 #include <QButtonGroup>
 #include <QLabel>
-#include "../../Core/include/core.h"
 #include "indicatorwidget.h"
 
 class IndicatorManager : public QObject
@@ -16,13 +15,10 @@ public:
     explicit IndicatorManager(QButtonGroup *buttonGroup, QLabel *indicatorCountLabel, QWidget *indicatorCentralWidget);
     ~IndicatorManager();
 
-    IndicatorManager(Core *core): core(core){};
-
 public slots:
     void addIndicatorWidget(QWidget *indicatorWidget);
 
 private:
-    Core *core;
 
     QVBoxLayout *m_layout;
 };
