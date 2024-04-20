@@ -40,7 +40,7 @@ public:
     Packet& deserializeData(QByteArray& bytesData) override;
     sIndicatorsCountPack(quint32 indicatorsCount_, quint32 command_) : indicatorsCount(indicatorsCount_), command(command_) {}
     sIndicatorsCountPack() = default;
-
+    explicit operator quint32() const { return indicatorsCount; }
 public:
     quint32 indicatorsCount;
     quint32 crc32;
