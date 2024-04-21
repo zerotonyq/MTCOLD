@@ -272,7 +272,7 @@ padding: 10px 20px; /* немного пространства вокруг те
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#ffffff;&quot;&gt;Индикаторы, доступные &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#ffffff;&quot;&gt;на данный момент: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLabel" name="labelInfo0">
+  <widget class="QLabel" name="labelInfo">
    <property name="enabled">
     <bool>true</bool>
    </property>
@@ -484,22 +484,22 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <property name="spacing">
-        <number>10</number>
+        <number>3</number>
        </property>
        <property name="sizeConstraint">
         <enum>QLayout::SetFixedSize</enum>
        </property>
        <property name="leftMargin">
-        <number>10</number>
+        <number>3</number>
        </property>
        <property name="topMargin">
-        <number>10</number>
+        <number>3</number>
        </property>
        <property name="rightMargin">
-        <number>10</number>
+        <number>3</number>
        </property>
        <property name="bottomMargin">
-        <number>10</number>
+        <number>3</number>
        </property>
       </layout>
      </item>
@@ -513,7 +513,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
   <zorder>mistakes</zorder>
   <zorder>macAddress</zorder>
   <zorder>label_2</zorder>
-  <zorder>labelInfo0</zorder>
+  <zorder>labelInfo</zorder>
   <zorder>restart</zorder>
   <zorder>indiccount</zorder>
   <zorder>scrollArea</zorder>

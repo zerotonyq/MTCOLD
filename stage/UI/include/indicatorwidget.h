@@ -39,7 +39,6 @@ private:
 
 signals:
     void infoTextChanged(const QString &text);
-    void indicatorClicked(int indicatorIndex);
 };
 
 #endif // INDICATORWIDGET_H

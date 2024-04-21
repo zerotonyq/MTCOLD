@@ -29,9 +29,7 @@ indicator::indicator(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // надо будет доделать и убрать вообще
-    ui->labelInfo0->hide();
-    //ui->labelInfo1->hide();
+    ui->labelInfo->hide();
 
     installEventFilter(this);
 
@@ -67,7 +65,9 @@ void indicator::showEvent(QShowEvent *event)
 
 void indicator::onInfoTextChanged(const QString &text)
 {
-    ui->label->setText(text);
+    ui -> labelInfo -> setText(text);
+    ui->labelInfo->show();
+    ui->label->hide();
     ui->label_3->hide();
 
     if (m_activeIndicatorWidget && m_activeIndicatorWidget != sender()) {
@@ -88,8 +88,17 @@ void indicator::onValueChanged(int newValue)
     for (int i = 1; i <= newValue; ++i) {
         indicatorwidget *indicator = new indicatorwidget(this);
         indicator->setIndicatorName(QString("Индикатор № %1").arg(i));
-        indicator->setFixedSize(330, 74);
-        indicator->setInfoText("This is the information for indicator " + QString::number(i));
+        indicator->setFixedSize(330, 80);
+        QString infoText = QString("Информация об индикаторе № %1\n\n"
+                                   "Серийный номер: %2\n\n"
+                                   "Цвет: %3\n\n"
+                                   "Тип: индикатор\n\n"
+                                   "Уровень тока на данный момент:\n %4 A\n")
+                               .arg(i)
+                               .arg(i)
+                               .arg(i % 2 == 0 ? "green" : "red")
+                               .arg(0.572 * i);
+        indicator->setInfoText(infoText);
         ui->verticalLayout->addWidget(indicator);
         connect(indicator, &indicatorwidget::infoTextChanged, this, &indicator::onInfoTextChanged);
     }
