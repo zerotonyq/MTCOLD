@@ -60,11 +60,12 @@ void indicatorwidget::onButtonGroupClicked(QAbstractButton *button)
         hideInfoButton();
     }
 }
+
 void indicatorwidget::setIndicatorsNumber(int number){
     indicatorsNumber = number;
 }
 
-void indicatorwidget::toggle(bool checked)
+void indicatorwidget::on_toggle0_2_toggled(bool checked)
 {
     if (checked){
         core->turnOnIndicator(indicatorsNumber);
@@ -72,3 +73,4 @@ void indicatorwidget::toggle(bool checked)
         core->turnOffIndicator(indicatorsNumber);
     }
 }
+

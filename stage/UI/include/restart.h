@@ -2,9 +2,9 @@
 #define RESTART_H
 
 #include <QDialog>
+#include "connectcore.h"
 #include <QHostAddress>
 #include <QMessageBox>
-#include "connectcore.h"
 
 namespace Ui {
 class restart;

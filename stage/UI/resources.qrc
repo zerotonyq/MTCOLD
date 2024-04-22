@@ -15,4 +15,7 @@
     </qresource>
     <qresource prefix="/indicator"/>
     <qresource prefix="/fonts"/>
+    <qresource prefix="/">
+        <file>indicator_template.html</file>
+    </qresource>
 </RCC>

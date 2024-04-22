@@ -29,9 +29,7 @@ indicator::indicator(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // надо будет доделать и убрать вообще
-    ui->labelInfo0->hide();
-    //ui->labelInfo1->hide();
+    ui->labelInfo->hide();
 
     installEventFilter(this);
 
@@ -67,7 +65,9 @@ void indicator::showEvent(QShowEvent *event)
 
 void indicator::onInfoTextChanged(const QString &text)
 {
-    ui->label->setText(text);
+    ui -> labelInfo -> setText(text);
+    ui->labelInfo->show();
+    ui->label->hide();
     ui->label_3->hide();
 
     if (m_activeIndicatorWidget && m_activeIndicatorWidget != sender()) {
@@ -85,14 +85,30 @@ void indicator::onValueChanged(int newValue)
         delete item;
     }
 
+    QFile file(":/indicator_template.html");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+
+    QTextStream in(&file);
+    QString htmlTemplate = in.readAll();
+    file.close();
+
     for (int i = 1; i <= newValue; ++i) {
-        indicatorwidget *indicator = new indicatorwidget(this);
+        indicatorwidget* indicator = new indicatorwidget(this);
+        indicator->setIndicatorsNumber(i);
         indicator->setIndicatorName(QString("Индикатор № %1").arg(i));
-        indicator->setFixedSize(330, 74);
-        indicator->setInfoText("This is the information for indicator " + QString::number(i));
+        indicator->setFixedSize(330, 80);
+
+        QString infoText = htmlTemplate.arg(i)
+                               .arg(core->getIndicatorsSerialNumber(i))
+                               .arg(core->getIndicatorsColor(i) == "0" ? "#D8BF65" : (core->getIndicatorsColor(i) == "1" ? "#379100" : "#8A0000"))
+                               .arg(core->getIndicatorsColor(i))
+                               .arg(core->getIndicatorsCurrentMA(i));
+        indicator->setInfoText(infoText);
         ui->verticalLayout->addWidget(indicator);
         connect(indicator, &indicatorwidget::infoTextChanged, this, &indicator::onInfoTextChanged);
     }
+
     ui->indiccount->setFont(QFont("Trebuchet MS", 24));
     ui->indiccount->setText(QString("%1").arg(newValue));
     QSpacerItem *verticalSpacer = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
@@ -102,7 +118,7 @@ void indicator::onValueChanged(int newValue)
 void indicator::errorFlashing() {
     static bool isRed = false;
     QString basicStyle = "QPushButton {"
-                         "font: 400 18px 'Trebuchet MS', sans-serif;"
+                         "font: 400 16px 'Trebuchet MS', sans-serif;"
                          "color: #FDFDFB;"
                          "background: #353535;"
                          "border: none;"

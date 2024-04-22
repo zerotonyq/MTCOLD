@@ -31,30 +31,22 @@ void MainWindow::on_request_clicked() {
 
     indicator indicator;
 
-    //Core core(api,int_port);
-    //restart.setCore(&core);
     QWidget::close();
     indicator.setModal(true);
     indicator.exec();
 
 
 
-    // QHostAddress hostAddress(api);
-    // if (!(hostAddress.isNull() || hostAddress.protocol() == QAbstractSocket::UnknownNetworkLayerProtocol) && int_port >= 1 && int_port <= 65535) {
-    //     core = new Core(api,int_port);
-    //     restart* Restart = new restart();
-    //     Restart->setCore(core);
-    //     QWidget::close();
-    //     indicator.setModal(true);
-    //     indicator.exec();
-    // }
-    // else {
-    //     QString message = "<html><style>p {color: white;}</style><p>Неверный API или порт</p></body></html>";
-    //     QMessageBox msgBox;
-    //     msgBox.warning(this, "Error", message);
-    //     // QString message = "<html><p style=;color:red;"">Неверный API или порт</p></html>";
+    QHostAddress hostAddress(api);
+    if (!(hostAddress.isNull() || hostAddress.protocol() == QAbstractSocket::UnknownNetworkLayerProtocol) && int_port >= 1 && int_port <= 65535) {
+        core = new ConnectCore(api,int_port);
+        QWidget::close();
+        indicator.setModal(true);
+        indicator.exec();
+    }
+    else {
+        QString message = "<html><style>p {color: white;}</style><p>Неверный API или порт</p></body></html>";
+        QMessageBox msgBox;
+        msgBox.warning(this, "Error", message);
 
-    //     // QLabel *label = new QLabel(message);
-    //     // label->setAlignment(Qt::AlignCenter);
-    //     // label->setStyleSheet("QLabel { color : red; }");
 }

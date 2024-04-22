@@ -25,6 +25,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
             ${PROJECT_SOURCES}
             Core/include/Pockets.h
             Core/src/Pockets.cpp
+            UI/include/connectcore.h UI/src/connectcore.cpp
             UI/include/indicator.h UI/src/indicator.cpp UI/UI_Module/indicator.ui
             Core/include/core.h Core/src/core.cpp
             Core/include/TestServer.h
@@ -35,8 +36,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
             UI/src/indicatormanager.cpp
             UI/include/indicatorwidget.h UI/src/indicatorwidget.cpp UI/UI_Module/indicatorwidget.ui
             UI/include/macaddress.h UI/src/macaddress.cpp UI/UI_Module/macaddress.ui
-	    UI/include/connectcore.h
-            UI/src/connectcore.cpp
 
     )
     # Define target properties for Android with Qt 6 as:

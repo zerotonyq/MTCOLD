@@ -5,7 +5,6 @@
 #include "qbuttongroup.h"
 #include "qlabel.h"
 #include "connectcore.h"
-
 #include <QWidget>
 #include <QPushButton>
 #include <QLabel>
@@ -28,23 +27,24 @@ public:
     void showInfoButton();
     void hideInfoButton();
     void setIndicatorsNumber(int number);
-    void toggle(bool checked);
 
 private slots:
     void infoButtonClicked();
     void onButtonGroupClicked(QAbstractButton *button);
 
+    void on_toggle0_2_toggled(bool checked);
+
 private:
+    ConnectCore *core;
+    int indicatorsNumber;
+
     Ui::indicatorwidget *ui;
 
-    int indicatorsNumber;
-    ConnectCore *core;
     QButtonGroup *buttonGroup;
     QString infoText;
 
 signals:
     void infoTextChanged(const QString &text);
-    void indicatorClicked(int indicatorIndex);
 };
 
 #endif // INDICATORWIDGET_H

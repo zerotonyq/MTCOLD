@@ -57,7 +57,7 @@ margin: 10px 0; /* Для отступа между элементами, есл
     <enum>QFrame::Raised</enum>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Индикатор № 0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Индикатор № 0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QCheckBox" name="toggle0_2">
@@ -106,7 +106,7 @@ QCheckBox::indicator:unchecked {
    </property>
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>156</x>
      <y>27</y>
      <width>18</width>
      <height>18</height>

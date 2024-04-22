@@ -44,7 +44,7 @@
    <bool>true</bool>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>IndicatorTrack</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../resources.qrc">
@@ -94,7 +94,7 @@ background-image: url(:/image/resources/img/background.png);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-	font: 400 18px &quot;Trebuchet MS&quot;, sans-serif;
+	font: 400 16px &quot;Trebuchet MS&quot;, sans-serif;
 	color: #FDFDFB;
 	background: #353535;
 	border: none;
@@ -125,7 +125,7 @@ QPushButton:hover {
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 400 18px &quot;Trebuchet MS&quot;, sans-serif;
+    <string notr="true">font: 400 16px &quot;Trebuchet MS&quot;, sans-serif;
 color: #FDFDFB;
 background: #353535;
 border: none;</string>
@@ -145,7 +145,7 @@ border: none;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-	font: 400 18px &quot;Trebuchet MS&quot;, sans-serif;
+	font: 400 16px &quot;Trebuchet MS&quot;, sans-serif;
 	color: #FDFDFB;
 	background: #353535;
 	border: 2px solid transparent;
@@ -272,7 +272,7 @@ padding: 10px 20px; /* немного пространства вокруг те
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#ffffff;&quot;&gt;Индикаторы, доступные &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#ffffff;&quot;&gt;на данный момент: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLabel" name="labelInfo0">
+  <widget class="QLabel" name="labelInfo">
    <property name="enabled">
     <bool>true</bool>
    </property>
@@ -287,13 +287,15 @@ padding: 10px 20px; /* немного пространства вокруг те
    <property name="styleSheet">
     <string notr="true">border-style: solid;
 border-color: #E3E3E3;
-border-width: 15px;
+border-width: 13;
 background-image: url(:/image/resources/img/info_ind_back.png);
-border-radius: 35px; 
+border-radius: 40px; 
 display: flex;
 background-size: contain;
 background-position: center;
-background-repeat: no-repeat</string>
+background-repeat: no-repeat;
+box-shadow: 5px 5px 15px rgba(0,0,0,0.2); /* Добавление тени для лучшего визуального выделения */
+padding: 20px; /* Добавление внутренних отступов */</string>
    </property>
    <property name="text">
     <string/>
@@ -484,22 +486,22 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <property name="spacing">
-        <number>10</number>
+        <number>3</number>
        </property>
        <property name="sizeConstraint">
         <enum>QLayout::SetFixedSize</enum>
        </property>
        <property name="leftMargin">
-        <number>10</number>
+        <number>3</number>
        </property>
        <property name="topMargin">
-        <number>10</number>
+        <number>3</number>
        </property>
        <property name="rightMargin">
-        <number>10</number>
+        <number>3</number>
        </property>
        <property name="bottomMargin">
-        <number>10</number>
+        <number>3</number>
        </property>
       </layout>
      </item>
@@ -513,7 +515,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
   <zorder>mistakes</zorder>
   <zorder>macAddress</zorder>
   <zorder>label_2</zorder>
-  <zorder>labelInfo0</zorder>
+  <zorder>labelInfo</zorder>
   <zorder>restart</zorder>
   <zorder>indiccount</zorder>
   <zorder>scrollArea</zorder>

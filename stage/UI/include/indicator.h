@@ -20,6 +20,7 @@ class indicator : public QDialog
     Q_OBJECT
 
 public:
+
     explicit indicator(QWidget *parent = nullptr);
     ~indicator();
 
@@ -31,7 +32,6 @@ private slots:
 private:
     ConnectCore *core;
     quint32 indicatorsQuantity;
-
 
     Ui::indicator *ui;
 
