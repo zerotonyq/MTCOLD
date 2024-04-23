@@ -8,7 +8,7 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::MainWindow), core(new Core)
 {
     ui->setupUi(this);
 
@@ -17,6 +17,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui ->api ->setPlaceholderText("Введите IP-адрес");
     ui ->port ->setPlaceholderText("Введите порт");
+    connect(core, &Core::getIndicatorsQuantityPacket, this, [&](const sIndicatorsCountPack& indicatorsCountPack) {
+        QWidget::close();
+        indicator indicator(indicatorsCountPack.indicatorsCount);
+        indicator.setModal(true);
+        indicator.currentIndicatorsQuantity = indicatorsCountPack.indicatorsCount;
+        indicator.exec();
+    });
 }
 
 MainWindow::~MainWindow(){
@@ -29,13 +36,10 @@ void MainWindow::on_request_clicked() {
 
     quint16 int_port = port.toUShort();
 
-    indicator indicator;
-
     //Core core(api,int_port);
     //restart.setCore(&core);
-    QWidget::close();
-    indicator.setModal(true);
-    indicator.exec();
+    core->getIndicatorsQuantity();
+
 
 
 

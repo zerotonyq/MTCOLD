@@ -22,7 +22,7 @@
 
 QDialog* dialog = nullptr;
 
-indicator::indicator(QWidget *parent)
+indicator::indicator(quint32 count, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::indicator),
     buttonGroup(new QButtonGroup(this))
@@ -33,9 +33,7 @@ indicator::indicator(QWidget *parent)
 
     installEventFilter(this);
 
-    quint32 sii = static_cast<quint32>(count);
-    scount = QString::number(sii);
-    ui->indiccount->setText(scount);
+    ui->indiccount->setText(QString::number(count));
 
     QButtonGroup *buttonGroup = new QButtonGroup(this);
     QLabel *indicatorCountLabel = new QLabel(this);
@@ -56,8 +54,7 @@ void indicator::showEvent(QShowEvent *event)
 {
     if (event->type() == QEvent::Show) {
 
-        int newValue = 8;
-        emit onValueChanged(newValue);
+        emit onValueChanged(currentIndicatorsQuantity);
     }
 
     QWidget::showEvent(event);
@@ -77,7 +74,7 @@ void indicator::onInfoTextChanged(const QString &text)
     m_activeIndicatorWidget = qobject_cast<indicatorwidget *>(sender());
 }
 
-void indicator::onValueChanged(int newValue)
+void indicator::onValueChanged(quint32 newValue)
 {
     while (ui->verticalLayout->count() > 0) {
         QLayoutItem *item = ui->verticalLayout->takeAt(0);

@@ -22,6 +22,7 @@ private slots:
     void processPendingDatagrams()
     {
         while (serverSocket->hasPendingDatagrams()) {
+            qDebug() << "H  ERE\n";
             QByteArray datagram;
             datagram.resize(serverSocket->pendingDatagramSize());
             QHostAddress sender;
@@ -29,8 +30,14 @@ private slots:
 
             serverSocket->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
 
-            qDebug() << "[Server]: " << datagram;
-            serverSocket->writeDatagram(datagram, sender, senderPort);
+            MainPacket sendPacket;
+            sendPacket.command = COMMAND_GET_INDICATORS_COUNT;
+            sIndicatorsCountPack counts;
+            counts.indicatorsCount = 13;
+            sendPacket.data = SerializeDeserializePacket::serializePacket(counts);
+            auto data = sendPacket.serializeData();
+
+            serverSocket->writeDatagram(data, sender, senderPort);
         }
     }
 

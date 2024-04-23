@@ -7,24 +7,17 @@
 #define COMMAND_INDIC_ACTION_ON      0xA1A20002
 #define COMMAND_INDIC_ACTION_OFF     0xA1A20003
 
-enum class PocketsTypes {
-    INDICATOR_COMMAND,
-    INDICATOR_COUNT_PACK,
-    INDICATOR_STAT,
-    INDICATOR_STAT_PACK
-};
-
-class Pocket {
+class Packet {
 public:
     virtual QByteArray serializeData() const = 0;
-    virtual Pocket& deserializeData(QByteArray& bytesData) = 0;
+    virtual Packet& deserializeData(QByteArray& bytesData) = 0;
 };
 
 // Отправка пакетов для получения информации об устройствах в сети
-class sIndicatorCommand : public Pocket {
+class sIndicatorCommand : public Packet {
 public:
     QByteArray serializeData() const override;
-    Pocket& deserializeData(QByteArray& bytesData) override;
+    Packet& deserializeData(QByteArray& bytesData) override;
     sIndicatorCommand(quint32 command_, quint32 indicatorIndex_ = -1) : command(command_), indicatorIndex(indicatorIndex_) {}
     sIndicatorCommand() = default;
 
@@ -36,10 +29,10 @@ public:
 
 };
 
-class sIndicatorsCountPack : public Pocket {
+class sIndicatorsCountPack : public Packet {
 public:
     QByteArray serializeData() const override;
-    Pocket& deserializeData(QByteArray& bytesData) override;
+    Packet& deserializeData(QByteArray& bytesData) override;
     explicit operator quint32() const { return indicatorsCount; }
 public:
     quint32 indicatorsCount;
@@ -48,10 +41,10 @@ public:
 
 };
 
-class sOneIndicatorStats : public Pocket {
+class sOneIndicatorStats : public Packet {
 public:
     QByteArray serializeData() const override;
-    Pocket& deserializeData(QByteArray& bytesData) override;
+    Packet& deserializeData(QByteArray& bytesData) override;
 
 public:
     quint64 serialNumber;
@@ -64,10 +57,10 @@ public:
 
 };
 
-class sIndicatorStatisticsPack : public Pocket {
+class sIndicatorStatisticsPack : public Packet {
 public:
     QByteArray serializeData() const override;
-    Pocket& deserializeData(QByteArray& bytesData) override;
+    Packet& deserializeData(QByteArray& bytesData) override;
 
 public:
     quint32 command;
@@ -77,22 +70,22 @@ public:
 
 };
 
-class MainPocket {
+class MainPacket {
 public:
     QByteArray serializeData() const;
-    MainPocket& deserializeData(QByteArray& bytesData);
-    MainPocket(QByteArray data_, quint16 command_) : data(data_), command(command_) {}
-    MainPocket() = default;
+    MainPacket& deserializeData(QByteArray& bytesData);
+    MainPacket(QByteArray data_, quint16 command_) : data(data_), command(command_) {}
+    MainPacket() = default;
 
 public:
     QByteArray data;
-    quint16 command;
+    quint32 command;
 };
 
-class SerializeDeserializePocket {
+class SerializeDeserializePacket {
 public:
-    static QByteArray serializePocket(Pocket& pocket);
-    static Pocket& deserializePocket(QByteArray& bytesData, Pocket& pocket);
+    static QByteArray serializePacket(Packet& pocket);
+    static Packet& deserializePacket(QByteArray& bytesData, Packet& pocket);
 
 };
 
