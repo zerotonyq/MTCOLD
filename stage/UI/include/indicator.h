@@ -10,6 +10,8 @@
 #include "../../Core/include/Packets.h"
 #include <QDialog>
 #include "../UI_Module/ui_indicator.h"
+#include <QWidget>
+#include <QObject>
 
 
 namespace Ui {

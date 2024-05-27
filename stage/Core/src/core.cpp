@@ -5,16 +5,16 @@ Core::Core() : socket(new QUdpSocket(this)) {
     connect(socket, &QUdpSocket::readyRead, this, &Core::pendingData);
 }
 
-Core::Core(const QString& addres, const quint16 port) {
-    socket->connectToHost(QHostAddress(addres), port);
+Core::Core(const QString& addres, const quint16 port) : socket(new QUdpSocket(this)) {
+    socket->connectToHost(QHostAddress::LocalHost, port);
 }
 
 Core::~Core() {
-    socket->disconnect();
+    socket->close();
     delete socket;
 }
 
-void Core::changeAddres(const QString& newAddr, const quint16 newPort) {
+void Core::changeAddress(const QString& newAddr, const quint16 newPort) {
     socket->disconnect();
     socket->connectToHost(QHostAddress(newAddr), newPort);
 }
@@ -50,7 +50,7 @@ void Core::getIndicatorStat(quint16 indicatorIndex) {
 
 void Core::sendPocket(Packet& pocket, quint32 command) {
     MainPacket sendPocket(SerializeDeserializePacket::serializePacket(pocket), command);
-    socket->writeDatagram(sendPocket.serializeData());
+    socket->write(sendPocket.serializeData());
 }
 
 void Core::turnOnIndicator(quint16 indicatorIndex) {

@@ -1,6 +1,7 @@
 #pragma once
 #include <QtNetwork>
-#include "core.h"
+#include "Packets.h"
+#include <iostream>
 
 const QString ADDRES = "127.0.0.1";
 const int PORT = 8000;
@@ -12,6 +13,7 @@ class MyUdpServer : public QObject
 public:
     MyUdpServer(QObject *parent = nullptr) : QObject(parent)
     {
+        std::cout << "HERE\n";
         serverSocket = new QUdpSocket(this);
         serverSocket->bind(QHostAddress::LocalHost, 8000);
 
@@ -22,7 +24,6 @@ private slots:
     void processPendingDatagrams()
     {
         while (serverSocket->hasPendingDatagrams()) {
-            qDebug() << "H  ERE\n";
             QByteArray datagram;
             datagram.resize(serverSocket->pendingDatagramSize());
             QHostAddress sender;
@@ -33,7 +34,7 @@ private slots:
             MainPacket sendPacket;
             sendPacket.command = COMMAND_GET_INDICATORS_COUNT;
             sIndicatorsCountPack counts;
-            counts.indicatorsCount = 13;
+            counts.indicatorsCount = 3;
             sendPacket.data = SerializeDeserializePacket::serializePacket(counts);
             auto data = sendPacket.serializeData();
 
@@ -44,5 +45,4 @@ private slots:
 private:
     QUdpSocket *serverSocket;
 };
-
 

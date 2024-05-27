@@ -4,8 +4,6 @@
 #include <QPropertyAnimation>
 #include <QEvent>
 
-
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow), core(new Core)
@@ -17,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui ->api ->setPlaceholderText("Введите IP-адрес");
     ui ->port ->setPlaceholderText("Введите порт");
-    connect(core, &Core::getIndicatorsQuantityPacket, this, [&](const sIndicatorsCountPack& indicatorsCountPack) {
+    connect(core, &Core::getIndicatorsQuantityPacket, this, [=](const sIndicatorsCountPack& indicatorsCountPack) {
         QWidget::close();
         indicator indicator(indicatorsCountPack.indicatorsCount);
         indicator.setModal(true);

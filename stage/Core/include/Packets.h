@@ -21,7 +21,6 @@ public:
     sIndicatorCommand(quint32 command_, quint32 indicatorIndex_ = -1) : command(command_), indicatorIndex(indicatorIndex_) {}
     sIndicatorCommand() = default;
 
-
 public:
     quint32 crc32;
     quint32 command;

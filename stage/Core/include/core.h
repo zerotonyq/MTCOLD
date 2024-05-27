@@ -8,7 +8,7 @@ public:
     Core();
     Core(const QString& addres, const quint16 port);
     ~Core();
-    void changeAddres(const QString& newAddr, const quint16 newPort);
+    void changeAddress(const QString& newAddr, const quint16 newPort);
     void getIndicatorsQuantity();
     void getIndicatorStat(quint16 indicatorIndex);
     void turnOnIndicator(quint16 indicatorIndex);
