@@ -34,7 +34,7 @@ private slots:
             MainPacket sendPacket;
             sendPacket.command = COMMAND_GET_INDICATORS_COUNT;
             sIndicatorsCountPack counts;
-            counts.indicatorsCount = 3;
+            counts.indicatorsCount = 10;
             sendPacket.data = SerializeDeserializePacket::serializePacket(counts);
             auto data = sendPacket.serializeData();
 
