@@ -27,6 +27,7 @@ public:
     void setInfoText(const QString &text);
     void showInfoButton();
     void hideInfoButton();
+    quint32 numberOfIndicator;
 
 private slots:
     void infoButtonClicked();
@@ -35,8 +36,6 @@ private slots:
 
 private:
     Ui::indicatorwidget *ui;
-
-    quint32 numberOfIndicator;
 
     Core *core;
 

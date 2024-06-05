@@ -45,6 +45,7 @@ indicator::indicator(Core *core_, QWidget *parent)
         error_code = statisticPack.indicatorData.error_code;
     });
 
+
     connect(core, &Core::getIndicatorsQuantityPacket, this, [=](const sIndicatorsCountPack& indicatorsCountPack) {
         currentIndicatorsQuantity = indicatorsCountPack.indicatorsCount;
 
@@ -52,7 +53,11 @@ indicator::indicator(Core *core_, QWidget *parent)
 
     QTimer *updateTimer = new QTimer(this);
     connect(updateTimer, &QTimer::timeout, this, &indicator::updateIndicatorInfo);
-    updateTimer->start(500);
+    updateTimer->start(1000);
+
+    QTimer *updateQuantity = new QTimer(this);
+    connect(updateQuantity, &QTimer::timeout,this, &indicator::updateQuantity);
+    updateQuantity->start(10000);
 
     ui->labelInfo->hide();
 
@@ -113,30 +118,32 @@ void indicator::onValueChanged(quint32 newValue)
         delete item;
     }
 
-    QFile file(":/indicator_template.html");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        return;
-
-    QTextStream in(&file);
-    QString htmlTemplate = in.readAll();
-    file.close();
 
     for (int i = 1; i <= newValue; ++i) {
+        QFile file(":/indicator_template.html");
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+            return;
+
+        QTextStream in(&file);
+        QString htmlTemplate = in.readAll();
+        file.close();
 
         std::cout << "vvv " << current_ma << std::endl;
         indicatorwidget* indicator = new indicatorwidget(core, i, this);
         indicator->setIndicatorName(QString("Индикатор № %1").arg(i));
         indicator->setFixedSize(335, 80);
 
-        QString infoText = htmlTemplate.arg(i)
-                                .arg(i)
-                                .arg(i % 2 == 0 ? "#379100" : "#8A0000")
-                                .arg(i % 2 == 0 ? "зелёный" : "красный")
-                                .arg(current_ma);
-        indicator->setInfoText(infoText);
+        QString newInfoText = htmlTemplate.arg(1)
+                                  .arg(SerialNumber)
+                                  .arg(color == 0 ? "#D8BF65" : (color  == 1 ? "#379100" : "#8A0000"))
+                                  .arg(color == 0 ? "желтый" : (color  == 1 ? "зеленый" : "красный"))
+                                  //.arg()
+                                  .arg(current_ma);
+        indicator->setInfoText(newInfoText);
         connect(indicator, &indicatorwidget::infoTextChanged, this, &indicator::onInfoTextChanged);
 
         ui->verticalLayout->addWidget(indicator);
+
 
     }
 
@@ -149,9 +156,6 @@ void indicator::onValueChanged(quint32 newValue)
 }
 void indicator::updateIndicatorInfo() {
 
-
-    core->getIndicatorsQuantity();
-
     QFile file(":/indicator_template.html");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
         return;
@@ -160,22 +164,30 @@ void indicator::updateIndicatorInfo() {
     QString htmlTemplate = in.readAll();
     file.close();
 
+
     for (int i = 0; i < ui->verticalLayout->count(); ++i) {
         core->getIndicatorStat(i);
         indicatorwidget* indicator = qobject_cast<indicatorwidget*>(ui->verticalLayout->itemAt(i)->widget());
         if (indicator) {
             QString newInfoText = htmlTemplate.arg(i)
-                                                .arg(SerialNumber)
-                                                .arg(color == 0 ? "#D8BF65" : (color  == 1 ? "#379100" : "#8A0000"))
-                                                .arg(color == 0 ? "желтый" : (color  == 1 ? "зеленый" : "красный"))
-                                                //.arg()
-                                                .arg(current_ma);
+                                      .arg(SerialNumber)
+                                      .arg(color == 0 ? "#D8BF65" : (color  == 1 ? "#379100" : "#8A0000"))
+                                      .arg(color == 0 ? "желтый" : (color  == 1 ? "зеленый" : "красный"))
+                                      //.arg()
+                                      .arg(current_ma);
             indicator->setInfoText(newInfoText);
             connect(indicator, &indicatorwidget::infoTextChanged, this, &indicator::onInfoTextChanged);
+            ui -> labelInfo -> setText(newInfoText);
         }
     }
+
+
+
 }
 
+void indicator::updateQuantity(){
+    core->getIndicatorsQuantity();
+}
 
 void indicator::errorFlashing() {
     static bool isRed = false;

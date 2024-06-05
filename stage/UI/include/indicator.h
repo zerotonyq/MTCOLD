@@ -56,12 +56,12 @@ private:
     IndicatorManager* m_indicatorManager;
     indicatorwidget *m_activeIndicatorWidget = nullptr;
 
-    void animateTextChange(indicatorwidget* indicator, const QString& newText);
     void errorFlashing();
 
 public slots:
     void onValueChanged(quint32 newValue);
     void updateIndicatorInfo();
+    void updateQuantity();
 
 protected:
     void showEvent(QShowEvent *event) override;
