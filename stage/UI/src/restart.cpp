@@ -3,8 +3,9 @@
 #include <QMouseEvent>
 
 
-restart::restart(QWidget *parent)
-    : QDialog(parent)
+restart::restart(Core* core,QWidget *parent)
+    : core(core)
+    , QDialog(parent)
     , ui(new Ui::restart)
 {
     ui->setupUi(this);

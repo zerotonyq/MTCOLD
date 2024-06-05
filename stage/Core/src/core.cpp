@@ -1,61 +1,56 @@
 #include "../include/core.h"
 
-Core::Core() : socket(new QUdpSocket) {
+Core::Core() : socket(new QUdpSocket(this)) {
     socket->connectToHost(QHostAddress::LocalHost, currentPort);
+    connect(socket, &QUdpSocket::readyRead, this, &Core::pendingData);
 }
 
-Core::Core(const QString& addres, const quint16 port) {
-    socket->connectToHost(QHostAddress(addres), port);
+Core::Core(const QString& addres, const quint16 port) : socket(new QUdpSocket(this)) {
+    socket->connectToHost(QHostAddress::LocalHost, port);
 }
 
 Core::~Core() {
-    socket->disconnect();
+    socket->close();
     delete socket;
 }
 
-void Core::changeAddres(const QString& newAddr, const quint16 newPort) {
+void Core::changeAddress(const QString& newAddr, const quint16 newPort) {
     socket->disconnect();
     socket->connectToHost(QHostAddress(newAddr), newPort);
 }
 
-MainPocket Core::sendRecievePocket(Pocket& sendPocket, quint16 command) {
-    MainPocket sendMainPocket(SerializeDeserializePocket::serializePocket(sendPocket), command);
-    socket->writeDatagram(sendMainPocket.serializeData());
-
-    MainPocket receiveMainPocket;
-    QObject::connect(socket, &QUdpSocket::readyRead, [&](){
-        while (socket->hasPendingDatagrams()) {
-            QByteArray receiveData;
-            receiveData.resize(socket->pendingDatagramSize());
-            socket->readDatagram(receiveData.data(), receiveData.size());
-            receiveMainPocket.deserializeData(receiveData);
-            qDebug() << receiveMainPocket.command;
+void Core::pendingData() {
+    while (socket->hasPendingDatagrams()) {
+        QByteArray datagram;
+        datagram.resize(socket->pendingDatagramSize());
+        socket->readDatagram(datagram.data(), datagram.size());
+        MainPacket receivedPacket;
+        receivedPacket.deserializeData(datagram);
+        if (receivedPacket.command == COMMAND_GET_INDICATORS_COUNT) {
+            sIndicatorsCountPack indicatorsCountPack;
+            SerializeDeserializePacket::deserializePacket(receivedPacket.data, indicatorsCountPack);
+            emit getIndicatorsQuantityPacket(indicatorsCountPack);
+        } else if (receivedPacket.command == COMMAND_GET_STAT) {
+            sIndicatorStatisticsPack indicatorStatisticsPack;
+            SerializeDeserializePacket::deserializePacket(receivedPacket.data, indicatorStatisticsPack);
+            emit getIndicatorStatisticPacket(indicatorStatisticsPack);
         }
-    });
-    return receiveMainPocket;
+    }
 }
 
-sIndicatorsCountPack Core::getIndicatorsQuantity() {
-    sIndicatorCommand indicatorCommand(COMMAND_GET_INDICATORS_COUNT);
-    MainPocket replyFromServer = sendRecievePocket(indicatorCommand, static_cast<quint16>(COMMAND_GET_INDICATORS_COUNT));
-
-    sIndicatorsCountPack indocatorsCount;
-    SerializeDeserializePocket::deserializePocket(replyFromServer.data, indocatorsCount);
-    return indocatorsCount;
+void Core::getIndicatorsQuantity() {
+   sIndicatorCommand packetForServer(COMMAND_GET_INDICATORS_COUNT);
+   sendPocket(packetForServer, COMMAND_GET_INDICATORS_COUNT);
 }
 
-sIndicatorStatisticsPack Core::getIndicatorStat(quint16 indicatorIndex) {
-    sIndicatorCommand indicatorCommand(COMMAND_GET_STAT, indicatorIndex);
-    MainPocket replyFromServer = sendRecievePocket(indicatorCommand, static_cast<quint16>(COMMAND_GET_STAT));
-
-    sIndicatorStatisticsPack statisticPack;
-    SerializeDeserializePocket::deserializePocket(replyFromServer.data, statisticPack);
-    return statisticPack;
+void Core::getIndicatorStat(quint16 indicatorIndex) {
+    sIndicatorCommand packetForServer(COMMAND_GET_STAT, indicatorIndex);
+    sendPocket(packetForServer, COMMAND_GET_STAT);
 }
 
-void Core::sendPocket(Pocket& pocket, quint16 command) {
-    MainPocket sendPocket(SerializeDeserializePocket::serializePocket(pocket), command);
-    socket->writeDatagram(sendPocket.serializeData());
+void Core::sendPocket(Packet& pocket, quint32 command) {
+    MainPacket sendPocket(SerializeDeserializePacket::serializePacket(pocket), command);
+    socket->write(sendPocket.serializeData());
 }
 
 void Core::turnOnIndicator(quint16 indicatorIndex) {

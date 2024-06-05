@@ -1,26 +1,30 @@
-#ifndef INDICATORMANAGER_H
-#define INDICATORMANAGER_H
+    #ifndef INDICATORMANAGER_H
+    #define INDICATORMANAGER_H
 
-#include <QObject>
-#include <QVBoxLayout>
-#include <QButtonGroup>
-#include <QLabel>
-#include "indicatorwidget.h"
+    #include <QObject>
+    #include <QVBoxLayout>
+    #include <QButtonGroup>
+    #include <QLabel>
+    #include "../../Core/include/core.h"
+    #include "indicatorwidget.h"
 
-class IndicatorManager : public QObject
-{
-    Q_OBJECT
+    class IndicatorManager : public QObject
+    {
+        Q_OBJECT
 
-public:
-    explicit IndicatorManager(QButtonGroup *buttonGroup, QLabel *indicatorCountLabel, QWidget *indicatorCentralWidget);
-    ~IndicatorManager();
+    public:
+        explicit IndicatorManager(QButtonGroup *buttonGroup, QLabel *indicatorCountLabel, QWidget *indicatorCentralWidget);
+        ~IndicatorManager();
 
-public slots:
-    void addIndicatorWidget(QWidget *indicatorWidget);
+        IndicatorManager(Core *core): core(core){};
 
-private:
+    public slots:
+        void addIndicatorWidget(QWidget *indicatorWidget);
 
-    QVBoxLayout *m_layout;
-};
+    private:
+        Core *core;
 
-#endif // INDICATORMANAGER_H
+        QVBoxLayout *m_layout;
+    };
+
+    #endif // INDICATORMANAGER_H

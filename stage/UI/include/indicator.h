@@ -6,9 +6,12 @@
 #include "macaddress.h"
 #include "qabstractbutton.h"
 #include "restart.h"
-#include "connectcore.h"
+#include "../../Core/include/core.h"
+#include "../../Core/include/Packets.h"
 #include <QDialog>
 #include "../UI_Module/ui_indicator.h"
+#include <QWidget>
+#include <QObject>
 
 
 namespace Ui {
@@ -20,9 +23,18 @@ class indicator : public QDialog
     Q_OBJECT
 
 public:
-
-    explicit indicator(QWidget *parent = nullptr);
+    Core *core;
+    explicit indicator(Core *core_, QWidget *parent = nullptr);
     ~indicator();
+
+    quint32 currentIndicatorsQuantity = 0;
+    quint64 SerialNumber   ;
+    quint32 type           ;
+    quint32 power          ;
+    quint32 color          ;
+    quint32 current_ma     ;
+    quint32 reserve        ;
+    quint64 error_code     ;
 
 private slots:
     void on_build_clicked();
@@ -30,8 +42,6 @@ private slots:
     void on_macAddress_clicked();
 
 private:
-    ConnectCore *core;
-    quint32 indicatorsQuantity;
 
     Ui::indicator *ui;
 
@@ -46,10 +56,12 @@ private:
     IndicatorManager* m_indicatorManager;
     indicatorwidget *m_activeIndicatorWidget = nullptr;
 
+    void animateTextChange(indicatorwidget* indicator, const QString& newText);
     void errorFlashing();
 
 public slots:
-    void onValueChanged(int newValue);
+    void onValueChanged(quint32 newValue);
+    void updateIndicatorInfo();
 
 protected:
     void showEvent(QShowEvent *event) override;
@@ -60,5 +72,6 @@ signals:
 
 private slots:
     void onInfoTextChanged(const QString &text);
+    void on_restart_clicked();
 };
 #endif // INDICATOR_H

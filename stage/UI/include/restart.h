@@ -2,7 +2,7 @@
 #define RESTART_H
 
 #include <QDialog>
-#include "connectcore.h"
+#include "../../Core/include/core.h"
 #include <QHostAddress>
 #include <QMessageBox>
 
@@ -15,11 +15,11 @@ class restart : public QDialog
     Q_OBJECT
 
 public:
-    explicit restart(QWidget *parent = nullptr);
+    explicit restart(Core *core, QWidget *parent = nullptr);
     ~restart();
 
 private:
-    ConnectCore *core;
+    Core *core;
     Ui::restart *ui;
     restart* restartWindow = nullptr;
 

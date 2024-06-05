@@ -3,13 +3,16 @@
 #include "qboxlayout.h"
 #include "qdialog.h"
 
-indicatorwidget::indicatorwidget(QWidget *parent) :
+indicatorwidget::indicatorwidget(Core *core_, quint32 numberOfIndicator_, QWidget *parent) :
+    core(core_),
+    numberOfIndicator(numberOfIndicator_),
     QWidget(parent),
     ui(new Ui::indicatorwidget),
     buttonGroup(new QButtonGroup(this))
 {
     ui->setupUi(this);
     connect(ui->infoButton, &QPushButton::clicked, this, &indicatorwidget::infoButtonClicked);
+    connect(ui->toggle0_2,&QCheckBox::stateChanged, this, &indicatorwidget::toggleClicked);
 }
 
 indicatorwidget::~indicatorwidget()
@@ -25,8 +28,18 @@ void indicatorwidget::setIndicatorName(const QString &name)
 void indicatorwidget::setInfoText(const QString &text)
 {
     infoText = text;
+
 }
 
+
+void indicatorwidget::toggleClicked(int state)
+{
+    if (state == Qt::Checked){
+        core->turnOnIndicator(numberOfIndicator);
+    } else {
+        core->turnOffIndicator(numberOfIndicator);
+    }
+}
 
 void indicatorwidget::infoButtonClicked()
 {
@@ -60,17 +73,3 @@ void indicatorwidget::onButtonGroupClicked(QAbstractButton *button)
         hideInfoButton();
     }
 }
-
-void indicatorwidget::setIndicatorsNumber(int number){
-    indicatorsNumber = number;
-}
-
-void indicatorwidget::on_toggle0_2_toggled(bool checked)
-{
-    if (checked){
-        core->turnOnIndicator(indicatorsNumber);
-    } else {
-        core->turnOffIndicator(indicatorsNumber);
-    }
-}
-

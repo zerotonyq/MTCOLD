@@ -4,7 +4,8 @@
 #include <QWidget>
 #include "qbuttongroup.h"
 #include "qlabel.h"
-#include "connectcore.h"
+#include "../../Core/include/core.h"
+
 #include <QWidget>
 #include <QPushButton>
 #include <QLabel>
@@ -19,26 +20,25 @@ class indicatorwidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit indicatorwidget(QWidget *parent = nullptr);
+    explicit indicatorwidget(Core *core_, quint32 numberOfIndicator, QWidget *parent = nullptr);
     ~indicatorwidget();
 
     void setIndicatorName(const QString &name);
     void setInfoText(const QString &text);
     void showInfoButton();
     void hideInfoButton();
-    void setIndicatorsNumber(int number);
 
 private slots:
     void infoButtonClicked();
+    void toggleClicked(int state);
     void onButtonGroupClicked(QAbstractButton *button);
 
-    void on_toggle0_2_toggled(bool checked);
-
 private:
-    ConnectCore *core;
-    int indicatorsNumber;
-
     Ui::indicatorwidget *ui;
+
+    quint32 numberOfIndicator;
+
+    Core *core;
 
     QButtonGroup *buttonGroup;
     QString infoText;

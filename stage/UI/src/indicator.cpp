@@ -18,35 +18,60 @@
 #include <QButtonGroup>
 #include <QGraphicsDropShadowEffect>
 #include <QTimer>
+#include <QDebug>
+#include <iostream>
 #include "../include/indicatorwidget.h"
 
 QDialog* dialog = nullptr;
 
-indicator::indicator(QWidget *parent)
-    : QDialog(parent)
+indicator::indicator(Core *core_, QWidget *parent)
+    : core(core_)
+    , QDialog(parent)
     , ui(new Ui::indicator),
     buttonGroup(new QButtonGroup(this))
 {
+
     ui->setupUi(this);
+
+
+    connect(core, &Core::getIndicatorStatisticPacket, this, [=](const sIndicatorStatisticsPack& statisticPack){
+        SerialNumber = statisticPack.indicatorData.serialNumber;
+        type = statisticPack.indicatorData.type;
+        power = statisticPack.indicatorData.power;
+        color = statisticPack.indicatorData.color;
+        current_ma = statisticPack.indicatorData.current_ma;
+        qDebug() << "aaaaa " << current_ma;
+        reserve = statisticPack.indicatorData.reserve;
+        error_code = statisticPack.indicatorData.error_code;
+    });
+
+    connect(core, &Core::getIndicatorsQuantityPacket, this, [=](const sIndicatorsCountPack& indicatorsCountPack) {
+        currentIndicatorsQuantity = indicatorsCountPack.indicatorsCount;
+
+    });
+
+    QTimer *updateTimer = new QTimer(this);
+    connect(updateTimer, &QTimer::timeout, this, &indicator::updateIndicatorInfo);
+    updateTimer->start(500);
 
     ui->labelInfo->hide();
 
     installEventFilter(this);
 
-    indicatorsQuantity = 9;
-    //indicatorsQuantity = core->getIndicatorsQuantity();
-    QString stringIndicatorsQuantity = QString::number(indicatorsQuantity);
-    ui->indiccount->setText(stringIndicatorsQuantity);
+    ui->indiccount->setText(QString::number(currentIndicatorsQuantity));
 
     QButtonGroup *buttonGroup = new QButtonGroup(this);
     QLabel *indicatorCountLabel = new QLabel(this);
     m_indicatorManager = new IndicatorManager(buttonGroup, indicatorCountLabel, this);
+
+
 
     connect(this, SIGNAL(valueChanged(int)), this, SLOT(onValueChanged(int)));
 
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &indicator::errorFlashing);
     timer->start(1000);
+
 }
 
 indicator::~indicator() {
@@ -55,9 +80,11 @@ indicator::~indicator() {
 
 void indicator::showEvent(QShowEvent *event)
 {
+
     if (event->type() == QEvent::Show) {
 
-        emit onValueChanged(indicatorsQuantity);
+        emit onValueChanged(currentIndicatorsQuantity);
+
     }
 
     QWidget::showEvent(event);
@@ -77,8 +104,9 @@ void indicator::onInfoTextChanged(const QString &text)
     m_activeIndicatorWidget = qobject_cast<indicatorwidget *>(sender());
 }
 
-void indicator::onValueChanged(int newValue)
+void indicator::onValueChanged(quint32 newValue)
 {
+
     while (ui->verticalLayout->count() > 0) {
         QLayoutItem *item = ui->verticalLayout->takeAt(0);
         delete item->widget();
@@ -94,26 +122,60 @@ void indicator::onValueChanged(int newValue)
     file.close();
 
     for (int i = 1; i <= newValue; ++i) {
-        indicatorwidget* indicator = new indicatorwidget(this);
-        indicator->setIndicatorsNumber(i);
+
+        std::cout << "vvv " << current_ma << std::endl;
+        indicatorwidget* indicator = new indicatorwidget(core, i, this);
         indicator->setIndicatorName(QString("Индикатор № %1").arg(i));
-        indicator->setFixedSize(330, 80);
+        indicator->setFixedSize(335, 80);
 
         QString infoText = htmlTemplate.arg(i)
-                               .arg(core->getIndicatorsSerialNumber(i))
-                               .arg(core->getIndicatorsColor(i) == "0" ? "#D8BF65" : (core->getIndicatorsColor(i) == "1" ? "#379100" : "#8A0000"))
-                               .arg(core->getIndicatorsColor(i))
-                               .arg(core->getIndicatorsCurrentMA(i));
+                                .arg(i)
+                                .arg(i % 2 == 0 ? "#379100" : "#8A0000")
+                                .arg(i % 2 == 0 ? "зелёный" : "красный")
+                                .arg(current_ma);
         indicator->setInfoText(infoText);
-        ui->verticalLayout->addWidget(indicator);
         connect(indicator, &indicatorwidget::infoTextChanged, this, &indicator::onInfoTextChanged);
+
+        ui->verticalLayout->addWidget(indicator);
+
     }
 
     ui->indiccount->setFont(QFont("Trebuchet MS", 24));
     ui->indiccount->setText(QString("%1").arg(newValue));
     QSpacerItem *verticalSpacer = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
     ui->verticalLayout->addItem(verticalSpacer);
+
+
 }
+void indicator::updateIndicatorInfo() {
+
+
+    core->getIndicatorsQuantity();
+
+    QFile file(":/indicator_template.html");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+
+    QTextStream in(&file);
+    QString htmlTemplate = in.readAll();
+    file.close();
+
+    for (int i = 0; i < ui->verticalLayout->count(); ++i) {
+        core->getIndicatorStat(i);
+        indicatorwidget* indicator = qobject_cast<indicatorwidget*>(ui->verticalLayout->itemAt(i)->widget());
+        if (indicator) {
+            QString newInfoText = htmlTemplate.arg(i)
+                                                .arg(SerialNumber)
+                                                .arg(color == 0 ? "#D8BF65" : (color  == 1 ? "#379100" : "#8A0000"))
+                                                .arg(color == 0 ? "желтый" : (color  == 1 ? "зеленый" : "красный"))
+                                                //.arg()
+                                                .arg(current_ma);
+            indicator->setInfoText(newInfoText);
+            connect(indicator, &indicatorwidget::infoTextChanged, this, &indicator::onInfoTextChanged);
+        }
+    }
+}
+
 
 void indicator::errorFlashing() {
     static bool isRed = false;
@@ -140,6 +202,8 @@ void indicator::errorFlashing() {
     isRed = !isRed;
 }
 
+
+
 void indicator::on_build_clicked()
 {
     if (restartWindow != nullptr && restartWindow->isVisible())
@@ -148,7 +212,7 @@ void indicator::on_build_clicked()
         return;
     }
 
-    restartWindow = new restart(this);
+    restartWindow = new restart(core, this);
     restartWindow->setWindowFlags(Qt::CustomizeWindowHint);
 
     int offsetX = 30;
@@ -192,3 +256,14 @@ void indicator::on_macAddress_clicked()
     macAddress->move(QPoint(offsetX, offsetY));
     macAddress->show();
 }
+
+void indicator::on_restart_clicked()
+{
+
+    QWidget::close();
+    indicator newIndicator(core);
+    newIndicator.currentIndicatorsQuantity = currentIndicatorsQuantity;
+    newIndicator.setModal(true);
+    newIndicator.exec();
+}
+

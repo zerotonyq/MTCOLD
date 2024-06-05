@@ -4,11 +4,9 @@
 #include <QPropertyAnimation>
 #include <QEvent>
 
-
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::MainWindow), core(new Core)
 {
     ui->setupUi(this);
 
@@ -17,6 +15,14 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui ->api ->setPlaceholderText("Введите IP-адрес");
     ui ->port ->setPlaceholderText("Введите порт");
+    // connect(core, &Core::getIndicatorsQuantityPacket, this, [=](const sIndicatorsCountPack& indicatorsCountPack) {
+    //     QWidget::close();
+    //     indicator indicator(core);
+    //     indicator.setModal(true);
+    //     indicator.currentIndicatorsQuantity = indicatorsCountPack.indicatorsCount;
+    //     indicator.exec();
+    // });
+
 }
 
 MainWindow::~MainWindow(){
@@ -29,24 +35,33 @@ void MainWindow::on_request_clicked() {
 
     quint16 int_port = port.toUShort();
 
-    indicator indicator;
-
+    //Core core(api,int_port);
+    //restart.setCore(&core);
+    //core->getIndicatorsQuantity();
     QWidget::close();
+    indicator indicator(core);
     indicator.setModal(true);
+    indicator.currentIndicatorsQuantity = 4;
     indicator.exec();
 
 
 
-    QHostAddress hostAddress(api);
-    if (!(hostAddress.isNull() || hostAddress.protocol() == QAbstractSocket::UnknownNetworkLayerProtocol) && int_port >= 1 && int_port <= 65535) {
-        core = new ConnectCore(api,int_port);
-        QWidget::close();
-        indicator.setModal(true);
-        indicator.exec();
-    }
-    else {
-        QString message = "<html><style>p {color: white;}</style><p>Неверный API или порт</p></body></html>";
-        QMessageBox msgBox;
-        msgBox.warning(this, "Error", message);
+    // QHostAddress hostAddress(api);
+    // if (!(hostAddress.isNull() || hostAddress.protocol() == QAbstractSocket::UnknownNetworkLayerProtocol) && int_port >= 1 && int_port <= 65535) {
+    //     core = new Core(api,int_port);
+    //     restart* Restart = new restart();
+    //     Restart->setCore(core);
+    //     QWidget::close();
+    //     indicator.setModal(true);
+    //     indicator.exec();
+    // }
+    // else {
+    //     QString message = "<html><style>p {color: white;}</style><p>Неверный API или порт</p></body></html>";
+    //     QMessageBox msgBox;
+    //     msgBox.warning(this, "Error", message);
+    //     // QString message = "<html><p style=;color:red;"">Неверный API или порт</p></html>";
 
+    //     // QLabel *label = new QLabel(message);
+    //     // label->setAlignment(Qt::AlignCenter);
+    //     // label->setStyleSheet("QLabel { color : red; }");
 }
