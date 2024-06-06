@@ -133,14 +133,6 @@ void indicator::onValueChanged(quint32 newValue)
         indicator->setIndicatorName(QString("Индикатор № %1").arg(i));
         indicator->setFixedSize(335, 80);
 
-        QString newInfoText = htmlTemplate.arg(1)
-                                  .arg(SerialNumber)
-                                  .arg(color == 0 ? "#D8BF65" : (color  == 1 ? "#379100" : "#8A0000"))
-                                  .arg(color == 0 ? "желтый" : (color  == 1 ? "зеленый" : "красный"))
-                                  //.arg()
-                                  .arg(current_ma);
-        indicator->setInfoText(newInfoText);
-        connect(indicator, &indicatorwidget::infoTextChanged, this, &indicator::onInfoTextChanged);
 
         ui->verticalLayout->addWidget(indicator);
 
@@ -177,7 +169,7 @@ void indicator::updateIndicatorInfo() {
                                       .arg(current_ma);
             indicator->setInfoText(newInfoText);
             connect(indicator, &indicatorwidget::infoTextChanged, this, &indicator::onInfoTextChanged);
-            ui -> labelInfo -> setText(newInfoText);
+
         }
     }
 

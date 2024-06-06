@@ -28,6 +28,7 @@ void indicatorwidget::setIndicatorName(const QString &name)
 void indicatorwidget::setInfoText(const QString &text)
 {
     infoText = text;
+    //emit infoTextChanged(infoText);
 
 }
 
