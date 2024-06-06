@@ -10,10 +10,10 @@
 
 namespace Logs {
 
-class FileSink
+class Output_to_file
 {
 public:
-    FileSink(const std::string& file_name);
+    Output_to_file(const std::string& file_name);
     void write(const std::string& data);
 
 private:
@@ -21,7 +21,7 @@ private:
     std::mutex m_mutex;
 };
 
-class ConsoleSink
+class Output_to_console
 {
 public:
     void write(const std::string& data);
@@ -37,10 +37,10 @@ public:
     void log_packet_in_log(std::string level, const std::string& source, MainPacket packet);
 
 private:
-    ConsoleSink m_consoleSink;
-    FileSink m_fileSink;
-    bool m_writeToFile;
-    bool m_writeToConsole;
+    Output_to_console m_output_to_console;
+    Output_to_file m_output_to_file;
+    bool m_write_to_file;
+    bool m_write_to_console;
 };
 
 }
