@@ -17,5 +17,8 @@
     <qresource prefix="/fonts"/>
     <qresource prefix="/">
         <file>indicator_template.html</file>
+        <file>error_exceeded.html</file>
+        <file>error_off.html</file>
+        <file>errorwindow_style.html</file>
     </qresource>
 </RCC>

@@ -52,17 +52,19 @@ indicator::indicator(Core *core_, QWidget *parent)
         QString htmlTemplate = in.readAll();
         file.close();
 
+        QString deviceType = "индикатор"; // по умолчанию тип - индикатор
+
         QString newInfoText = htmlTemplate.arg(currentIndicatorNumber)
                                   .arg(SerialNumber)
                                   .arg(color == 0 ? "#D8BF65" : (color  == 1 ? "#379100" : "#8A0000"))
                                   .arg(color == 0 ? "желтый" : (color  == 1 ? "зеленый" : "красный"))
-                                  //.arg()
-                                  .arg(current_ma);
+                                  .arg(current_ma)
+                                  .arg(deviceType);
         if (current_ma > 1){
             emit ma_exceeded(current_ma, currentIndicatorNumber);
         }
 
-        ui -> labelInfo -> setText(newInfoText);
+        ui->labelInfo->setText(newInfoText);
         ui->labelInfo->show();
         ui->label->hide();
         ui->label_3->hide();
