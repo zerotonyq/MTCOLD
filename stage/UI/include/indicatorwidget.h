@@ -5,6 +5,7 @@
 #include "qbuttongroup.h"
 #include "qlabel.h"
 #include "../../Core/include/core.h"
+#include "errorwindow.h"
 
 #include <QWidget>
 #include <QPushButton>
@@ -20,7 +21,7 @@ class indicatorwidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit indicatorwidget(Core *core_, quint32 numberOfIndicator, quint32 ma, QWidget *parent = nullptr);
+    explicit indicatorwidget(Core *core_, errorWindow *errorwindow, quint32 numberOfIndicator, quint32 ma, QWidget *parent = nullptr);
     ~indicatorwidget();
 
     void setIndicatorName(const QString &name);
@@ -28,11 +29,13 @@ public:
     void showInfoButton();
     void hideInfoButton();
     quint32 numberOfIndicator;
+    quint16 stateOfToggle = 0;
 
 private slots:
     void infoButtonClicked();
     void toggleClicked(int state);
     void onButtonGroupClicked(QAbstractButton *button);
+
 
 private:
     Ui::indicatorwidget *ui;
@@ -40,13 +43,13 @@ private:
     quint32 current_ma;
 
     Core *core;
+    errorWindow *errorWindow;
 
     QButtonGroup *buttonGroup;
     QString infoText;
-    quint16 stateOfToggle = 0;
 
 signals:
-    void infoTextChanged(const QString &text);
+    void infoTextChanged(quint32 numberOfIndicator, indicatorwidget* indicator);
     void maWhenIndicatorOff(quint32 ma_value, quint32 indicator);
 };
 

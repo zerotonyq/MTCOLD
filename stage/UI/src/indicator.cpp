@@ -32,6 +32,7 @@ indicator::indicator(Core *core_, QWidget *parent)
 {
 
     ui->setupUi(this);
+    connect(activeIndicator, &indicatorwidget::maWhenIndicatorOff, errorwindow, &errorWindow::addErrorOfOff);
 
 
     connect(core, &Core::getIndicatorStatisticPacket, this, [=](const sIndicatorStatisticsPack& statisticPack){
@@ -40,10 +41,33 @@ indicator::indicator(Core *core_, QWidget *parent)
         power = statisticPack.indicatorData.power;
         color = statisticPack.indicatorData.color;
         current_ma = statisticPack.indicatorData.current_ma;
-        qDebug() << "aaaaa " << current_ma;
         reserve = statisticPack.indicatorData.reserve;
         error_code = statisticPack.indicatorData.error_code;
+
+        QFile file(":/indicator_template.html");
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+            return;
+
+        QTextStream in(&file);
+        QString htmlTemplate = in.readAll();
+        file.close();
+
+        QString newInfoText = htmlTemplate.arg(currentIndicatorNumber)
+                                  .arg(SerialNumber)
+                                  .arg(color == 0 ? "#D8BF65" : (color  == 1 ? "#379100" : "#8A0000"))
+                                  .arg(color == 0 ? "желтый" : (color  == 1 ? "зеленый" : "красный"))
+                                  //.arg()
+                                  .arg(current_ma);
+        if (current_ma > 1){
+            emit ma_exceeded(current_ma, currentIndicatorNumber);
+        }
+
+        ui -> labelInfo -> setText(newInfoText);
+        ui->labelInfo->show();
+        ui->label->hide();
+        ui->label_3->hide();
     });
+
 
 
     connect(core, &Core::getIndicatorsQuantityPacket, this, [=](const sIndicatorsCountPack& indicatorsCountPack) {
@@ -63,14 +87,11 @@ indicator::indicator(Core *core_, QWidget *parent)
 
     installEventFilter(this);
 
-    ui->indiccount->setText(QString::number(currentIndicatorsQuantity));
-
     QButtonGroup *buttonGroup = new QButtonGroup(this);
     QLabel *indicatorCountLabel = new QLabel(this);
     m_indicatorManager = new IndicatorManager(buttonGroup, indicatorCountLabel, this);
-
-
-
+    
+    
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &indicator::errorFlashing);
     timer->start(1000);
@@ -93,17 +114,15 @@ void indicator::showEvent(QShowEvent *event)
     QWidget::showEvent(event);
 }
 
-void indicator::onInfoTextChanged(const QString &text)
+void indicator::onInfoTextChanged(quint32 currentNumber, indicatorwidget *indicator)
 {
-    ui -> labelInfo -> setText(text);
-    ui->labelInfo->show();
-    ui->label->hide();
-    ui->label_3->hide();
+
+    activeIndicator = indicator;
+    currentIndicatorNumber = currentNumber;
+    core->getIndicatorStat(currentIndicatorNumber);
 
     if (m_activeIndicatorWidget && m_activeIndicatorWidget != sender()) {
-        if (errorwindow != nullptr) {
-            connect(m_activeIndicatorWidget, &indicatorwidget::maWhenIndicatorOff, errorwindow, &errorWindow::addErrorOfOff);
-        }
+
         m_activeIndicatorWidget->showInfoButton();
         m_activeIndicatorWidget = nullptr;
     }
@@ -130,11 +149,12 @@ void indicator::onValueChanged(quint32 newValue)
         file.close();
 
         std::cout << "vvv " << current_ma << std::endl;
-        indicatorwidget* indicator = new indicatorwidget(core, current_ma, i, this);
-        indicator->setIndicatorName(QString("Индикатор № %1").arg(i));
-        indicator->setFixedSize(335, 80);
+        indicatorwidget *activeIndicator_ = new indicatorwidget(core, errorwindow, current_ma, i, this);
+        activeIndicator_->setIndicatorName(QString("Индикатор № %1").arg(i));
+        activeIndicator_->setFixedSize(335, 80);
+        connect(activeIndicator_, &indicatorwidget::infoTextChanged, this, &indicator::onInfoTextChanged);
 
-        ui->verticalLayout->addWidget(indicator);
+        ui->verticalLayout->addWidget(activeIndicator_);
 
 
     }
@@ -148,36 +168,9 @@ void indicator::onValueChanged(quint32 newValue)
 }
 void indicator::updateIndicatorInfo() {
 
-    QFile file(":/indicator_template.html");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        return;
-
-    QTextStream in(&file);
-    QString htmlTemplate = in.readAll();
-    file.close();
-
-
-    for (int i = 0; i < ui->verticalLayout->count(); ++i) {
-        core->getIndicatorStat(i);
-        indicatorwidget* indicator = qobject_cast<indicatorwidget*>(ui->verticalLayout->itemAt(i)->widget());
-        if (indicator) {
-            QString newInfoText = htmlTemplate.arg(i)
-                                      .arg(SerialNumber)
-                                      .arg(color == 0 ? "#D8BF65" : (color  == 1 ? "#379100" : "#8A0000"))
-                                      .arg(color == 0 ? "желтый" : (color  == 1 ? "зеленый" : "красный"))
-                                      //.arg()
-                                      .arg(current_ma);
-            if (current_ma > 1){
-                emit ma_exceeded(current_ma, i);
-            }
-            indicator->setInfoText(newInfoText);
-
-            connect(indicator, &indicatorwidget::infoTextChanged, this, &indicator::onInfoTextChanged);
-
-        }
+    if(m_activeIndicatorWidget && m_activeIndicatorWidget != sender()){
+        core->getIndicatorStat(currentIndicatorNumber);
     }
-
-
 
 }
 
@@ -248,6 +241,7 @@ void indicator::on_mistakes_clicked()
     errorwindow->move(QPoint(offsetX, offsetY));
 
     connect(this, &indicator::ma_exceeded, errorwindow, &errorWindow::addErrorOfExceeded);
+
 
     errorwindow->show();
 

@@ -28,6 +28,7 @@ public:
     ~indicator();
 
     quint32 currentIndicatorsQuantity = 0;
+    quint32 currentIndicatorNumber = 0;
     quint64 SerialNumber   ;
     quint32 type           ;
     quint32 power          ;
@@ -55,6 +56,7 @@ private:
     macaddress* macAddress = nullptr;
     IndicatorManager* m_indicatorManager;
     indicatorwidget *m_activeIndicatorWidget = nullptr;
+    indicatorwidget *activeIndicator = nullptr;
 
     void errorFlashing();
 
@@ -70,9 +72,10 @@ signals:
     void valueChanged(int newValue);
     void infoTextChanged(const QString &text);
     void ma_exceeded(quint32 ma_value, quint32 indicator);
+    //void maWhenIndicatorOff(quint32 ma_value, quint32 indicator);
 
 private slots:
-    void onInfoTextChanged(const QString &text);
+    void onInfoTextChanged(quint32 currentIndicatorNumber, indicatorwidget *indicator);
     void on_restart_clicked();
 };
 #endif // INDICATOR_H

@@ -3,8 +3,9 @@
 #include "qboxlayout.h"
 #include "qdialog.h"
 
-indicatorwidget::indicatorwidget(Core *core_, quint32 ma, quint32 numberOfIndicator_, QWidget *parent) :
+indicatorwidget::indicatorwidget(Core *core_, class errorWindow *errorWindow_, quint32 ma, quint32 numberOfIndicator_, QWidget *parent) :
     core(core_),
+    errorWindow(errorWindow_),
     current_ma(ma),
     numberOfIndicator(numberOfIndicator_),
     QWidget(parent),
@@ -14,6 +15,8 @@ indicatorwidget::indicatorwidget(Core *core_, quint32 ma, quint32 numberOfIndica
     ui->setupUi(this);
     connect(ui->infoButton, &QPushButton::clicked, this, &indicatorwidget::infoButtonClicked);
     connect(ui->toggle0_2,&QCheckBox::stateChanged, this, &indicatorwidget::toggleClicked);
+    connect(this, &indicatorwidget::maWhenIndicatorOff, errorWindow, &errorWindow::addErrorOfOff);
+
 
 }
 
@@ -30,7 +33,6 @@ void indicatorwidget::setIndicatorName(const QString &name)
 void indicatorwidget::setInfoText(const QString &text)
 {
     infoText = text;
-    //emit infoTextChanged(infoText);
     if (current_ma > 0 && stateOfToggle == 0 && current_ma != 32767){
         emit maWhenIndicatorOff(current_ma, numberOfIndicator);
     }
@@ -51,7 +53,7 @@ void indicatorwidget::toggleClicked(int state)
 void indicatorwidget::infoButtonClicked()
 {
     hideInfoButton();
-    emit infoTextChanged(infoText);
+    emit infoTextChanged(numberOfIndicator, this);
 
 }
 
@@ -72,7 +74,6 @@ void indicatorwidget::onButtonGroupClicked(QAbstractButton *button)
             indicatorwidget *iw = qobject_cast<indicatorwidget *>(b->parent());
             if (iw) {
                 iw->showInfoButton();
-                emit iw->infoTextChanged("");
             }
         }
     }
