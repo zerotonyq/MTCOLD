@@ -2,7 +2,7 @@
 
 namespace Logs {
 
-FileSink::FileSink(const std::string& file_name)
+Output_to_file::Output_to_file(const std::string& file_name)
     : m_output(file_name)
 {
     if(!m_output.is_open()){
@@ -10,20 +10,20 @@ FileSink::FileSink(const std::string& file_name)
     }
 }
 
-void FileSink::write(const std::string& data)
+void Output_to_file::write(const std::string& data)
 {
     const std::size_t data_size = data.size();
     std::lock_guard<std::mutex> lock(m_mutex);
     m_output.write(data.data(), data_size);
 }
 
-void ConsoleSink::write(const std::string& data)
+void Output_to_сonsole::write(const std::string& data)
 {
     std::cout << data;
 }
 
 Logger::Logger(const std::string& file_name, bool file, bool console)
-    : m_fileSink(file_name), m_writeToFile(file), m_writeToConsole(console)
+    : m_output_to_file(file_name), m_write_to_file(file), m_write_to_console(console)
 {
 }
 
@@ -35,15 +35,15 @@ void Logger::log(std::string level, const std::string& source, const std::string
     std::time_t currentTime_t = std::chrono::system_clock::to_time_t(currentTime);
     std::string time = std::ctime(&currentTime_t);
     const std::string formatted_message = time + "[" + level + "] -- " + source + " -- " + message + "\n";
-    if(m_writeToFile && m_writeToConsole){
-        m_consoleSink.write(formatted_message);
-        m_fileSink.write(formatted_message);
+    if(m_write_to_file && m_write_to_console){
+        m_output_to_console.write(formatted_message);
+        m_output_to_file.write(formatted_message);
     }
-    else if (m_writeToFile){
-        m_fileSink.write(formatted_message);
+    else if (m_write_to_file){
+        m_output_to_file.write(formatted_message);
     }
-    else if (m_writeToConsole){
-        m_consoleSink.write(formatted_message);
+    else if (m_write_to_console){
+        m_output_to_console.write(formatted_message);
     }
 }
 
@@ -77,15 +77,15 @@ void Logger::log_packet_in_log(std::string level, const std::string& source, Mai
     std::time_t currentTime_t = std::chrono::system_clock::to_time_t(currentTime);
     std::string time = std::ctime(&currentTime_t);
     const std::string formatted_message = time + "[" + level + "] -- " + source + " -- " + message + "\n";
-    if(m_writeToFile && m_writeToConsole){
-        m_consoleSink.write(formatted_message);
-        m_fileSink.write(formatted_message);
+    if(m_write_to_file && m_write_to_console){
+        m_output_to_console.write(formatted_message);
+        m_output_to_file.write(formatted_message);
     }
-    else if (m_writeToFile){
-        m_fileSink.write(formatted_message);
+    else if (m_write_to_file){
+        m_output_to_file.write(formatted_message);
     }
-    else if (m_writeToConsole){
-        m_consoleSink.write(formatted_message);
+    else if (m_write_to_console){
+        m_output_to_console.write(formatted_message);
     }
 }
 
