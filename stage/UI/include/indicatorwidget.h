@@ -20,7 +20,7 @@ class indicatorwidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit indicatorwidget(Core *core_, quint32 numberOfIndicator, QWidget *parent = nullptr);
+    explicit indicatorwidget(Core *core_, quint32 numberOfIndicator, quint32 ma, QWidget *parent = nullptr);
     ~indicatorwidget();
 
     void setIndicatorName(const QString &name);
@@ -37,13 +37,17 @@ private slots:
 private:
     Ui::indicatorwidget *ui;
 
+    quint32 current_ma;
+
     Core *core;
 
     QButtonGroup *buttonGroup;
     QString infoText;
+    quint16 stateOfToggle = 0;
 
 signals:
     void infoTextChanged(const QString &text);
+    void maWhenIndicatorOff(quint32 ma_value, quint32 indicator);
 };
 
 #endif // INDICATORWIDGET_H

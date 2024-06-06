@@ -69,6 +69,7 @@ protected:
 signals:
     void valueChanged(int newValue);
     void infoTextChanged(const QString &text);
+    void ma_exceeded(quint32 ma_value, quint32 indicator);
 
 private slots:
     void onInfoTextChanged(const QString &text);

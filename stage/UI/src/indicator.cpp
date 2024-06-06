@@ -71,8 +71,6 @@ indicator::indicator(Core *core_, QWidget *parent)
 
 
 
-    connect(this, SIGNAL(valueChanged(int)), this, SLOT(onValueChanged(int)));
-
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &indicator::errorFlashing);
     timer->start(1000);
@@ -103,6 +101,9 @@ void indicator::onInfoTextChanged(const QString &text)
     ui->label_3->hide();
 
     if (m_activeIndicatorWidget && m_activeIndicatorWidget != sender()) {
+        if (errorwindow != nullptr) {
+            connect(m_activeIndicatorWidget, &indicatorwidget::maWhenIndicatorOff, errorwindow, &errorWindow::addErrorOfOff);
+        }
         m_activeIndicatorWidget->showInfoButton();
         m_activeIndicatorWidget = nullptr;
     }
@@ -129,10 +130,9 @@ void indicator::onValueChanged(quint32 newValue)
         file.close();
 
         std::cout << "vvv " << current_ma << std::endl;
-        indicatorwidget* indicator = new indicatorwidget(core, i, this);
+        indicatorwidget* indicator = new indicatorwidget(core, current_ma, i, this);
         indicator->setIndicatorName(QString("Индикатор № %1").arg(i));
         indicator->setFixedSize(335, 80);
-
 
         ui->verticalLayout->addWidget(indicator);
 
@@ -167,7 +167,11 @@ void indicator::updateIndicatorInfo() {
                                       .arg(color == 0 ? "желтый" : (color  == 1 ? "зеленый" : "красный"))
                                       //.arg()
                                       .arg(current_ma);
+            if (current_ma > 1){
+                emit ma_exceeded(current_ma, i);
+            }
             indicator->setInfoText(newInfoText);
+
             connect(indicator, &indicatorwidget::infoTextChanged, this, &indicator::onInfoTextChanged);
 
         }
@@ -228,6 +232,8 @@ void indicator::on_build_clicked()
 
 void indicator::on_mistakes_clicked()
 {
+
+
     if (errorwindow != nullptr && errorwindow->isVisible())
     {
         errorwindow->close();
@@ -240,7 +246,12 @@ void indicator::on_mistakes_clicked()
     int offsetX = 455;
     int offsetY = 45;
     errorwindow->move(QPoint(offsetX, offsetY));
+
+    connect(this, &indicator::ma_exceeded, errorwindow, &errorWindow::addErrorOfExceeded);
+
     errorwindow->show();
+
+
 }
 
 

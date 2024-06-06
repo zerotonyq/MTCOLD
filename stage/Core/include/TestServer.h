@@ -51,7 +51,7 @@ private slots:
 
         sendPacket2.command = COMMAND_GET_STAT;
         sIndicatorStatisticsPack stat;
-        stat.indicatorData.current_ma = std::rand() % 100;
+        stat.indicatorData.current_ma = std::rand() % 3;
         stat.indicatorData.color = std::rand() % 3;
         stat.indicatorData.serialNumber = std::rand() % (100000000 - 10000000 + 1) + 10000000;
         sendPacket2.data = SerializeDeserializePacket::serializePacket(stat);
