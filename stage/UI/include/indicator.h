@@ -28,7 +28,7 @@ public:
     ~indicator();
 
     quint32 currentIndicatorsQuantity = 0;
-    quint32 currentIndicatorNumber = 0;
+    quint32 currentIndicatorNumber = -1;
     quint64 SerialNumber   ;
     quint32 type           ;
     quint32 power          ;
@@ -72,7 +72,7 @@ signals:
     void valueChanged(int newValue);
     void infoTextChanged(const QString &text);
     void ma_exceeded(quint32 ma_value, quint32 indicator);
-    //void maWhenIndicatorOff(quint32 ma_value, quint32 indicator);
+    void maWhenIndicatorOff(quint32 ma_value, quint32 indicator);
 
 private slots:
     void onInfoTextChanged(quint32 currentIndicatorNumber, indicatorwidget *indicator);

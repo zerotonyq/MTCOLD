@@ -32,42 +32,42 @@ indicator::indicator(Core *core_, QWidget *parent)
 {
 
     ui->setupUi(this);
-    connect(activeIndicator, &indicatorwidget::maWhenIndicatorOff, errorwindow, &errorWindow::addErrorOfOff);
-
 
     connect(core, &Core::getIndicatorStatisticPacket, this, [=](const sIndicatorStatisticsPack& statisticPack){
-        SerialNumber = statisticPack.indicatorData.serialNumber;
-        type = statisticPack.indicatorData.type;
-        power = statisticPack.indicatorData.power;
-        color = statisticPack.indicatorData.color;
-        current_ma = statisticPack.indicatorData.current_ma;
-        reserve = statisticPack.indicatorData.reserve;
-        error_code = statisticPack.indicatorData.error_code;
+            SerialNumber = statisticPack.indicatorData.serialNumber;
+            type = statisticPack.indicatorData.type;
+            power = statisticPack.indicatorData.power;
+            color = statisticPack.indicatorData.color;
+            current_ma = statisticPack.indicatorData.current_ma;
+            reserve = statisticPack.indicatorData.reserve;
+            error_code = statisticPack.indicatorData.error_code;
 
-        QFile file(":/indicator_template.html");
-        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-            return;
+            QFile file(":/indicator_template.html");
+            if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+                return;
 
-        QTextStream in(&file);
-        QString htmlTemplate = in.readAll();
-        file.close();
+            QTextStream in(&file);
+            QString htmlTemplate = in.readAll();
+            file.close();
 
-        QString deviceType = "индикатор"; // по умолчанию тип - индикатор
-
-        QString newInfoText = htmlTemplate.arg(currentIndicatorNumber)
-                                  .arg(SerialNumber)
-                                  .arg(color == 0 ? "#D8BF65" : (color  == 1 ? "#379100" : "#8A0000"))
-                                  .arg(color == 0 ? "желтый" : (color  == 1 ? "зеленый" : "красный"))
-                                  .arg(current_ma)
-                                  .arg(deviceType);
-        if (current_ma > 1){
-            emit ma_exceeded(current_ma, currentIndicatorNumber);
+            QString newInfoText = htmlTemplate.arg(currentIndicatorNumber)
+                                      .arg(SerialNumber)
+                                      .arg(color == 0 ? "#D8BF65" : (color  == 1 ? "#379100" : "#8A0000"))
+                                      .arg(color == 0 ? "желтый" : (color  == 1 ? "зеленый" : "красный"))
+                                      .arg(current_ma)
+                                      .arg(type == 0 ? "лампа" : "светодиод");
+            if (current_ma > 1){
+                emit ma_exceeded(current_ma, currentIndicatorNumber);
+            }
+            if (current_ma > 0 && activeIndicator->stateOfToggle == 0 && current_ma != 32767){
+                emit maWhenIndicatorOff(current_ma, currentIndicatorNumber);
+            }
+            if (currentIndicatorNumber != -1){
+            ui->labelInfo->setText(newInfoText);
+            ui->labelInfo->show();
+            ui->label->hide();
+            ui->label_3->hide();
         }
-
-        ui->labelInfo->setText(newInfoText);
-        ui->labelInfo->show();
-        ui->label->hide();
-        ui->label_3->hide();
     });
 
 
@@ -118,10 +118,10 @@ void indicator::showEvent(QShowEvent *event)
 
 void indicator::onInfoTextChanged(quint32 currentNumber, indicatorwidget *indicator)
 {
-
     activeIndicator = indicator;
     currentIndicatorNumber = currentNumber;
     core->getIndicatorStat(currentIndicatorNumber);
+
 
     if (m_activeIndicatorWidget && m_activeIndicatorWidget != sender()) {
 
@@ -142,21 +142,13 @@ void indicator::onValueChanged(quint32 newValue)
 
 
     for (int i = 1; i <= newValue; ++i) {
-        QFile file(":/indicator_template.html");
-        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-            return;
-
-        QTextStream in(&file);
-        QString htmlTemplate = in.readAll();
-        file.close();
-
         std::cout << "vvv " << current_ma << std::endl;
-        indicatorwidget *activeIndicator_ = new indicatorwidget(core, errorwindow, current_ma, i, this);
-        activeIndicator_->setIndicatorName(QString("Индикатор № %1").arg(i));
-        activeIndicator_->setFixedSize(335, 80);
-        connect(activeIndicator_, &indicatorwidget::infoTextChanged, this, &indicator::onInfoTextChanged);
+        activeIndicator = new indicatorwidget(core, i, this);
+        activeIndicator->setIndicatorName(QString("Индикатор № %1").arg(i));
+        activeIndicator->setFixedSize(335, 80);
+        connect(activeIndicator, &indicatorwidget::infoTextChanged, this, &indicator::onInfoTextChanged);
 
-        ui->verticalLayout->addWidget(activeIndicator_);
+        ui->verticalLayout->addWidget(activeIndicator);
 
 
     }
@@ -177,6 +169,7 @@ void indicator::updateIndicatorInfo() {
 }
 
 void indicator::updateQuantity(){
+
     core->getIndicatorsQuantity();
 }
 
@@ -243,6 +236,7 @@ void indicator::on_mistakes_clicked()
     errorwindow->move(QPoint(offsetX, offsetY));
 
     connect(this, &indicator::ma_exceeded, errorwindow, &errorWindow::addErrorOfExceeded);
+    connect(this, &indicator::maWhenIndicatorOff, errorwindow, &errorWindow::addErrorOfOff);
 
 
     errorwindow->show();

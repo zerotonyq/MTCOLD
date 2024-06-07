@@ -3,10 +3,8 @@
 #include "qboxlayout.h"
 #include "qdialog.h"
 
-indicatorwidget::indicatorwidget(Core *core_, class errorWindow *errorWindow_, quint32 ma, quint32 numberOfIndicator_, QWidget *parent) :
+indicatorwidget::indicatorwidget(Core* core_, quint32 numberOfIndicator_, QWidget *parent) :
     core(core_),
-    errorWindow(errorWindow_),
-    current_ma(ma),
     numberOfIndicator(numberOfIndicator_),
     QWidget(parent),
     ui(new Ui::indicatorwidget),
@@ -15,9 +13,6 @@ indicatorwidget::indicatorwidget(Core *core_, class errorWindow *errorWindow_, q
     ui->setupUi(this);
     connect(ui->infoButton, &QPushButton::clicked, this, &indicatorwidget::infoButtonClicked);
     connect(ui->toggle0_2,&QCheckBox::stateChanged, this, &indicatorwidget::toggleClicked);
-    connect(this, &indicatorwidget::maWhenIndicatorOff, errorWindow, &errorWindow::addErrorOfOff);
-
-
 }
 
 indicatorwidget::~indicatorwidget()
@@ -33,9 +28,6 @@ void indicatorwidget::setIndicatorName(const QString &name)
 void indicatorwidget::setInfoText(const QString &text)
 {
     infoText = text;
-    if (current_ma > 0 && stateOfToggle == 0 && current_ma != 32767){
-        emit maWhenIndicatorOff(current_ma, numberOfIndicator);
-    }
 }
 
 

@@ -30,5 +30,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    QString api;
+    QString port;
 };
 #endif // MAINWINDOW_H
