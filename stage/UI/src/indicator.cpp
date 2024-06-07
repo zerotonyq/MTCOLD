@@ -55,7 +55,8 @@ indicator::indicator(Core *core_, QWidget *parent)
                                       .arg(color == 0 ? "#D8BF65" : (color  == 1 ? "#379100" : "#8A0000"))
                                       .arg(color == 0 ? "желтый" : (color  == 1 ? "зеленый" : "красный"))
                                       .arg(current_ma)
-                                      .arg(type == 0 ? "лампа" : "светодиод");
+                                      .arg(type == 0 ? "лампа" : "светодиод")
+                                      .arg(error_code);
             if (current_ma > 1){
                 emit ma_exceeded(current_ma, currentIndicatorNumber);
             }
