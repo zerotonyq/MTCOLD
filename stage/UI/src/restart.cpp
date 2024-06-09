@@ -10,8 +10,8 @@ restart::restart(Core* core,QWidget *parent)
 {
     ui->setupUi(this);
 
-    ui -> api_3 ->setPlaceholderText("192.168.100.167");
-    ui -> api_2 ->setPlaceholderText("5001");
+    ui -> api_3 ->setPlaceholderText("Введите ip");
+    ui -> api_2 ->setPlaceholderText("Введите порт");
 }
 
 restart::~restart()
@@ -27,7 +27,7 @@ void restart::on_restart_2_clicked()
     quint16 int_port = port.toUShort();
 
     QHostAddress hostAddress(api);
-    if (!(hostAddress.isNull() || hostAddress.protocol() == QAbstractSocket::UnknownNetworkLayerProtocol) && int_port >= 1 && int_port <= 65535) {
+    if (hostAddress.setAddress(api) && int_port >= 1 && int_port <= 65535) {
         core->changeAddress(api, int_port);
     }else {
         QString message = "<html><style>p {color: white;}</style><p>Неверный API или порт</p></body></html>";
