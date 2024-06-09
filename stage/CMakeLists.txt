@@ -32,6 +32,15 @@ set(PROJECT_SOURCES
         UI/include/macaddress.h UI/src/macaddress.cpp UI/UI_Module/macaddress.ui
 )
 
+add_executable(ServerApp
+        Core/include/TestServer.h
+        Core/src/Packets.cpp
+        server.cpp
+)
+
+target_link_libraries(ServerApp PRIVATE Qt${QT_VERSION_MAJOR}::Network)
+
+
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(DPP
             MANUAL_FINALIZATION

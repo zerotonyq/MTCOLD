@@ -33,5 +33,9 @@ private:
 
     QString api;
     QString port;
+    quint16 flag = 1;
+
+    indicator *indicator = nullptr;
+
 };
 #endif // MAINWINDOW_H

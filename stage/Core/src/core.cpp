@@ -6,16 +6,19 @@ Core::Core() : socket(new QUdpSocket(this)) {
 }
 
 Core::Core(const QString& addres, const quint16 port) : socket(new QUdpSocket(this)) {
-    socket->connectToHost(QHostAddress::LocalHost, port);
+    qDebug() << "AAA";
+    socket->connectToHost(QHostAddress(addres), port);
+    connect(socket, &QUdpSocket::readyRead, this, &Core::pendingData);
 }
 
 Core::~Core() {
-    socket->close();
-    delete socket;
+    socket->disconnectFromHost();
+    socket->deleteLater();
 }
 
 void Core::changeAddress(const QString& newAddr, const quint16 newPort) {
-    socket->disconnect();
+    socket->disconnectFromHost();
+    connect(socket, &QUdpSocket::readyRead, this, &Core::pendingData);
     socket->connectToHost(QHostAddress(newAddr), newPort);
 }
 

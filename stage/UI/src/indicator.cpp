@@ -143,7 +143,6 @@ void indicator::onValueChanged(quint32 newValue)
 
 
     for (int i = 1; i <= newValue; ++i) {
-        std::cout << "vvv " << current_ma << std::endl;
         activeIndicator = new indicatorwidget(core, i, this);
         activeIndicator->setIndicatorName(QString("Индикатор № %1").arg(i));
         activeIndicator->setFixedSize(335, 80);
@@ -267,9 +266,9 @@ void indicator::on_restart_clicked()
 {
 
     QWidget::close();
-    indicator newIndicator(core);
-    newIndicator.currentIndicatorsQuantity = currentIndicatorsQuantity;
-    newIndicator.setModal(true);
-    newIndicator.exec();
+    indicator *newIndicator =  new indicator(core);
+    newIndicator->currentIndicatorsQuantity = currentIndicatorsQuantity;
+    newIndicator->setModal(true);
+    newIndicator->exec();
 }
 

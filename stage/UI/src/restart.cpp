@@ -26,8 +26,9 @@ void restart::on_restart_2_clicked()
 
     quint16 int_port = port.toUShort();
 
+
     QHostAddress hostAddress(api);
-    if (hostAddress.setAddress(api) && int_port >= 1 && int_port <= 65535) {
+    if (hostAddress.setAddress(api) && int_port > 0 && int_port <= 65535) {
         core->changeAddress(api, int_port);
     }else {
         QString message = "<html><style>p {color: white;}</style><p>Неверный API или порт</p></body></html>";
